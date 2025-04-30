@@ -1,10 +1,9 @@
-# raw_cvap.py
 """
 Implementation of IVAP **Approach 1** (efficient pre‑calculated lookup) that
 works directly with *arbitrary real‑valued scores* and a lightweight CVAP
 wrapper that aggregates these single‑fold calibrators.
 
-Key differences from the reference `venn_abers.py` code
+Key differences from the reference `venn_abers.py` code from https://github.com/ip200/venn-abers/blob/main/src/venn_abers.py
 -------------------------------------------------------
 * **No assumption that inputs are probabilities** – the calibrator accepts any
   real numbers produced by the underlying model (margins, logits, SVM decision

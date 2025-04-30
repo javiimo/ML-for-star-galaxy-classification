@@ -184,14 +184,65 @@ class CVAPPredictorRaw:
         else:
             raise ValueError("loss_ must be 'log' or 'brier'")
 
+    def _get_raw_scores(self, X):
+        """Internal helper to get raw scores based on score_method_."""
+        estimator = self.final_estimator_
+        method = self.score_method_
+
+        if method == 'decision_function':
+            if hasattr(estimator, 'decision_function'):
+                scores = estimator.decision_function(X)
+                if scores.ndim == 2 and scores.shape[1] == 1: scores = scores.flatten()
+                elif scores.ndim > 1: raise ValueError(f"decision_function returned shape {scores.shape}, expected 1D for binary.")
+                return scores
+            else:
+                raise AttributeError(f"{estimator.__class__.__name__} does not have 'decision_function'.")
+        elif method == 'predict_proba':
+             # Note: CVAP usually works better with margins/decision scores than probabilities.
+             # Using predict_proba here might deviate from standard VA theory application.
+            if hasattr(estimator, 'predict_proba'):
+                proba = estimator.predict_proba(X)
+                if proba.shape[1] != 2: raise ValueError(f"predict_proba returned shape {proba.shape}, expected (n_samples, 2).")
+                return proba[:, 1] # Return prob of positive class as the score
+            else:
+                raise AttributeError(f"{estimator.__class__.__name__} does not have 'predict_proba'.")
+        elif method == 'raw_margin_xgb':
+            if hasattr(estimator, 'predict') and 'output_margin' in estimator.predict.__code__.co_varnames:
+                 try:
+                     scores = estimator.predict(X, output_margin=True)
+                     return scores.flatten()
+                 except TypeError as e:
+                     raise TypeError(f"Error calling predict with output_margin=True on {estimator.__class__.__name__}. Is it XGBoost? Error: {e}")
+            else:
+                 raise AttributeError(f"{estimator.__class__.__name__} might not support 'output_margin'.")
+        elif method == 'raw_score_lgbm':
+            if hasattr(estimator, 'predict') and 'raw_score' in estimator.predict.__code__.co_varnames:
+                 try:
+                     scores = estimator.predict(X, raw_score=True)
+                     if scores.ndim == 2 and scores.shape[1] == 1: scores = scores.flatten()
+                     elif scores.ndim != 1: raise ValueError(f"LightGBM raw_score returned shape {scores.shape}. Expected 1D for binary.")
+                     return scores
+                 except TypeError as e:
+                     raise TypeError(f"Error calling predict with raw_score=True on {estimator.__class__.__name__}. Is it LightGBM? Error: {e}")
+            else:
+                 raise AttributeError(f"{estimator.__class__.__name__} might not support 'raw_score'.")
+        else:
+            # Fallback: Try treating score_method_ as a direct method name
+            try:
+                score_fn = getattr(estimator, method)
+                raw_scores = score_fn(X)
+                if raw_scores.ndim > 1: raw_scores = raw_scores.ravel() # Basic flatten attempt
+                return raw_scores
+            except AttributeError:
+                 raise ValueError(f"Unsupported score_method: {method} or not found on {estimator.__class__.__name__}.")
+
     # ---------------------------------------------------------------------
     #  Public API
     # ---------------------------------------------------------------------
 
     def predict_proba(self, X):
         # obtain raw scores
-        score_fn = getattr(self.final_estimator_, self.score_method_)
-        raw = score_fn(X)
+        raw = self._get_raw_scores(X)
         if raw.ndim > 1:
             raw = raw.ravel()
 

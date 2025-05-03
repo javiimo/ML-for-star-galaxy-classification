@@ -1,0 +1,62 @@
+{
+    "SVM": {
+        "C": 0.0014475396101653174,
+        "coef0": 1.4521650217106972,
+        "degree": 5,
+        "gamma": 0.0005672717728733488,
+        "kernel": "poly",
+        "random_state": 33,
+        "class_weight": "balanced"
+    },
+    "CART": {
+        "ccp_alpha": 0.08048701329482862,
+        "criterion": "log_loss",
+        "max_depth": 18,
+        "max_features": null,
+        "min_samples_leaf": 14,
+        "min_samples_split": 35,
+        "splitter": "random",
+        "random_state": 33,
+        "class_weight": "balanced"
+    },
+    "Random_Forest": {
+        "bootstrap": false,
+        "ccp_alpha": 9.523997498642667e-07,
+        "criterion": "entropy",
+        "max_depth": 24,
+        "max_features": 0.5,
+        "min_samples_leaf": 4,
+        "min_samples_split": 7,
+        "random_state": 33,
+        "class_weight": "balanced"
+    },
+    "XGBoost": {
+        "colsample_bytree": 0.9132556652096665,
+        "eval_metric": "logloss",
+        "gamma": 0.0018907401035942594,
+        "learning_rate": 0.08409252270878798,
+        "max_depth": 8,
+        "min_child_weight": 1.6359148524463065,
+        "objective": "binary:logistic",
+        "reg_alpha": 0.01094604245722785,
+        "reg_lambda": 0.01873923604998429,
+        "subsample": 0.9307345917693841,
+        "random_state": 33,
+        "scale_pos_weight": 13.214532871972319
+    },
+    "LightGBM": {
+        "colsample_bytree": 0.587568255527738,
+        "learning_rate": 0.04025491647638509,
+        "max_depth": 10,
+        "metric": "logloss",
+        "min_child_samples": 59,
+        "num_leaves": 115,
+        "objective": "binary",
+        "reg_alpha": 0.04521012452572427,
+        "reg_lambda": 0.07784122133813023,
+        "subsample": 0.7102534887199938,
+        "verbose": -1,
+        "random_state": 33,
+        "scale_pos_weight": 13.214532871972319
+    }
+}

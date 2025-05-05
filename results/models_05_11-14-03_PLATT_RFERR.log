@@ -1,0 +1,1830 @@
+2025-05-05 11:14:04,262 - INFO - DataFrame created with shape: (27389, 136)
+2025-05-05 11:14:04,263 - INFO - Original class counts:
+2025-05-05 11:14:04,266 - INFO - acs_mu_class
+1    25462
+2     1926
+3        1
+2025-05-05 11:14:04,267 - INFO - Number of fake detections (class 3): 1
+2025-05-05 11:14:04,282 - INFO - After dropping fakes and mapping classes (0: Galaxy, 1: Star):
+2025-05-05 11:14:04,282 - INFO - acs_mu_class
+0    25462
+1     1926
+2025-05-05 11:14:10,297 - INFO - Starting main workflow loop for groups: ['group_1', 'group_2', 'group_3', 'group_4', 'group_5', 'group_6', 'group_7']
+2025-05-05 11:14:10,297 - INFO - 
+============================== Processing Feature Group: group_1 ==============================
+2025-05-05 11:14:10,302 - INFO - [group_1] Successfully loaded best parameters from best_params\group_1_best_params.json
+2025-05-05 11:14:10,309 - INFO - [group_1] Cleaning data...
+2025-05-05 11:14:10,309 - INFO - Original dataset size: (27388, 136)
+2025-05-05 11:14:10,312 - INFO - Dataset size after dropping NaNs: (27388, 11)
+2025-05-05 11:14:10,313 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-05-05 11:14:10,314 - INFO - [group_1] Splitting data (Train/Val/Test/Cal)...
+2025-05-05 11:14:10,314 - INFO - Splitting data using 'stratified' strategy...
+2025-05-05 11:14:10,314 - INFO - Target split ratios: Train=0.60, Val=0.10, Test=0.20, Cal=0.10
+2025-05-05 11:14:10,322 - INFO - Train set shape: (16432, 10)
+2025-05-05 11:14:10,324 - INFO - Validation set shape: (2738, 10)
+2025-05-05 11:14:10,327 - INFO - Test set shape: (5478, 10)
+2025-05-05 11:14:10,327 - INFO - Calibration set shape: (2740, 10)
+2025-05-05 11:14:10,327 - INFO - Split lengths verification successful.
+2025-05-05 11:14:10,327 - INFO - Data splitting complete.
+2025-05-05 11:14:10,327 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-05-05 11:14:10,327 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-05-05 11:14:10,327 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929876
+1    0.070124
+Name: count, dtype: float64
+2025-05-05 11:14:10,327 - INFO - Validation target counts:
+acs_mu_class
+0    2546
+1     192
+Name: count, dtype: int64
+2025-05-05 11:14:10,327 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-05-05 11:14:10,327 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-05-05 11:14:10,327 - INFO - Calibration target distribution:
+acs_mu_class
+0    0.929562
+1    0.070438
+Name: count, dtype: float64
+2025-05-05 11:14:10,327 - INFO - Calibration target counts:
+acs_mu_class
+0    2547
+1     193
+Name: count, dtype: int64
+2025-05-05 11:14:10,327 - INFO - [group_1] Applying feature scaling (for SVM)...
+2025-05-05 11:14:10,327 - INFO - No existing scaler found for group 'group_1', will fit a new one if possible.
+2025-05-05 11:14:10,327 - INFO - Applying StandardScaler to features...
+2025-05-05 11:14:10,327 - INFO - Scaler saved to trained_models\scaler_group_1.joblib
+2025-05-05 11:14:10,327 - INFO - Feature scaling complete.
+2025-05-05 11:14:10,327 - INFO - --- [group_1] Running SVM Workflow ---
+2025-05-05 11:14:10,327 - INFO - 
+
+===== Starting Workflow for SVM =====
+2025-05-05 11:14:10,327 - INFO - --- [SVM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:14:10,327 - INFO - --- [SVM] Training final model and Platt scaler ---
+2025-05-05 11:14:10,327 - INFO - --- Preparing Model Training & Calibration (platt) for SVM (group_1) ---
+2025-05-05 11:14:10,327 - INFO - --- [SVM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\SVM_group_1_platt.joblib. Proceeding with training. ---
+2025-05-05 11:14:10,327 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:14:10,327 - WARNING - Setting probability=True for SVC as required by calibration setup.
+2025-05-05 11:14:10,342 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:14:10,342 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:14:27,442 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:14:27,442 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:14:27,443 - INFO - --- [SVM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\SVM_group_1_platt.joblib ---
+2025-05-05 11:14:27,443 - INFO - --- [SVM] Calibration with platt finished in 17.12 seconds ---
+2025-05-05 11:14:27,443 - INFO - --- [SVM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 11:14:29,258 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 11:14:29,258 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 11:14:29,258 - INFO - --- [SVM] Mondrian CP calibration finished in 1.82 seconds ---
+2025-05-05 11:14:29,258 - INFO - --- [SVM] Final Evaluation on Test Set ---
+2025-05-05 11:14:32,908 - INFO - --- SVM Metrics ---
+2025-05-05 11:14:32,908 - INFO - Accuracy: 0.9567
+2025-05-05 11:14:32,908 - INFO - Precision: 0.9022
+2025-05-05 11:14:32,908 - INFO - Recall (TPR): 0.4312
+2025-05-05 11:14:32,908 - INFO - Specificity (TNR): 0.9965
+2025-05-05 11:14:32,908 - INFO - F1-Score: 0.5835
+2025-05-05 11:14:32,908 - INFO - G-Mean: 0.6555
+2025-05-05 11:14:32,908 - INFO - ROC AUC: 0.8663
+2025-05-05 11:14:32,908 - INFO - PR AUC: 0.6364
+2025-05-05 11:14:32,908 - INFO - Brier Score: 0.0380
+2025-05-05 11:14:32,908 - INFO - Confusion Matrix (TN, FP, FN, TP): (5075, 18, 219, 166)
+2025-05-05 11:14:32,908 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 11:14:33,042 - INFO - Mondrian CP Coverage for class 0: 0.9994
+2025-05-05 11:14:33,042 - INFO - Mondrian CP Coverage for class 1: 0.5065
+2025-05-05 11:14:33,042 - INFO - Mondrian CP Coverage: 0.9648
+2025-05-05 11:14:33,042 - INFO - Mondrian CP Avg Set Size: 1.2010
+2025-05-05 11:14:33,042 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 11:14:33,042 - INFO - --- [SVM] Mondrian CP evaluation finished in 0.13 seconds ---
+2025-05-05 11:14:33,042 - INFO - --- [SVM] Total Evaluation finished in 3.78 seconds ---
+2025-05-05 11:14:33,042 - INFO - ===== Finished Workflow for SVM =====
+2025-05-05 11:14:33,042 - INFO - --- [group_1] Running CART Workflow ---
+2025-05-05 11:14:33,042 - INFO - 
+
+===== Starting Workflow for CART =====
+2025-05-05 11:14:33,042 - INFO - --- [CART] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:14:33,042 - INFO - --- [CART] Training final model and calibrator ---
+2025-05-05 11:14:33,042 - INFO - --- Preparing Model Training & Calibration (platt) for CART (group_1) ---
+2025-05-05 11:14:33,042 - INFO - --- [CART] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\CART_group_1_platt.joblib. Proceeding with training. ---
+2025-05-05 11:14:33,042 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:14:33,042 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:14:33,042 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:14:33,975 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:14:33,975 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:14:33,975 - INFO - --- [CART] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\CART_group_1_platt.joblib ---
+2025-05-05 11:14:33,975 - INFO - --- [CART] Calibration with platt finished in 0.93 seconds ---
+2025-05-05 11:14:33,975 - INFO - --- [CART] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 11:14:33,993 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 11:14:33,993 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 11:14:33,993 - INFO - --- [CART] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 11:14:33,993 - INFO - --- [CART] Final Evaluation on Test Set ---
+2025-05-05 11:14:33,993 - INFO - [CART] Calibrated test probabilities for class 1 (sample): [0.03713386 0.62991576 0.02888289 0.02641408 0.03713386 0.03713386
+ 0.03713386 0.02641408 0.03713386 0.03713386 0.03713386 0.03713386
+ 0.03713386 0.03713386 0.03713386 0.62991576 0.02641408 0.03713386
+ 0.03713386 0.02641408]
+2025-05-05 11:14:33,993 - INFO - [CART] Calibrated test probabilities range: min=0.0264, max=0.6299, mean=0.0707
+2025-05-05 11:14:33,993 - INFO - --- CART Metrics ---
+2025-05-05 11:14:33,993 - INFO - Accuracy: 0.9474
+2025-05-05 11:14:33,993 - INFO - Precision: 0.6422
+2025-05-05 11:14:33,993 - INFO - Recall (TPR): 0.5688
+2025-05-05 11:14:33,993 - INFO - Specificity (TNR): 0.9760
+2025-05-05 11:14:33,993 - INFO - F1-Score: 0.6033
+2025-05-05 11:14:33,993 - INFO - G-Mean: 0.7451
+2025-05-05 11:14:33,993 - INFO - ROC AUC: 0.7852
+2025-05-05 11:14:33,993 - INFO - PR AUC: 0.5937
+2025-05-05 11:14:33,993 - INFO - Brier Score: 0.0435
+2025-05-05 11:14:33,993 - INFO - Confusion Matrix (TN, FP, FN, TP): (4971, 122, 166, 219)
+2025-05-05 11:14:33,993 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 11:14:34,143 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 11:14:34,143 - INFO - Mondrian CP Coverage for class 1: 0.5688
+2025-05-05 11:14:34,143 - INFO - Mondrian CP Coverage: 0.9697
+2025-05-05 11:14:34,143 - INFO - Mondrian CP Avg Set Size: 1.1922
+2025-05-05 11:14:34,143 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 11:14:34,143 - INFO - --- [CART] Mondrian CP evaluation finished in 0.15 seconds ---
+2025-05-05 11:14:34,143 - INFO - --- [CART] Total Evaluation finished in 0.15 seconds ---
+2025-05-05 11:14:34,143 - INFO - ===== Finished Workflow for CART =====
+2025-05-05 11:14:34,143 - INFO - --- [group_1] Running Random Forest Workflow ---
+2025-05-05 11:14:34,143 - INFO - 
+
+===== Starting Workflow for Random_Forest =====
+2025-05-05 11:14:34,143 - INFO - --- [Random_Forest] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:14:34,143 - INFO - --- [Random_Forest] Training final model and calibrator ---
+2025-05-05 11:14:34,143 - INFO - --- Preparing Model Training & Calibration (platt) for Random_Forest (group_1) ---
+2025-05-05 11:14:34,143 - INFO - --- [Random_Forest] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\Random_Forest_group_1_platt.joblib. Proceeding with training. ---
+2025-05-05 11:14:34,143 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:14:34,143 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:14:34,143 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:14:37,817 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:14:37,817 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:14:38,161 - INFO - --- [Random_Forest] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\Random_Forest_group_1_platt.joblib ---
+2025-05-05 11:14:38,161 - ERROR - [group_1] Random Forest Workflow failed: 'RandomForestClassifier' object has no attribute 'estimators_'
+Traceback (most recent call last):
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\1448792073.py", line 150, in <module>
+    rf_results = random_forest_workflow(
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\3831961740.py", line 165, in random_forest_workflow
+    if fitted_rf_base and calibrator_rf:
+  File "c:\Users\javym\miniconda3\envs\Lab\lib\site-packages\sklearn\ensemble\_base.py", line 158, in __len__
+    return len(self.estimators_)
+AttributeError: 'RandomForestClassifier' object has no attribute 'estimators_'
+2025-05-05 11:14:38,181 - INFO - --- [group_1] Running XGBoost Workflow ---
+2025-05-05 11:14:38,181 - INFO - 
+
+===== Starting Workflow for XGBoost =====
+2025-05-05 11:14:38,181 - INFO - --- [XGBoost] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:14:38,181 - INFO - --- [XGBoost] Determining best iteration and training calibrator ---
+2025-05-05 11:14:38,181 - INFO - Training temporary XGBoost with early stopping to find best iteration...
+2025-05-05 11:14:38,909 - INFO - Best iteration found: 99
+2025-05-05 11:14:38,909 - INFO - --- [XGBoost] Training final model (99 est.) and calibrator ---
+2025-05-05 11:14:38,909 - INFO - --- Preparing Model Training & Calibration (platt) for XGBoost (group_1) ---
+2025-05-05 11:14:38,909 - INFO - --- [XGBoost] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\XGBoost_group_1_platt.joblib. Proceeding with training. ---
+2025-05-05 11:14:38,909 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:14:38,909 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:14:38,909 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:14:40,906 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:14:40,906 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:14:40,927 - INFO - --- [XGBoost] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\XGBoost_group_1_platt.joblib ---
+2025-05-05 11:14:40,927 - INFO - --- [XGBoost] Calibration with platt finished in 2.75 seconds ---
+2025-05-05 11:14:40,927 - INFO - --- [XGBoost] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 11:14:40,946 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 11:14:40,946 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 11:14:40,946 - INFO - --- [XGBoost] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 11:14:40,946 - INFO - --- [XGBoost] Final Evaluation on Test Set ---
+2025-05-05 11:14:40,968 - INFO - --- XGBoost Metrics ---
+2025-05-05 11:14:40,968 - INFO - Accuracy: 0.9611
+2025-05-05 11:14:40,968 - INFO - Precision: 0.8496
+2025-05-05 11:14:40,968 - INFO - Recall (TPR): 0.5429
+2025-05-05 11:14:40,968 - INFO - Specificity (TNR): 0.9927
+2025-05-05 11:14:40,968 - INFO - F1-Score: 0.6624
+2025-05-05 11:14:40,968 - INFO - G-Mean: 0.7341
+2025-05-05 11:14:40,968 - INFO - ROC AUC: 0.8815
+2025-05-05 11:14:40,968 - INFO - PR AUC: 0.6703
+2025-05-05 11:14:40,968 - INFO - Brier Score: 0.0352
+2025-05-05 11:14:40,968 - INFO - Confusion Matrix (TN, FP, FN, TP): (5056, 37, 176, 209)
+2025-05-05 11:14:40,968 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 11:14:41,210 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 11:14:41,210 - INFO - Mondrian CP Coverage for class 1: 0.6026
+2025-05-05 11:14:41,210 - INFO - Mondrian CP Coverage: 0.9721
+2025-05-05 11:14:41,210 - INFO - Mondrian CP Avg Set Size: 1.1953
+2025-05-05 11:14:41,210 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 11:14:41,210 - INFO - --- [XGBoost] Mondrian CP evaluation finished in 0.24 seconds ---
+2025-05-05 11:14:41,210 - INFO - --- [XGBoost] Total Evaluation finished in 0.26 seconds ---
+2025-05-05 11:14:41,210 - INFO - ===== Finished Workflow for XGBoost =====
+2025-05-05 11:14:41,216 - INFO - --- [group_1] Running LightGBM Workflow ---
+2025-05-05 11:14:41,216 - INFO - 
+
+===== Starting Workflow for LightGBM =====
+2025-05-05 11:14:41,216 - INFO - --- [LightGBM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:14:41,216 - INFO - --- [LightGBM] Determining best iteration and training calibrator ---
+2025-05-05 11:14:41,216 - INFO - Training temporary LightGBM with early stopping (monitoring 'logloss') to find best iteration...
+2025-05-05 11:14:41,470 - INFO - Best iteration found: 13
+2025-05-05 11:14:41,470 - INFO - --- [LightGBM] Training final model (13 est.) and calibrator ---
+2025-05-05 11:14:41,470 - INFO - --- Preparing Model Training & Calibration (platt) for LightGBM (group_1) ---
+2025-05-05 11:14:41,470 - INFO - --- [LightGBM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\LightGBM_group_1_platt.joblib. Proceeding with training. ---
+2025-05-05 11:14:41,470 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:14:41,470 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:14:41,480 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:14:42,000 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:14:42,000 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:14:42,009 - INFO - --- [LightGBM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\LightGBM_group_1_platt.joblib ---
+2025-05-05 11:14:42,009 - INFO - --- [LightGBM] Calibration finished in 0.79 seconds ---
+2025-05-05 11:14:42,009 - INFO - --- [LightGBM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 11:14:42,021 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 11:14:42,021 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 11:14:42,021 - INFO - --- [LightGBM] Mondrian CP calibration finished in 0.01 seconds ---
+2025-05-05 11:14:42,021 - INFO - --- [LightGBM] Final Evaluation on Test Set ---
+2025-05-05 11:14:42,049 - INFO - --- LightGBM Metrics ---
+2025-05-05 11:14:42,049 - INFO - Accuracy: 0.9576
+2025-05-05 11:14:42,049 - INFO - Precision: 0.8000
+2025-05-05 11:14:42,049 - INFO - Recall (TPR): 0.5299
+2025-05-05 11:14:42,049 - INFO - Specificity (TNR): 0.9900
+2025-05-05 11:14:42,049 - INFO - F1-Score: 0.6375
+2025-05-05 11:14:42,049 - INFO - G-Mean: 0.7243
+2025-05-05 11:14:42,049 - INFO - ROC AUC: 0.8821
+2025-05-05 11:14:42,050 - INFO - PR AUC: 0.6590
+2025-05-05 11:14:42,050 - INFO - Brier Score: 0.0366
+2025-05-05 11:14:42,050 - INFO - Confusion Matrix (TN, FP, FN, TP): (5042, 51, 181, 204)
+2025-05-05 11:14:42,050 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 11:14:42,312 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 11:14:42,312 - INFO - Mondrian CP Coverage for class 1: 0.5974
+2025-05-05 11:14:42,312 - INFO - Mondrian CP Coverage: 0.9717
+2025-05-05 11:14:42,312 - INFO - Mondrian CP Avg Set Size: 1.2039
+2025-05-05 11:14:42,312 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 11:14:42,312 - INFO - --- [LightGBM] Mondrian CP evaluation finished in 0.26 seconds ---
+2025-05-05 11:14:42,312 - INFO - --- [LightGBM] Total Evaluation finished in 0.29 seconds ---
+2025-05-05 11:14:42,312 - INFO - ===== Finished Workflow for LightGBM =====
+2025-05-05 11:14:42,313 - INFO - --- Finished processing Feature Group: group_1 in 32.02 seconds ---
+2025-05-05 11:14:42,313 - INFO - 
+============================== Processing Feature Group: group_2 ==============================
+2025-05-05 11:14:42,314 - INFO - [group_2] Successfully loaded best parameters from best_params\group_2_best_params.json
+2025-05-05 11:14:42,314 - INFO - [group_2] Cleaning data...
+2025-05-05 11:14:42,314 - INFO - Original dataset size: (27388, 136)
+2025-05-05 11:14:42,326 - INFO - Dataset size after dropping NaNs: (27388, 25)
+2025-05-05 11:14:42,327 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-05-05 11:14:42,329 - INFO - [group_2] Splitting data (Train/Val/Test/Cal)...
+2025-05-05 11:14:42,329 - INFO - Splitting data using 'stratified' strategy...
+2025-05-05 11:14:42,329 - INFO - Target split ratios: Train=0.60, Val=0.10, Test=0.20, Cal=0.10
+2025-05-05 11:14:42,344 - INFO - Train set shape: (16432, 24)
+2025-05-05 11:14:42,348 - INFO - Validation set shape: (2738, 24)
+2025-05-05 11:14:42,358 - INFO - Test set shape: (5478, 24)
+2025-05-05 11:14:42,358 - INFO - Calibration set shape: (2740, 24)
+2025-05-05 11:14:42,358 - INFO - Split lengths verification successful.
+2025-05-05 11:14:42,358 - INFO - Data splitting complete.
+2025-05-05 11:14:42,358 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-05-05 11:14:42,358 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-05-05 11:14:42,358 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929876
+1    0.070124
+Name: count, dtype: float64
+2025-05-05 11:14:42,358 - INFO - Validation target counts:
+acs_mu_class
+0    2546
+1     192
+Name: count, dtype: int64
+2025-05-05 11:14:42,368 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-05-05 11:14:42,368 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-05-05 11:14:42,368 - INFO - Calibration target distribution:
+acs_mu_class
+0    0.929562
+1    0.070438
+Name: count, dtype: float64
+2025-05-05 11:14:42,368 - INFO - Calibration target counts:
+acs_mu_class
+0    2547
+1     193
+Name: count, dtype: int64
+2025-05-05 11:14:42,371 - INFO - [group_2] Applying feature scaling (for SVM)...
+2025-05-05 11:14:42,371 - INFO - No existing scaler found for group 'group_2', will fit a new one if possible.
+2025-05-05 11:14:42,371 - INFO - Applying StandardScaler to features...
+2025-05-05 11:14:42,390 - INFO - Scaler saved to trained_models\scaler_group_2.joblib
+2025-05-05 11:14:42,390 - INFO - Feature scaling complete.
+2025-05-05 11:14:42,390 - INFO - --- [group_2] Running SVM Workflow ---
+2025-05-05 11:14:42,390 - INFO - 
+
+===== Starting Workflow for SVM =====
+2025-05-05 11:14:42,390 - INFO - --- [SVM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:14:42,390 - INFO - --- [SVM] Training final model and Platt scaler ---
+2025-05-05 11:14:42,390 - INFO - --- Preparing Model Training & Calibration (platt) for SVM (group_2) ---
+2025-05-05 11:14:42,390 - INFO - --- [SVM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\SVM_group_2_platt.joblib. Proceeding with training. ---
+2025-05-05 11:14:42,390 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:14:42,390 - WARNING - Setting probability=True for SVC as required by calibration setup.
+2025-05-05 11:14:42,390 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:14:42,390 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:39:52,820 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:39:52,820 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:39:52,821 - INFO - --- [SVM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\SVM_group_2_platt.joblib ---
+2025-05-05 11:39:52,821 - INFO - --- [SVM] Calibration with platt finished in 1510.43 seconds ---
+2025-05-05 11:39:52,821 - INFO - --- [SVM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 11:39:53,267 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 11:39:53,268 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 11:39:53,268 - INFO - --- [SVM] Mondrian CP calibration finished in 0.45 seconds ---
+2025-05-05 11:39:53,268 - INFO - --- [SVM] Final Evaluation on Test Set ---
+2025-05-05 11:39:54,153 - INFO - --- SVM Metrics ---
+2025-05-05 11:39:54,153 - INFO - Accuracy: 0.9297
+2025-05-05 11:39:54,153 - INFO - Precision: 0.0000
+2025-05-05 11:39:54,153 - INFO - Recall (TPR): 0.0000
+2025-05-05 11:39:54,153 - INFO - Specificity (TNR): 1.0000
+2025-05-05 11:39:54,153 - INFO - F1-Score: 0.0000
+2025-05-05 11:39:54,153 - INFO - G-Mean: 0.0000
+2025-05-05 11:39:54,153 - INFO - ROC AUC: 0.7434
+2025-05-05 11:39:54,153 - INFO - PR AUC: 0.3073
+2025-05-05 11:39:54,153 - INFO - Brier Score: 0.0653
+2025-05-05 11:39:54,153 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 385, 0)
+2025-05-05 11:39:54,153 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 11:39:54,294 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 11:39:54,294 - INFO - Mondrian CP Coverage for class 1: 0.2338
+2025-05-05 11:39:54,294 - INFO - Mondrian CP Coverage: 0.9461
+2025-05-05 11:39:54,294 - INFO - Mondrian CP Avg Set Size: 1.1811
+2025-05-05 11:39:54,294 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 11:39:54,294 - INFO - --- [SVM] Mondrian CP evaluation finished in 0.14 seconds ---
+2025-05-05 11:39:54,294 - INFO - --- [SVM] Total Evaluation finished in 1.03 seconds ---
+2025-05-05 11:39:54,294 - INFO - ===== Finished Workflow for SVM =====
+2025-05-05 11:39:54,294 - INFO - --- [group_2] Running CART Workflow ---
+2025-05-05 11:39:54,294 - INFO - 
+
+===== Starting Workflow for CART =====
+2025-05-05 11:39:54,294 - INFO - --- [CART] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:39:54,294 - INFO - --- [CART] Training final model and calibrator ---
+2025-05-05 11:39:54,294 - INFO - --- Preparing Model Training & Calibration (platt) for CART (group_2) ---
+2025-05-05 11:39:54,294 - INFO - --- [CART] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\CART_group_2_platt.joblib. Proceeding with training. ---
+2025-05-05 11:39:54,294 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:39:54,294 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:39:54,294 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:39:54,570 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:39:54,570 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:39:54,575 - INFO - --- [CART] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\CART_group_2_platt.joblib ---
+2025-05-05 11:39:54,575 - INFO - --- [CART] Calibration with platt finished in 0.28 seconds ---
+2025-05-05 11:39:54,575 - INFO - --- [CART] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 11:39:54,589 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 11:39:54,589 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 11:39:54,589 - INFO - --- [CART] Mondrian CP calibration finished in 0.01 seconds ---
+2025-05-05 11:39:54,589 - INFO - --- [CART] Final Evaluation on Test Set ---
+2025-05-05 11:39:54,604 - INFO - [CART] Calibrated test probabilities for class 1 (sample): [0.03740037 0.1896346  0.06296642 0.02336964 0.08670689 0.14627032
+ 0.05986154 0.02336964 0.05277285 0.02336964 0.02336964 0.02336964
+ 0.09572928 0.09401077 0.07025608 0.36502804 0.02336964 0.08172082
+ 0.02336964 0.14660743]
+2025-05-05 11:39:54,604 - INFO - [CART] Calibrated test probabilities range: min=0.0234, max=0.3666, mean=0.0707
+2025-05-05 11:39:54,608 - INFO - --- CART Metrics ---
+2025-05-05 11:39:54,608 - INFO - Accuracy: 0.9297
+2025-05-05 11:39:54,608 - INFO - Precision: 0.0000
+2025-05-05 11:39:54,608 - INFO - Recall (TPR): 0.0000
+2025-05-05 11:39:54,608 - INFO - Specificity (TNR): 1.0000
+2025-05-05 11:39:54,608 - INFO - F1-Score: 0.0000
+2025-05-05 11:39:54,608 - INFO - G-Mean: 0.0000
+2025-05-05 11:39:54,608 - INFO - ROC AUC: 0.8613
+2025-05-05 11:39:54,608 - INFO - PR AUC: 0.6108
+2025-05-05 11:39:54,608 - INFO - Brier Score: 0.0506
+2025-05-05 11:39:54,608 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 385, 0)
+2025-05-05 11:39:54,608 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 11:39:54,812 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 11:39:54,812 - INFO - Mondrian CP Coverage for class 1: 0.2078
+2025-05-05 11:39:54,812 - INFO - Mondrian CP Coverage: 0.9443
+2025-05-05 11:39:54,812 - INFO - Mondrian CP Avg Set Size: 1.1990
+2025-05-05 11:39:54,812 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 11:39:54,812 - INFO - --- [CART] Mondrian CP evaluation finished in 0.20 seconds ---
+2025-05-05 11:39:54,812 - INFO - --- [CART] Total Evaluation finished in 0.22 seconds ---
+2025-05-05 11:39:54,812 - INFO - ===== Finished Workflow for CART =====
+2025-05-05 11:39:54,812 - INFO - --- [group_2] Running Random Forest Workflow ---
+2025-05-05 11:39:54,812 - INFO - 
+
+===== Starting Workflow for Random_Forest =====
+2025-05-05 11:39:54,812 - INFO - --- [Random_Forest] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:39:54,812 - INFO - --- [Random_Forest] Training final model and calibrator ---
+2025-05-05 11:39:54,812 - INFO - --- Preparing Model Training & Calibration (platt) for Random_Forest (group_2) ---
+2025-05-05 11:39:54,812 - INFO - --- [Random_Forest] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\Random_Forest_group_2_platt.joblib. Proceeding with training. ---
+2025-05-05 11:39:54,812 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:39:54,812 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:39:54,812 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:40:02,702 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:40:02,702 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:40:02,820 - INFO - --- [Random_Forest] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\Random_Forest_group_2_platt.joblib ---
+2025-05-05 11:40:02,820 - ERROR - [group_2] Random Forest Workflow failed: 'RandomForestClassifier' object has no attribute 'estimators_'
+Traceback (most recent call last):
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\1448792073.py", line 150, in <module>
+    rf_results = random_forest_workflow(
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\3831961740.py", line 165, in random_forest_workflow
+    if fitted_rf_base and calibrator_rf:
+  File "c:\Users\javym\miniconda3\envs\Lab\lib\site-packages\sklearn\ensemble\_base.py", line 158, in __len__
+    return len(self.estimators_)
+AttributeError: 'RandomForestClassifier' object has no attribute 'estimators_'
+2025-05-05 11:40:02,834 - INFO - --- [group_2] Running XGBoost Workflow ---
+2025-05-05 11:40:02,834 - INFO - 
+
+===== Starting Workflow for XGBoost =====
+2025-05-05 11:40:02,834 - INFO - --- [XGBoost] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:40:02,834 - INFO - --- [XGBoost] Determining best iteration and training calibrator ---
+2025-05-05 11:40:02,834 - INFO - Training temporary XGBoost with early stopping to find best iteration...
+2025-05-05 11:40:03,305 - INFO - Best iteration found: 99
+2025-05-05 11:40:03,305 - INFO - --- [XGBoost] Training final model (99 est.) and calibrator ---
+2025-05-05 11:40:03,305 - INFO - --- Preparing Model Training & Calibration (platt) for XGBoost (group_2) ---
+2025-05-05 11:40:03,305 - INFO - --- [XGBoost] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\XGBoost_group_2_platt.joblib. Proceeding with training. ---
+2025-05-05 11:40:03,305 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:40:03,305 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:40:03,313 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:40:07,331 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:40:07,331 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:40:07,361 - INFO - --- [XGBoost] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\XGBoost_group_2_platt.joblib ---
+2025-05-05 11:40:07,361 - INFO - --- [XGBoost] Calibration with platt finished in 4.53 seconds ---
+2025-05-05 11:40:07,361 - INFO - --- [XGBoost] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 11:40:07,381 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 11:40:07,381 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 11:40:07,381 - INFO - --- [XGBoost] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 11:40:07,381 - INFO - --- [XGBoost] Final Evaluation on Test Set ---
+2025-05-05 11:40:07,433 - INFO - --- XGBoost Metrics ---
+2025-05-05 11:40:07,433 - INFO - Accuracy: 0.9650
+2025-05-05 11:40:07,433 - INFO - Precision: 0.8814
+2025-05-05 11:40:07,433 - INFO - Recall (TPR): 0.5792
+2025-05-05 11:40:07,433 - INFO - Specificity (TNR): 0.9941
+2025-05-05 11:40:07,433 - INFO - F1-Score: 0.6991
+2025-05-05 11:40:07,433 - INFO - G-Mean: 0.7588
+2025-05-05 11:40:07,433 - INFO - ROC AUC: 0.9070
+2025-05-05 11:40:07,433 - INFO - PR AUC: 0.7472
+2025-05-05 11:40:07,433 - INFO - Brier Score: 0.0303
+2025-05-05 11:40:07,433 - INFO - Confusion Matrix (TN, FP, FN, TP): (5063, 30, 162, 223)
+2025-05-05 11:40:07,433 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 11:40:07,608 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 11:40:07,608 - INFO - Mondrian CP Coverage for class 1: 0.6545
+2025-05-05 11:40:07,608 - INFO - Mondrian CP Coverage: 0.9757
+2025-05-05 11:40:07,608 - INFO - Mondrian CP Avg Set Size: 1.2004
+2025-05-05 11:40:07,608 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 11:40:07,608 - INFO - --- [XGBoost] Mondrian CP evaluation finished in 0.18 seconds ---
+2025-05-05 11:40:07,608 - INFO - --- [XGBoost] Total Evaluation finished in 0.23 seconds ---
+2025-05-05 11:40:07,608 - INFO - ===== Finished Workflow for XGBoost =====
+2025-05-05 11:40:07,608 - INFO - --- [group_2] Running LightGBM Workflow ---
+2025-05-05 11:40:07,608 - INFO - 
+
+===== Starting Workflow for LightGBM =====
+2025-05-05 11:40:07,608 - INFO - --- [LightGBM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:40:07,608 - INFO - --- [LightGBM] Determining best iteration and training calibrator ---
+2025-05-05 11:40:07,608 - INFO - Training temporary LightGBM with early stopping (monitoring 'logloss') to find best iteration...
+2025-05-05 11:40:08,019 - INFO - Best iteration found: 100
+2025-05-05 11:40:08,019 - INFO - --- [LightGBM] Training final model (100 est.) and calibrator ---
+2025-05-05 11:40:08,019 - INFO - --- Preparing Model Training & Calibration (platt) for LightGBM (group_2) ---
+2025-05-05 11:40:08,019 - INFO - --- [LightGBM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\LightGBM_group_2_platt.joblib. Proceeding with training. ---
+2025-05-05 11:40:08,019 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:40:08,020 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:40:08,020 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 11:40:10,916 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 11:40:10,916 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 11:40:10,966 - INFO - --- [LightGBM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\LightGBM_group_2_platt.joblib ---
+2025-05-05 11:40:10,966 - INFO - --- [LightGBM] Calibration finished in 3.36 seconds ---
+2025-05-05 11:40:10,966 - INFO - --- [LightGBM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 11:40:10,976 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 11:40:10,976 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 11:40:10,976 - INFO - --- [LightGBM] Mondrian CP calibration finished in 0.01 seconds ---
+2025-05-05 11:40:10,976 - INFO - --- [LightGBM] Final Evaluation on Test Set ---
+2025-05-05 11:40:11,015 - INFO - --- LightGBM Metrics ---
+2025-05-05 11:40:11,015 - INFO - Accuracy: 0.9651
+2025-05-05 11:40:11,015 - INFO - Precision: 0.8819
+2025-05-05 11:40:11,015 - INFO - Recall (TPR): 0.5818
+2025-05-05 11:40:11,015 - INFO - Specificity (TNR): 0.9941
+2025-05-05 11:40:11,015 - INFO - F1-Score: 0.7011
+2025-05-05 11:40:11,015 - INFO - G-Mean: 0.7605
+2025-05-05 11:40:11,015 - INFO - ROC AUC: 0.9134
+2025-05-05 11:40:11,015 - INFO - PR AUC: 0.7459
+2025-05-05 11:40:11,015 - INFO - Brier Score: 0.0306
+2025-05-05 11:40:11,015 - INFO - Confusion Matrix (TN, FP, FN, TP): (5063, 30, 161, 224)
+2025-05-05 11:40:11,015 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 11:40:11,193 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 11:40:11,193 - INFO - Mondrian CP Coverage for class 1: 0.6468
+2025-05-05 11:40:11,193 - INFO - Mondrian CP Coverage: 0.9752
+2025-05-05 11:40:11,193 - INFO - Mondrian CP Avg Set Size: 1.1986
+2025-05-05 11:40:11,193 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 11:40:11,193 - INFO - --- [LightGBM] Mondrian CP evaluation finished in 0.18 seconds ---
+2025-05-05 11:40:11,193 - INFO - --- [LightGBM] Total Evaluation finished in 0.22 seconds ---
+2025-05-05 11:40:11,193 - INFO - ===== Finished Workflow for LightGBM =====
+2025-05-05 11:40:11,193 - INFO - --- Finished processing Feature Group: group_2 in 1528.88 seconds ---
+2025-05-05 11:40:11,193 - INFO - 
+============================== Processing Feature Group: group_3 ==============================
+2025-05-05 11:40:11,193 - INFO - [group_3] Successfully loaded best parameters from best_params\group_3_best_params.json
+2025-05-05 11:40:11,193 - INFO - [group_3] Cleaning data...
+2025-05-05 11:40:11,193 - INFO - Original dataset size: (27388, 136)
+2025-05-05 11:40:11,203 - INFO - Dataset size after dropping NaNs: (27388, 49)
+2025-05-05 11:40:11,203 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-05-05 11:40:11,203 - INFO - [group_3] Splitting data (Train/Val/Test/Cal)...
+2025-05-05 11:40:11,203 - INFO - Splitting data using 'stratified' strategy...
+2025-05-05 11:40:11,203 - INFO - Target split ratios: Train=0.60, Val=0.10, Test=0.20, Cal=0.10
+2025-05-05 11:40:11,222 - INFO - Train set shape: (16432, 48)
+2025-05-05 11:40:11,227 - INFO - Validation set shape: (2738, 48)
+2025-05-05 11:40:11,230 - INFO - Test set shape: (5478, 48)
+2025-05-05 11:40:11,230 - INFO - Calibration set shape: (2740, 48)
+2025-05-05 11:40:11,230 - INFO - Split lengths verification successful.
+2025-05-05 11:40:11,230 - INFO - Data splitting complete.
+2025-05-05 11:40:11,230 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-05-05 11:40:11,231 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-05-05 11:40:11,231 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929876
+1    0.070124
+Name: count, dtype: float64
+2025-05-05 11:40:11,231 - INFO - Validation target counts:
+acs_mu_class
+0    2546
+1     192
+Name: count, dtype: int64
+2025-05-05 11:40:11,231 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-05-05 11:40:11,232 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-05-05 11:40:11,232 - INFO - Calibration target distribution:
+acs_mu_class
+0    0.929562
+1    0.070438
+Name: count, dtype: float64
+2025-05-05 11:40:11,232 - INFO - Calibration target counts:
+acs_mu_class
+0    2547
+1     193
+Name: count, dtype: int64
+2025-05-05 11:40:11,233 - INFO - [group_3] Applying feature scaling (for SVM)...
+2025-05-05 11:40:11,233 - INFO - No existing scaler found for group 'group_3', will fit a new one if possible.
+2025-05-05 11:40:11,233 - INFO - Applying StandardScaler to features...
+2025-05-05 11:40:11,246 - INFO - Scaler saved to trained_models\scaler_group_3.joblib
+2025-05-05 11:40:11,246 - INFO - Feature scaling complete.
+2025-05-05 11:40:11,246 - INFO - --- [group_3] Running SVM Workflow ---
+2025-05-05 11:40:11,246 - INFO - 
+
+===== Starting Workflow for SVM =====
+2025-05-05 11:40:11,246 - INFO - --- [SVM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 11:40:11,246 - INFO - --- [SVM] Training final model and Platt scaler ---
+2025-05-05 11:40:11,246 - INFO - --- Preparing Model Training & Calibration (platt) for SVM (group_3) ---
+2025-05-05 11:40:11,246 - INFO - --- [SVM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\SVM_group_3_platt.joblib. Proceeding with training. ---
+2025-05-05 11:40:11,246 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 11:40:11,246 - WARNING - Setting probability=True for SVC as required by calibration setup.
+2025-05-05 11:40:11,246 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 11:40:11,246 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:08,639 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:08,639 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:08,639 - INFO - --- [SVM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\SVM_group_3_platt.joblib ---
+2025-05-05 12:15:08,639 - INFO - --- [SVM] Calibration with platt finished in 2097.39 seconds ---
+2025-05-05 12:15:08,639 - INFO - --- [SVM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:15:09,081 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:15:09,081 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:15:09,081 - INFO - --- [SVM] Mondrian CP calibration finished in 0.44 seconds ---
+2025-05-05 12:15:09,081 - INFO - --- [SVM] Final Evaluation on Test Set ---
+2025-05-05 12:15:09,931 - INFO - --- SVM Metrics ---
+2025-05-05 12:15:09,931 - INFO - Accuracy: 0.9297
+2025-05-05 12:15:09,931 - INFO - Precision: 0.0000
+2025-05-05 12:15:09,931 - INFO - Recall (TPR): 0.0000
+2025-05-05 12:15:09,931 - INFO - Specificity (TNR): 1.0000
+2025-05-05 12:15:09,931 - INFO - F1-Score: 0.0000
+2025-05-05 12:15:09,931 - INFO - G-Mean: 0.0000
+2025-05-05 12:15:09,931 - INFO - ROC AUC: 0.7397
+2025-05-05 12:15:09,931 - INFO - PR AUC: 0.2778
+2025-05-05 12:15:09,931 - INFO - Brier Score: 0.0653
+2025-05-05 12:15:09,931 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 385, 0)
+2025-05-05 12:15:09,931 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:15:10,135 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:15:10,135 - INFO - Mondrian CP Coverage for class 1: 0.2026
+2025-05-05 12:15:10,135 - INFO - Mondrian CP Coverage: 0.9440
+2025-05-05 12:15:10,135 - INFO - Mondrian CP Avg Set Size: 1.1988
+2025-05-05 12:15:10,135 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:15:10,135 - INFO - --- [SVM] Mondrian CP evaluation finished in 0.20 seconds ---
+2025-05-05 12:15:10,135 - INFO - --- [SVM] Total Evaluation finished in 1.05 seconds ---
+2025-05-05 12:15:10,135 - INFO - ===== Finished Workflow for SVM =====
+2025-05-05 12:15:10,135 - INFO - --- [group_3] Running CART Workflow ---
+2025-05-05 12:15:10,135 - INFO - 
+
+===== Starting Workflow for CART =====
+2025-05-05 12:15:10,135 - INFO - --- [CART] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:10,135 - INFO - --- [CART] Training final model and calibrator ---
+2025-05-05 12:15:10,135 - INFO - --- Preparing Model Training & Calibration (platt) for CART (group_3) ---
+2025-05-05 12:15:10,135 - INFO - --- [CART] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\CART_group_3_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:10,135 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:10,135 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:10,135 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:10,607 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:10,607 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:10,607 - INFO - --- [CART] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\CART_group_3_platt.joblib ---
+2025-05-05 12:15:10,607 - INFO - --- [CART] Calibration with platt finished in 0.47 seconds ---
+2025-05-05 12:15:10,607 - INFO - --- [CART] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:15:10,623 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:15:10,623 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:15:10,623 - INFO - --- [CART] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 12:15:10,623 - INFO - --- [CART] Final Evaluation on Test Set ---
+2025-05-05 12:15:10,643 - INFO - [CART] Calibrated test probabilities for class 1 (sample): [0.02438485 0.26796821 0.02438485 0.04456653 0.08008088 0.10521062
+ 0.15003172 0.02438485 0.02438485 0.06044215 0.02438485 0.03642193
+ 0.02438485 0.05838859 0.05720173 0.39378127 0.16360961 0.06876256
+ 0.02438485 0.02438485]
+2025-05-05 12:15:10,643 - INFO - [CART] Calibrated test probabilities range: min=0.0244, max=0.3952, mean=0.0685
+2025-05-05 12:15:10,643 - INFO - --- CART Metrics ---
+2025-05-05 12:15:10,643 - INFO - Accuracy: 0.9297
+2025-05-05 12:15:10,643 - INFO - Precision: 0.0000
+2025-05-05 12:15:10,643 - INFO - Recall (TPR): 0.0000
+2025-05-05 12:15:10,643 - INFO - Specificity (TNR): 1.0000
+2025-05-05 12:15:10,643 - INFO - F1-Score: 0.0000
+2025-05-05 12:15:10,643 - INFO - G-Mean: 0.0000
+2025-05-05 12:15:10,643 - INFO - ROC AUC: 0.8840
+2025-05-05 12:15:10,643 - INFO - PR AUC: 0.6637
+2025-05-05 12:15:10,643 - INFO - Brier Score: 0.0474
+2025-05-05 12:15:10,643 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 385, 0)
+2025-05-05 12:15:10,643 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:15:10,967 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:15:10,967 - INFO - Mondrian CP Coverage for class 1: 0.2468
+2025-05-05 12:15:10,967 - INFO - Mondrian CP Coverage: 0.9471
+2025-05-05 12:15:10,967 - INFO - Mondrian CP Avg Set Size: 1.2114
+2025-05-05 12:15:10,967 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:15:10,967 - INFO - --- [CART] Mondrian CP evaluation finished in 0.32 seconds ---
+2025-05-05 12:15:10,967 - INFO - --- [CART] Total Evaluation finished in 0.34 seconds ---
+2025-05-05 12:15:10,967 - INFO - ===== Finished Workflow for CART =====
+2025-05-05 12:15:10,967 - INFO - --- [group_3] Running Random Forest Workflow ---
+2025-05-05 12:15:10,967 - INFO - 
+
+===== Starting Workflow for Random_Forest =====
+2025-05-05 12:15:10,967 - INFO - --- [Random_Forest] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:10,967 - INFO - --- [Random_Forest] Training final model and calibrator ---
+2025-05-05 12:15:10,983 - INFO - --- Preparing Model Training & Calibration (platt) for Random_Forest (group_3) ---
+2025-05-05 12:15:10,983 - INFO - --- [Random_Forest] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\Random_Forest_group_3_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:10,983 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:10,983 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:10,983 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:22,789 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:22,789 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:23,190 - INFO - --- [Random_Forest] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\Random_Forest_group_3_platt.joblib ---
+2025-05-05 12:15:23,190 - ERROR - [group_3] Random Forest Workflow failed: 'RandomForestClassifier' object has no attribute 'estimators_'
+Traceback (most recent call last):
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\1448792073.py", line 150, in <module>
+    rf_results = random_forest_workflow(
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\3831961740.py", line 165, in random_forest_workflow
+    if fitted_rf_base and calibrator_rf:
+  File "c:\Users\javym\miniconda3\envs\Lab\lib\site-packages\sklearn\ensemble\_base.py", line 158, in __len__
+    return len(self.estimators_)
+AttributeError: 'RandomForestClassifier' object has no attribute 'estimators_'
+2025-05-05 12:15:23,199 - INFO - --- [group_3] Running XGBoost Workflow ---
+2025-05-05 12:15:23,200 - INFO - 
+
+===== Starting Workflow for XGBoost =====
+2025-05-05 12:15:23,200 - INFO - --- [XGBoost] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:23,200 - INFO - --- [XGBoost] Determining best iteration and training calibrator ---
+2025-05-05 12:15:23,200 - INFO - Training temporary XGBoost with early stopping to find best iteration...
+2025-05-05 12:15:23,850 - INFO - Best iteration found: 99
+2025-05-05 12:15:23,850 - INFO - --- [XGBoost] Training final model (99 est.) and calibrator ---
+2025-05-05 12:15:23,850 - INFO - --- Preparing Model Training & Calibration (platt) for XGBoost (group_3) ---
+2025-05-05 12:15:23,850 - INFO - --- [XGBoost] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\XGBoost_group_3_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:23,850 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:23,850 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:23,851 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:29,079 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:29,079 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:29,095 - INFO - --- [XGBoost] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\XGBoost_group_3_platt.joblib ---
+2025-05-05 12:15:29,095 - INFO - --- [XGBoost] Calibration with platt finished in 5.89 seconds ---
+2025-05-05 12:15:29,095 - INFO - --- [XGBoost] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:15:29,125 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:15:29,135 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:15:29,135 - INFO - --- [XGBoost] Mondrian CP calibration finished in 0.04 seconds ---
+2025-05-05 12:15:29,135 - INFO - --- [XGBoost] Final Evaluation on Test Set ---
+2025-05-05 12:15:29,176 - INFO - --- XGBoost Metrics ---
+2025-05-05 12:15:29,176 - INFO - Accuracy: 0.9648
+2025-05-05 12:15:29,176 - INFO - Precision: 0.8429
+2025-05-05 12:15:29,176 - INFO - Recall (TPR): 0.6130
+2025-05-05 12:15:29,176 - INFO - Specificity (TNR): 0.9914
+2025-05-05 12:15:29,176 - INFO - F1-Score: 0.7098
+2025-05-05 12:15:29,176 - INFO - G-Mean: 0.7795
+2025-05-05 12:15:29,176 - INFO - ROC AUC: 0.9270
+2025-05-05 12:15:29,176 - INFO - PR AUC: 0.7686
+2025-05-05 12:15:29,176 - INFO - Brier Score: 0.0285
+2025-05-05 12:15:29,176 - INFO - Confusion Matrix (TN, FP, FN, TP): (5049, 44, 149, 236)
+2025-05-05 12:15:29,176 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:15:29,362 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:15:29,362 - INFO - Mondrian CP Coverage for class 1: 0.7013
+2025-05-05 12:15:29,362 - INFO - Mondrian CP Coverage: 0.9790
+2025-05-05 12:15:29,362 - INFO - Mondrian CP Avg Set Size: 1.1997
+2025-05-05 12:15:29,362 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:15:29,362 - INFO - --- [XGBoost] Mondrian CP evaluation finished in 0.19 seconds ---
+2025-05-05 12:15:29,362 - INFO - --- [XGBoost] Total Evaluation finished in 0.23 seconds ---
+2025-05-05 12:15:29,363 - INFO - ===== Finished Workflow for XGBoost =====
+2025-05-05 12:15:29,365 - INFO - --- [group_3] Running LightGBM Workflow ---
+2025-05-05 12:15:29,365 - INFO - 
+
+===== Starting Workflow for LightGBM =====
+2025-05-05 12:15:29,365 - INFO - --- [LightGBM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:29,365 - INFO - --- [LightGBM] Determining best iteration and training calibrator ---
+2025-05-05 12:15:29,365 - INFO - Training temporary LightGBM with early stopping (monitoring 'logloss') to find best iteration...
+2025-05-05 12:15:29,418 - INFO - Best iteration found: 1
+2025-05-05 12:15:29,418 - INFO - --- [LightGBM] Training final model (1 est.) and calibrator ---
+2025-05-05 12:15:29,418 - INFO - --- Preparing Model Training & Calibration (platt) for LightGBM (group_3) ---
+2025-05-05 12:15:29,418 - INFO - --- [LightGBM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\LightGBM_group_3_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:29,418 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:29,419 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:29,419 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:30,666 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:30,666 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:30,666 - INFO - --- [LightGBM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\LightGBM_group_3_platt.joblib ---
+2025-05-05 12:15:30,666 - INFO - --- [LightGBM] Calibration finished in 1.30 seconds ---
+2025-05-05 12:15:30,666 - INFO - --- [LightGBM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:15:30,676 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:15:30,676 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:15:30,676 - INFO - --- [LightGBM] Mondrian CP calibration finished in 0.01 seconds ---
+2025-05-05 12:15:30,676 - INFO - --- [LightGBM] Final Evaluation on Test Set ---
+2025-05-05 12:15:30,696 - INFO - --- LightGBM Metrics ---
+2025-05-05 12:15:30,696 - INFO - Accuracy: 0.9297
+2025-05-05 12:15:30,696 - INFO - Precision: 0.0000
+2025-05-05 12:15:30,696 - INFO - Recall (TPR): 0.0000
+2025-05-05 12:15:30,696 - INFO - Specificity (TNR): 1.0000
+2025-05-05 12:15:30,696 - INFO - F1-Score: 0.0000
+2025-05-05 12:15:30,696 - INFO - G-Mean: 0.0000
+2025-05-05 12:15:30,696 - INFO - ROC AUC: 0.8882
+2025-05-05 12:15:30,696 - INFO - PR AUC: 0.5498
+2025-05-05 12:15:30,696 - INFO - Brier Score: 0.0458
+2025-05-05 12:15:30,696 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 385, 0)
+2025-05-05 12:15:30,696 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:15:30,874 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:15:30,874 - INFO - Mondrian CP Coverage for class 1: 0.2416
+2025-05-05 12:15:30,874 - INFO - Mondrian CP Coverage: 0.9467
+2025-05-05 12:15:30,874 - INFO - Mondrian CP Avg Set Size: 1.2068
+2025-05-05 12:15:30,874 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:15:30,874 - INFO - --- [LightGBM] Mondrian CP evaluation finished in 0.18 seconds ---
+2025-05-05 12:15:30,874 - INFO - --- [LightGBM] Total Evaluation finished in 0.20 seconds ---
+2025-05-05 12:15:30,874 - INFO - ===== Finished Workflow for LightGBM =====
+2025-05-05 12:15:30,874 - INFO - --- Finished processing Feature Group: group_3 in 2119.68 seconds ---
+2025-05-05 12:15:30,874 - INFO - 
+============================== Processing Feature Group: group_4 ==============================
+2025-05-05 12:15:30,874 - INFO - [group_4] Successfully loaded best parameters from best_params\group_4_best_params.json
+2025-05-05 12:15:30,874 - INFO - [group_4] Cleaning data...
+2025-05-05 12:15:30,874 - INFO - Original dataset size: (27388, 136)
+2025-05-05 12:15:30,874 - INFO - Dataset size after dropping NaNs: (27388, 12)
+2025-05-05 12:15:30,874 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-05-05 12:15:30,885 - INFO - [group_4] Splitting data (Train/Val/Test/Cal)...
+2025-05-05 12:15:30,885 - INFO - Splitting data using 'stratified' strategy...
+2025-05-05 12:15:30,885 - INFO - Target split ratios: Train=0.60, Val=0.10, Test=0.20, Cal=0.10
+2025-05-05 12:15:30,885 - INFO - Train set shape: (16432, 11)
+2025-05-05 12:15:30,894 - INFO - Validation set shape: (2738, 11)
+2025-05-05 12:15:30,898 - INFO - Test set shape: (5478, 11)
+2025-05-05 12:15:30,898 - INFO - Calibration set shape: (2740, 11)
+2025-05-05 12:15:30,898 - INFO - Split lengths verification successful.
+2025-05-05 12:15:30,898 - INFO - Data splitting complete.
+2025-05-05 12:15:30,898 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-05-05 12:15:30,899 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-05-05 12:15:30,899 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929876
+1    0.070124
+Name: count, dtype: float64
+2025-05-05 12:15:30,899 - INFO - Validation target counts:
+acs_mu_class
+0    2546
+1     192
+Name: count, dtype: int64
+2025-05-05 12:15:30,900 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-05-05 12:15:30,900 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-05-05 12:15:30,900 - INFO - Calibration target distribution:
+acs_mu_class
+0    0.929562
+1    0.070438
+Name: count, dtype: float64
+2025-05-05 12:15:30,901 - INFO - Calibration target counts:
+acs_mu_class
+0    2547
+1     193
+Name: count, dtype: int64
+2025-05-05 12:15:30,902 - INFO - [group_4] Applying feature scaling (for SVM)...
+2025-05-05 12:15:30,902 - INFO - No existing scaler found for group 'group_4', will fit a new one if possible.
+2025-05-05 12:15:30,902 - INFO - Applying StandardScaler to features...
+2025-05-05 12:15:30,902 - INFO - Scaler saved to trained_models\scaler_group_4.joblib
+2025-05-05 12:15:30,902 - INFO - Feature scaling complete.
+2025-05-05 12:15:30,902 - INFO - --- [group_4] Running SVM Workflow ---
+2025-05-05 12:15:30,902 - INFO - 
+
+===== Starting Workflow for SVM =====
+2025-05-05 12:15:30,902 - INFO - --- [SVM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:30,902 - INFO - --- [SVM] Training final model and Platt scaler ---
+2025-05-05 12:15:30,902 - INFO - --- Preparing Model Training & Calibration (platt) for SVM (group_4) ---
+2025-05-05 12:15:30,908 - INFO - --- [SVM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\SVM_group_4_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:30,908 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:30,908 - WARNING - Setting probability=True for SVC as required by calibration setup.
+2025-05-05 12:15:30,908 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:30,908 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:41,739 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:41,739 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:41,744 - INFO - --- [SVM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\SVM_group_4_platt.joblib ---
+2025-05-05 12:15:41,744 - INFO - --- [SVM] Calibration with platt finished in 10.84 seconds ---
+2025-05-05 12:15:41,744 - INFO - --- [SVM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:15:42,442 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:15:42,442 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:15:42,442 - INFO - --- [SVM] Mondrian CP calibration finished in 0.70 seconds ---
+2025-05-05 12:15:42,442 - INFO - --- [SVM] Final Evaluation on Test Set ---
+2025-05-05 12:15:43,895 - INFO - --- SVM Metrics ---
+2025-05-05 12:15:43,895 - INFO - Accuracy: 0.9587
+2025-05-05 12:15:43,895 - INFO - Precision: 0.8597
+2025-05-05 12:15:43,895 - INFO - Recall (TPR): 0.4935
+2025-05-05 12:15:43,895 - INFO - Specificity (TNR): 0.9939
+2025-05-05 12:15:43,895 - INFO - F1-Score: 0.6271
+2025-05-05 12:15:43,895 - INFO - G-Mean: 0.7004
+2025-05-05 12:15:43,895 - INFO - ROC AUC: 0.9196
+2025-05-05 12:15:43,895 - INFO - PR AUC: 0.7129
+2025-05-05 12:15:43,895 - INFO - Brier Score: 0.0337
+2025-05-05 12:15:43,895 - INFO - Confusion Matrix (TN, FP, FN, TP): (5062, 31, 195, 190)
+2025-05-05 12:15:43,895 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:15:44,024 - INFO - Mondrian CP Coverage for class 0: 0.9994
+2025-05-05 12:15:44,024 - INFO - Mondrian CP Coverage for class 1: 0.5740
+2025-05-05 12:15:44,024 - INFO - Mondrian CP Coverage: 0.9695
+2025-05-05 12:15:44,024 - INFO - Mondrian CP Avg Set Size: 1.1891
+2025-05-05 12:15:44,024 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:15:44,024 - INFO - --- [SVM] Mondrian CP evaluation finished in 0.13 seconds ---
+2025-05-05 12:15:44,024 - INFO - --- [SVM] Total Evaluation finished in 1.58 seconds ---
+2025-05-05 12:15:44,024 - INFO - ===== Finished Workflow for SVM =====
+2025-05-05 12:15:44,024 - INFO - --- [group_4] Running CART Workflow ---
+2025-05-05 12:15:44,024 - INFO - 
+
+===== Starting Workflow for CART =====
+2025-05-05 12:15:44,024 - INFO - --- [CART] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:44,024 - INFO - --- [CART] Training final model and calibrator ---
+2025-05-05 12:15:44,024 - INFO - --- Preparing Model Training & Calibration (platt) for CART (group_4) ---
+2025-05-05 12:15:44,024 - INFO - --- [CART] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\CART_group_4_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:44,024 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:44,024 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:44,024 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:44,229 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:44,229 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:44,229 - INFO - --- [CART] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\CART_group_4_platt.joblib ---
+2025-05-05 12:15:44,229 - INFO - --- [CART] Calibration with platt finished in 0.20 seconds ---
+2025-05-05 12:15:44,229 - INFO - --- [CART] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:15:44,229 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:15:44,229 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:15:44,229 - INFO - --- [CART] Mondrian CP calibration finished in 0.00 seconds ---
+2025-05-05 12:15:44,229 - INFO - --- [CART] Final Evaluation on Test Set ---
+2025-05-05 12:15:44,242 - INFO - [CART] Calibrated test probabilities for class 1 (sample): [0.00904818 0.64391499 0.01787144 0.15094036 0.0083866  0.08604023
+ 0.10510141 0.01015942 0.01881517 0.01015942 0.26064823 0.04133338
+ 0.09721356 0.01881517 0.0083866  0.64391499 0.34634879 0.13666598
+ 0.10510141 0.01015942]
+2025-05-05 12:15:44,242 - INFO - [CART] Calibrated test probabilities range: min=0.0067, max=0.6439, mean=0.0706
+2025-05-05 12:15:44,242 - INFO - --- CART Metrics ---
+2025-05-05 12:15:44,242 - INFO - Accuracy: 0.9564
+2025-05-05 12:15:44,242 - INFO - Precision: 0.8067
+2025-05-05 12:15:44,242 - INFO - Recall (TPR): 0.4987
+2025-05-05 12:15:44,242 - INFO - Specificity (TNR): 0.9910
+2025-05-05 12:15:44,242 - INFO - F1-Score: 0.6164
+2025-05-05 12:15:44,242 - INFO - G-Mean: 0.7030
+2025-05-05 12:15:44,242 - INFO - ROC AUC: 0.9058
+2025-05-05 12:15:44,242 - INFO - PR AUC: 0.6804
+2025-05-05 12:15:44,242 - INFO - Brier Score: 0.0387
+2025-05-05 12:15:44,242 - INFO - Confusion Matrix (TN, FP, FN, TP): (5047, 46, 193, 192)
+2025-05-05 12:15:44,242 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:15:44,376 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:15:44,376 - INFO - Mondrian CP Coverage for class 1: 0.5688
+2025-05-05 12:15:44,376 - INFO - Mondrian CP Coverage: 0.9697
+2025-05-05 12:15:44,376 - INFO - Mondrian CP Avg Set Size: 1.1982
+2025-05-05 12:15:44,376 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:15:44,388 - INFO - --- [CART] Mondrian CP evaluation finished in 0.15 seconds ---
+2025-05-05 12:15:44,388 - INFO - --- [CART] Total Evaluation finished in 0.16 seconds ---
+2025-05-05 12:15:44,388 - INFO - ===== Finished Workflow for CART =====
+2025-05-05 12:15:44,388 - INFO - --- [group_4] Running Random Forest Workflow ---
+2025-05-05 12:15:44,388 - INFO - 
+
+===== Starting Workflow for Random_Forest =====
+2025-05-05 12:15:44,388 - INFO - --- [Random_Forest] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:44,388 - INFO - --- [Random_Forest] Training final model and calibrator ---
+2025-05-05 12:15:44,388 - INFO - --- Preparing Model Training & Calibration (platt) for Random_Forest (group_4) ---
+2025-05-05 12:15:44,388 - INFO - --- [Random_Forest] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\Random_Forest_group_4_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:44,388 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:44,388 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:44,388 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:47,522 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:47,522 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:47,777 - INFO - --- [Random_Forest] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\Random_Forest_group_4_platt.joblib ---
+2025-05-05 12:15:47,777 - ERROR - [group_4] Random Forest Workflow failed: 'RandomForestClassifier' object has no attribute 'estimators_'
+Traceback (most recent call last):
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\1448792073.py", line 150, in <module>
+    rf_results = random_forest_workflow(
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\3831961740.py", line 165, in random_forest_workflow
+    if fitted_rf_base and calibrator_rf:
+  File "c:\Users\javym\miniconda3\envs\Lab\lib\site-packages\sklearn\ensemble\_base.py", line 158, in __len__
+    return len(self.estimators_)
+AttributeError: 'RandomForestClassifier' object has no attribute 'estimators_'
+2025-05-05 12:15:47,777 - INFO - --- [group_4] Running XGBoost Workflow ---
+2025-05-05 12:15:47,777 - INFO - 
+
+===== Starting Workflow for XGBoost =====
+2025-05-05 12:15:47,777 - INFO - --- [XGBoost] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:47,777 - INFO - --- [XGBoost] Determining best iteration and training calibrator ---
+2025-05-05 12:15:47,777 - INFO - Training temporary XGBoost with early stopping to find best iteration...
+2025-05-05 12:15:48,010 - INFO - Best iteration found: 51
+2025-05-05 12:15:48,010 - INFO - --- [XGBoost] Training final model (51 est.) and calibrator ---
+2025-05-05 12:15:48,010 - INFO - --- Preparing Model Training & Calibration (platt) for XGBoost (group_4) ---
+2025-05-05 12:15:48,010 - INFO - --- [XGBoost] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\XGBoost_group_4_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:48,010 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:48,010 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:48,010 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:50,541 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:50,541 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:50,551 - INFO - --- [XGBoost] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\XGBoost_group_4_platt.joblib ---
+2025-05-05 12:15:50,551 - INFO - --- [XGBoost] Calibration with platt finished in 2.77 seconds ---
+2025-05-05 12:15:50,551 - INFO - --- [XGBoost] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:15:50,571 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:15:50,571 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:15:50,571 - INFO - --- [XGBoost] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 12:15:50,581 - INFO - --- [XGBoost] Final Evaluation on Test Set ---
+2025-05-05 12:15:50,611 - INFO - --- XGBoost Metrics ---
+2025-05-05 12:15:50,611 - INFO - Accuracy: 0.9626
+2025-05-05 12:15:50,611 - INFO - Precision: 0.8435
+2025-05-05 12:15:50,611 - INFO - Recall (TPR): 0.5740
+2025-05-05 12:15:50,611 - INFO - Specificity (TNR): 0.9919
+2025-05-05 12:15:50,611 - INFO - F1-Score: 0.6832
+2025-05-05 12:15:50,611 - INFO - G-Mean: 0.7546
+2025-05-05 12:15:50,611 - INFO - ROC AUC: 0.9219
+2025-05-05 12:15:50,611 - INFO - PR AUC: 0.7216
+2025-05-05 12:15:50,611 - INFO - Brier Score: 0.0322
+2025-05-05 12:15:50,611 - INFO - Confusion Matrix (TN, FP, FN, TP): (5052, 41, 164, 221)
+2025-05-05 12:15:50,611 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:15:50,775 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:15:50,775 - INFO - Mondrian CP Coverage for class 1: 0.6545
+2025-05-05 12:15:50,775 - INFO - Mondrian CP Coverage: 0.9757
+2025-05-05 12:15:50,775 - INFO - Mondrian CP Avg Set Size: 1.1920
+2025-05-05 12:15:50,775 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:15:50,775 - INFO - --- [XGBoost] Mondrian CP evaluation finished in 0.16 seconds ---
+2025-05-05 12:15:50,775 - INFO - --- [XGBoost] Total Evaluation finished in 0.19 seconds ---
+2025-05-05 12:15:50,775 - INFO - ===== Finished Workflow for XGBoost =====
+2025-05-05 12:15:50,775 - INFO - --- [group_4] Running LightGBM Workflow ---
+2025-05-05 12:15:50,775 - INFO - 
+
+===== Starting Workflow for LightGBM =====
+2025-05-05 12:15:50,775 - INFO - --- [LightGBM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:50,775 - INFO - --- [LightGBM] Determining best iteration and training calibrator ---
+2025-05-05 12:15:50,775 - INFO - Training temporary LightGBM with early stopping (monitoring 'logloss') to find best iteration...
+2025-05-05 12:15:51,031 - INFO - Best iteration found: 98
+2025-05-05 12:15:51,031 - INFO - --- [LightGBM] Training final model (98 est.) and calibrator ---
+2025-05-05 12:15:51,031 - INFO - --- Preparing Model Training & Calibration (platt) for LightGBM (group_4) ---
+2025-05-05 12:15:51,031 - INFO - --- [LightGBM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\LightGBM_group_4_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:51,031 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:51,031 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:51,031 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:15:53,864 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:15:53,864 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:15:53,915 - INFO - --- [LightGBM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_4\LightGBM_group_4_platt.joblib ---
+2025-05-05 12:15:53,915 - INFO - --- [LightGBM] Calibration finished in 3.14 seconds ---
+2025-05-05 12:15:53,915 - INFO - --- [LightGBM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:15:53,934 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:15:53,934 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:15:53,934 - INFO - --- [LightGBM] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 12:15:53,934 - INFO - --- [LightGBM] Final Evaluation on Test Set ---
+2025-05-05 12:15:53,975 - INFO - --- LightGBM Metrics ---
+2025-05-05 12:15:53,975 - INFO - Accuracy: 0.9639
+2025-05-05 12:15:53,975 - INFO - Precision: 0.8502
+2025-05-05 12:15:53,975 - INFO - Recall (TPR): 0.5896
+2025-05-05 12:15:53,975 - INFO - Specificity (TNR): 0.9921
+2025-05-05 12:15:53,975 - INFO - F1-Score: 0.6963
+2025-05-05 12:15:53,975 - INFO - G-Mean: 0.7648
+2025-05-05 12:15:53,975 - INFO - ROC AUC: 0.9197
+2025-05-05 12:15:53,975 - INFO - PR AUC: 0.7251
+2025-05-05 12:15:53,975 - INFO - Brier Score: 0.0319
+2025-05-05 12:15:53,975 - INFO - Confusion Matrix (TN, FP, FN, TP): (5053, 40, 158, 227)
+2025-05-05 12:15:53,975 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:15:54,162 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:15:54,162 - INFO - Mondrian CP Coverage for class 1: 0.6545
+2025-05-05 12:15:54,162 - INFO - Mondrian CP Coverage: 0.9757
+2025-05-05 12:15:54,162 - INFO - Mondrian CP Avg Set Size: 1.1813
+2025-05-05 12:15:54,162 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:15:54,162 - INFO - --- [LightGBM] Mondrian CP evaluation finished in 0.19 seconds ---
+2025-05-05 12:15:54,162 - INFO - --- [LightGBM] Total Evaluation finished in 0.23 seconds ---
+2025-05-05 12:15:54,162 - INFO - ===== Finished Workflow for LightGBM =====
+2025-05-05 12:15:54,162 - INFO - --- Finished processing Feature Group: group_4 in 23.29 seconds ---
+2025-05-05 12:15:54,162 - INFO - 
+============================== Processing Feature Group: group_5 ==============================
+2025-05-05 12:15:54,162 - INFO - [group_5] Successfully loaded best parameters from best_params\group_5_best_params.json
+2025-05-05 12:15:54,162 - INFO - [group_5] Cleaning data...
+2025-05-05 12:15:54,162 - INFO - Original dataset size: (27388, 136)
+2025-05-05 12:15:54,171 - INFO - Dataset size after dropping NaNs: (27388, 59)
+2025-05-05 12:15:54,171 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-05-05 12:15:54,181 - INFO - [group_5] Splitting data (Train/Val/Test/Cal)...
+2025-05-05 12:15:54,181 - INFO - Splitting data using 'stratified' strategy...
+2025-05-05 12:15:54,181 - INFO - Target split ratios: Train=0.60, Val=0.10, Test=0.20, Cal=0.10
+2025-05-05 12:15:54,197 - INFO - Train set shape: (16432, 58)
+2025-05-05 12:15:54,201 - INFO - Validation set shape: (2738, 58)
+2025-05-05 12:15:54,204 - INFO - Test set shape: (5478, 58)
+2025-05-05 12:15:54,204 - INFO - Calibration set shape: (2740, 58)
+2025-05-05 12:15:54,205 - INFO - Split lengths verification successful.
+2025-05-05 12:15:54,205 - INFO - Data splitting complete.
+2025-05-05 12:15:54,205 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-05-05 12:15:54,205 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-05-05 12:15:54,206 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929876
+1    0.070124
+Name: count, dtype: float64
+2025-05-05 12:15:54,206 - INFO - Validation target counts:
+acs_mu_class
+0    2546
+1     192
+Name: count, dtype: int64
+2025-05-05 12:15:54,206 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-05-05 12:15:54,206 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-05-05 12:15:54,207 - INFO - Calibration target distribution:
+acs_mu_class
+0    0.929562
+1    0.070438
+Name: count, dtype: float64
+2025-05-05 12:15:54,207 - INFO - Calibration target counts:
+acs_mu_class
+0    2547
+1     193
+Name: count, dtype: int64
+2025-05-05 12:15:54,207 - INFO - [group_5] Applying feature scaling (for SVM)...
+2025-05-05 12:15:54,207 - INFO - No existing scaler found for group 'group_5', will fit a new one if possible.
+2025-05-05 12:15:54,207 - INFO - Applying StandardScaler to features...
+2025-05-05 12:15:54,227 - INFO - Scaler saved to trained_models\scaler_group_5.joblib
+2025-05-05 12:15:54,227 - INFO - Feature scaling complete.
+2025-05-05 12:15:54,227 - INFO - --- [group_5] Running SVM Workflow ---
+2025-05-05 12:15:54,227 - INFO - 
+
+===== Starting Workflow for SVM =====
+2025-05-05 12:15:54,227 - INFO - --- [SVM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:15:54,227 - INFO - --- [SVM] Training final model and Platt scaler ---
+2025-05-05 12:15:54,227 - INFO - --- Preparing Model Training & Calibration (platt) for SVM (group_5) ---
+2025-05-05 12:15:54,227 - INFO - --- [SVM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\SVM_group_5_platt.joblib. Proceeding with training. ---
+2025-05-05 12:15:54,227 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:15:54,227 - WARNING - Setting probability=True for SVC as required by calibration setup.
+2025-05-05 12:15:54,227 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:15:54,227 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:17:29,678 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:17:29,678 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:17:29,681 - INFO - --- [SVM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\SVM_group_5_platt.joblib ---
+2025-05-05 12:17:29,681 - INFO - --- [SVM] Calibration with platt finished in 95.45 seconds ---
+2025-05-05 12:17:29,681 - INFO - --- [SVM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:17:30,327 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:17:30,327 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:17:30,327 - INFO - --- [SVM] Mondrian CP calibration finished in 0.65 seconds ---
+2025-05-05 12:17:30,327 - INFO - --- [SVM] Final Evaluation on Test Set ---
+2025-05-05 12:17:31,585 - INFO - --- SVM Metrics ---
+2025-05-05 12:17:31,585 - INFO - Accuracy: 0.9301
+2025-05-05 12:17:31,585 - INFO - Precision: 0.5625
+2025-05-05 12:17:31,585 - INFO - Recall (TPR): 0.0234
+2025-05-05 12:17:31,585 - INFO - Specificity (TNR): 0.9986
+2025-05-05 12:17:31,585 - INFO - F1-Score: 0.0449
+2025-05-05 12:17:31,585 - INFO - G-Mean: 0.1528
+2025-05-05 12:17:31,585 - INFO - ROC AUC: 0.8830
+2025-05-05 12:17:31,585 - INFO - PR AUC: 0.5998
+2025-05-05 12:17:31,585 - INFO - Brier Score: 0.0526
+2025-05-05 12:17:31,585 - INFO - Confusion Matrix (TN, FP, FN, TP): (5086, 7, 376, 9)
+2025-05-05 12:17:31,585 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:17:31,748 - INFO - Mondrian CP Coverage for class 0: 0.9998
+2025-05-05 12:17:31,749 - INFO - Mondrian CP Coverage for class 1: 0.1429
+2025-05-05 12:17:31,749 - INFO - Mondrian CP Coverage: 0.9396
+2025-05-05 12:17:31,749 - INFO - Mondrian CP Avg Set Size: 1.1982
+2025-05-05 12:17:31,749 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:17:31,749 - INFO - --- [SVM] Mondrian CP evaluation finished in 0.16 seconds ---
+2025-05-05 12:17:31,749 - INFO - --- [SVM] Total Evaluation finished in 1.42 seconds ---
+2025-05-05 12:17:31,749 - INFO - ===== Finished Workflow for SVM =====
+2025-05-05 12:17:31,749 - INFO - --- [group_5] Running CART Workflow ---
+2025-05-05 12:17:31,749 - INFO - 
+
+===== Starting Workflow for CART =====
+2025-05-05 12:17:31,749 - INFO - --- [CART] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:17:31,749 - INFO - --- [CART] Training final model and calibrator ---
+2025-05-05 12:17:31,749 - INFO - --- Preparing Model Training & Calibration (platt) for CART (group_5) ---
+2025-05-05 12:17:31,749 - INFO - --- [CART] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\CART_group_5_platt.joblib. Proceeding with training. ---
+2025-05-05 12:17:31,749 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:17:31,749 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:17:31,749 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:17:32,134 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:17:32,134 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:17:32,135 - INFO - --- [CART] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\CART_group_5_platt.joblib ---
+2025-05-05 12:17:32,135 - INFO - --- [CART] Calibration with platt finished in 0.39 seconds ---
+2025-05-05 12:17:32,135 - INFO - --- [CART] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:17:32,149 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:17:32,149 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:17:32,149 - INFO - --- [CART] Mondrian CP calibration finished in 0.01 seconds ---
+2025-05-05 12:17:32,149 - INFO - --- [CART] Final Evaluation on Test Set ---
+2025-05-05 12:17:32,165 - INFO - [CART] Calibrated test probabilities for class 1 (sample): [0.0184917  0.47101782 0.0184917  0.0184917  0.0184917  0.0184917
+ 0.11732342 0.0184917  0.0184917  0.19483508 0.0184917  0.08360261
+ 0.13758542 0.04225053 0.0184917  0.4922253  0.10280736 0.20745334
+ 0.10757408 0.0184917 ]
+2025-05-05 12:17:32,165 - INFO - [CART] Calibrated test probabilities range: min=0.0185, max=0.4928, mean=0.0680
+2025-05-05 12:17:32,171 - INFO - --- CART Metrics ---
+2025-05-05 12:17:32,171 - INFO - Accuracy: 0.9297
+2025-05-05 12:17:32,171 - INFO - Precision: 0.0000
+2025-05-05 12:17:32,171 - INFO - Recall (TPR): 0.0000
+2025-05-05 12:17:32,171 - INFO - Specificity (TNR): 1.0000
+2025-05-05 12:17:32,171 - INFO - F1-Score: 0.0000
+2025-05-05 12:17:32,171 - INFO - G-Mean: 0.0000
+2025-05-05 12:17:32,171 - INFO - ROC AUC: 0.9115
+2025-05-05 12:17:32,171 - INFO - PR AUC: 0.7399
+2025-05-05 12:17:32,171 - INFO - Brier Score: 0.0395
+2025-05-05 12:17:32,171 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 385, 0)
+2025-05-05 12:17:32,171 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:17:32,336 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:17:32,336 - INFO - Mondrian CP Coverage for class 1: 0.2260
+2025-05-05 12:17:32,336 - INFO - Mondrian CP Coverage: 0.9456
+2025-05-05 12:17:32,336 - INFO - Mondrian CP Avg Set Size: 1.1953
+2025-05-05 12:17:32,336 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:17:32,336 - INFO - --- [CART] Mondrian CP evaluation finished in 0.16 seconds ---
+2025-05-05 12:17:32,336 - INFO - --- [CART] Total Evaluation finished in 0.19 seconds ---
+2025-05-05 12:17:32,336 - INFO - ===== Finished Workflow for CART =====
+2025-05-05 12:17:32,336 - INFO - --- [group_5] Running Random Forest Workflow ---
+2025-05-05 12:17:32,336 - INFO - 
+
+===== Starting Workflow for Random_Forest =====
+2025-05-05 12:17:32,336 - INFO - --- [Random_Forest] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:17:32,336 - INFO - --- [Random_Forest] Training final model and calibrator ---
+2025-05-05 12:17:32,336 - INFO - --- Preparing Model Training & Calibration (platt) for Random_Forest (group_5) ---
+2025-05-05 12:17:32,336 - INFO - --- [Random_Forest] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\Random_Forest_group_5_platt.joblib. Proceeding with training. ---
+2025-05-05 12:17:32,336 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:17:32,336 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:17:32,336 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:17:45,659 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:17:45,659 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:17:45,864 - INFO - --- [Random_Forest] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\Random_Forest_group_5_platt.joblib ---
+2025-05-05 12:17:45,864 - ERROR - [group_5] Random Forest Workflow failed: 'RandomForestClassifier' object has no attribute 'estimators_'
+Traceback (most recent call last):
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\1448792073.py", line 150, in <module>
+    rf_results = random_forest_workflow(
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\3831961740.py", line 165, in random_forest_workflow
+    if fitted_rf_base and calibrator_rf:
+  File "c:\Users\javym\miniconda3\envs\Lab\lib\site-packages\sklearn\ensemble\_base.py", line 158, in __len__
+    return len(self.estimators_)
+AttributeError: 'RandomForestClassifier' object has no attribute 'estimators_'
+2025-05-05 12:17:45,874 - INFO - --- [group_5] Running XGBoost Workflow ---
+2025-05-05 12:17:45,874 - INFO - 
+
+===== Starting Workflow for XGBoost =====
+2025-05-05 12:17:45,874 - INFO - --- [XGBoost] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:17:45,874 - INFO - --- [XGBoost] Determining best iteration and training calibrator ---
+2025-05-05 12:17:45,874 - INFO - Training temporary XGBoost with early stopping to find best iteration...
+2025-05-05 12:17:46,857 - INFO - Best iteration found: 96
+2025-05-05 12:17:46,857 - INFO - --- [XGBoost] Training final model (96 est.) and calibrator ---
+2025-05-05 12:17:46,857 - INFO - --- Preparing Model Training & Calibration (platt) for XGBoost (group_5) ---
+2025-05-05 12:17:46,857 - INFO - --- [XGBoost] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\XGBoost_group_5_platt.joblib. Proceeding with training. ---
+2025-05-05 12:17:46,858 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:17:46,860 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:17:46,860 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:17:51,674 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:17:51,675 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:17:51,694 - INFO - --- [XGBoost] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\XGBoost_group_5_platt.joblib ---
+2025-05-05 12:17:51,695 - INFO - --- [XGBoost] Calibration with platt finished in 5.82 seconds ---
+2025-05-05 12:17:51,695 - INFO - --- [XGBoost] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:17:51,742 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:17:51,742 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:17:51,742 - INFO - --- [XGBoost] Mondrian CP calibration finished in 0.05 seconds ---
+2025-05-05 12:17:51,742 - INFO - --- [XGBoost] Final Evaluation on Test Set ---
+2025-05-05 12:17:51,806 - INFO - --- XGBoost Metrics ---
+2025-05-05 12:17:51,806 - INFO - Accuracy: 0.9713
+2025-05-05 12:17:51,806 - INFO - Precision: 0.9254
+2025-05-05 12:17:51,806 - INFO - Recall (TPR): 0.6442
+2025-05-05 12:17:51,806 - INFO - Specificity (TNR): 0.9961
+2025-05-05 12:17:51,806 - INFO - F1-Score: 0.7596
+2025-05-05 12:17:51,806 - INFO - G-Mean: 0.8010
+2025-05-05 12:17:51,807 - INFO - ROC AUC: 0.9501
+2025-05-05 12:17:51,807 - INFO - PR AUC: 0.8097
+2025-05-05 12:17:51,807 - INFO - Brier Score: 0.0251
+2025-05-05 12:17:51,807 - INFO - Confusion Matrix (TN, FP, FN, TP): (5073, 20, 137, 248)
+2025-05-05 12:17:51,807 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:17:52,093 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:17:52,093 - INFO - Mondrian CP Coverage for class 1: 0.7273
+2025-05-05 12:17:52,093 - INFO - Mondrian CP Coverage: 0.9808
+2025-05-05 12:17:52,093 - INFO - Mondrian CP Avg Set Size: 1.2019
+2025-05-05 12:17:52,093 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:17:52,093 - INFO - --- [XGBoost] Mondrian CP evaluation finished in 0.29 seconds ---
+2025-05-05 12:17:52,093 - INFO - --- [XGBoost] Total Evaluation finished in 0.35 seconds ---
+2025-05-05 12:17:52,093 - INFO - ===== Finished Workflow for XGBoost =====
+2025-05-05 12:17:52,096 - INFO - --- [group_5] Running LightGBM Workflow ---
+2025-05-05 12:17:52,096 - INFO - 
+
+===== Starting Workflow for LightGBM =====
+2025-05-05 12:17:52,096 - INFO - --- [LightGBM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:17:52,096 - INFO - --- [LightGBM] Determining best iteration and training calibrator ---
+2025-05-05 12:17:52,096 - INFO - Training temporary LightGBM with early stopping (monitoring 'logloss') to find best iteration...
+2025-05-05 12:17:52,371 - INFO - Best iteration found: 100
+2025-05-05 12:17:52,371 - INFO - --- [LightGBM] Training final model (100 est.) and calibrator ---
+2025-05-05 12:17:52,371 - INFO - --- Preparing Model Training & Calibration (platt) for LightGBM (group_5) ---
+2025-05-05 12:17:52,372 - INFO - --- [LightGBM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\LightGBM_group_5_platt.joblib. Proceeding with training. ---
+2025-05-05 12:17:52,372 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:17:52,374 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:17:52,375 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:17:53,628 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:17:53,628 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:17:53,653 - INFO - --- [LightGBM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_5\LightGBM_group_5_platt.joblib ---
+2025-05-05 12:17:53,654 - INFO - --- [LightGBM] Calibration finished in 1.56 seconds ---
+2025-05-05 12:17:53,654 - INFO - --- [LightGBM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:17:53,676 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:17:53,677 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:17:53,677 - INFO - --- [LightGBM] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 12:17:53,677 - INFO - --- [LightGBM] Final Evaluation on Test Set ---
+2025-05-05 12:17:53,725 - INFO - --- LightGBM Metrics ---
+2025-05-05 12:17:53,725 - INFO - Accuracy: 0.9713
+2025-05-05 12:17:53,725 - INFO - Precision: 0.8931
+2025-05-05 12:17:53,725 - INFO - Recall (TPR): 0.6727
+2025-05-05 12:17:53,725 - INFO - Specificity (TNR): 0.9939
+2025-05-05 12:17:53,725 - INFO - F1-Score: 0.7674
+2025-05-05 12:17:53,725 - INFO - G-Mean: 0.8177
+2025-05-05 12:17:53,725 - INFO - ROC AUC: 0.9454
+2025-05-05 12:17:53,725 - INFO - PR AUC: 0.8001
+2025-05-05 12:17:53,725 - INFO - Brier Score: 0.0252
+2025-05-05 12:17:53,725 - INFO - Confusion Matrix (TN, FP, FN, TP): (5062, 31, 126, 259)
+2025-05-05 12:17:53,725 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:17:53,927 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:17:53,927 - INFO - Mondrian CP Coverage for class 1: 0.7429
+2025-05-05 12:17:53,927 - INFO - Mondrian CP Coverage: 0.9819
+2025-05-05 12:17:53,927 - INFO - Mondrian CP Avg Set Size: 1.2003
+2025-05-05 12:17:53,927 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:17:53,927 - INFO - --- [LightGBM] Mondrian CP evaluation finished in 0.20 seconds ---
+2025-05-05 12:17:53,927 - INFO - --- [LightGBM] Total Evaluation finished in 0.25 seconds ---
+2025-05-05 12:17:53,927 - INFO - ===== Finished Workflow for LightGBM =====
+2025-05-05 12:17:53,937 - INFO - --- Finished processing Feature Group: group_5 in 119.78 seconds ---
+2025-05-05 12:17:53,937 - INFO - 
+============================== Processing Feature Group: group_6 ==============================
+2025-05-05 12:17:53,937 - INFO - [group_6] Successfully loaded best parameters from best_params\group_6_best_params.json
+2025-05-05 12:17:53,937 - INFO - [group_6] Cleaning data...
+2025-05-05 12:17:53,937 - INFO - Original dataset size: (27388, 136)
+2025-05-05 12:17:53,961 - INFO - Dataset size after dropping NaNs: (27388, 70)
+2025-05-05 12:17:53,961 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-05-05 12:17:53,971 - INFO - [group_6] Splitting data (Train/Val/Test/Cal)...
+2025-05-05 12:17:53,971 - INFO - Splitting data using 'stratified' strategy...
+2025-05-05 12:17:53,971 - INFO - Target split ratios: Train=0.60, Val=0.10, Test=0.20, Cal=0.10
+2025-05-05 12:17:54,001 - INFO - Train set shape: (16432, 69)
+2025-05-05 12:17:54,011 - INFO - Validation set shape: (2738, 69)
+2025-05-05 12:17:54,021 - INFO - Test set shape: (5478, 69)
+2025-05-05 12:17:54,021 - INFO - Calibration set shape: (2740, 69)
+2025-05-05 12:17:54,021 - INFO - Split lengths verification successful.
+2025-05-05 12:17:54,021 - INFO - Data splitting complete.
+2025-05-05 12:17:54,021 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-05-05 12:17:54,021 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-05-05 12:17:54,021 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929876
+1    0.070124
+Name: count, dtype: float64
+2025-05-05 12:17:54,021 - INFO - Validation target counts:
+acs_mu_class
+0    2546
+1     192
+Name: count, dtype: int64
+2025-05-05 12:17:54,021 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-05-05 12:17:54,021 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-05-05 12:17:54,031 - INFO - Calibration target distribution:
+acs_mu_class
+0    0.929562
+1    0.070438
+Name: count, dtype: float64
+2025-05-05 12:17:54,031 - INFO - Calibration target counts:
+acs_mu_class
+0    2547
+1     193
+Name: count, dtype: int64
+2025-05-05 12:17:54,031 - INFO - [group_6] Applying feature scaling (for SVM)...
+2025-05-05 12:17:54,031 - INFO - No existing scaler found for group 'group_6', will fit a new one if possible.
+2025-05-05 12:17:54,031 - INFO - Applying StandardScaler to features...
+2025-05-05 12:17:54,061 - INFO - Scaler saved to trained_models\scaler_group_6.joblib
+2025-05-05 12:17:54,061 - INFO - Feature scaling complete.
+2025-05-05 12:17:54,061 - INFO - --- [group_6] Running SVM Workflow ---
+2025-05-05 12:17:54,061 - INFO - 
+
+===== Starting Workflow for SVM =====
+2025-05-05 12:17:54,061 - INFO - --- [SVM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:17:54,061 - INFO - --- [SVM] Training final model and Platt scaler ---
+2025-05-05 12:17:54,061 - INFO - --- Preparing Model Training & Calibration (platt) for SVM (group_6) ---
+2025-05-05 12:17:54,061 - INFO - --- [SVM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\SVM_group_6_platt.joblib. Proceeding with training. ---
+2025-05-05 12:17:54,061 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:17:54,061 - WARNING - Setting probability=True for SVC as required by calibration setup.
+2025-05-05 12:17:54,061 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:17:54,061 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:18:05,058 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:18:05,058 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:18:05,058 - INFO - --- [SVM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\SVM_group_6_platt.joblib ---
+2025-05-05 12:18:05,058 - INFO - --- [SVM] Calibration with platt finished in 11.00 seconds ---
+2025-05-05 12:18:05,058 - INFO - --- [SVM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:18:05,375 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:18:05,375 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:18:05,375 - INFO - --- [SVM] Mondrian CP calibration finished in 0.32 seconds ---
+2025-05-05 12:18:05,375 - INFO - --- [SVM] Final Evaluation on Test Set ---
+2025-05-05 12:18:06,024 - INFO - --- SVM Metrics ---
+2025-05-05 12:18:06,024 - INFO - Accuracy: 0.9356
+2025-05-05 12:18:06,024 - INFO - Precision: 0.9444
+2025-05-05 12:18:06,024 - INFO - Recall (TPR): 0.0883
+2025-05-05 12:18:06,024 - INFO - Specificity (TNR): 0.9996
+2025-05-05 12:18:06,024 - INFO - F1-Score: 0.1615
+2025-05-05 12:18:06,024 - INFO - G-Mean: 0.2971
+2025-05-05 12:18:06,024 - INFO - ROC AUC: 0.8292
+2025-05-05 12:18:06,024 - INFO - PR AUC: 0.5915
+2025-05-05 12:18:06,024 - INFO - Brier Score: 0.0573
+2025-05-05 12:18:06,024 - INFO - Confusion Matrix (TN, FP, FN, TP): (5091, 2, 351, 34)
+2025-05-05 12:18:06,024 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:18:06,175 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:18:06,175 - INFO - Mondrian CP Coverage for class 1: 0.2909
+2025-05-05 12:18:06,175 - INFO - Mondrian CP Coverage: 0.9502
+2025-05-05 12:18:06,175 - INFO - Mondrian CP Avg Set Size: 1.2099
+2025-05-05 12:18:06,175 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:18:06,175 - INFO - --- [SVM] Mondrian CP evaluation finished in 0.15 seconds ---
+2025-05-05 12:18:06,175 - INFO - --- [SVM] Total Evaluation finished in 0.80 seconds ---
+2025-05-05 12:18:06,175 - INFO - ===== Finished Workflow for SVM =====
+2025-05-05 12:18:06,175 - INFO - --- [group_6] Running CART Workflow ---
+2025-05-05 12:18:06,175 - INFO - 
+
+===== Starting Workflow for CART =====
+2025-05-05 12:18:06,175 - INFO - --- [CART] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:18:06,175 - INFO - --- [CART] Training final model and calibrator ---
+2025-05-05 12:18:06,175 - INFO - --- Preparing Model Training & Calibration (platt) for CART (group_6) ---
+2025-05-05 12:18:06,175 - INFO - --- [CART] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\CART_group_6_platt.joblib. Proceeding with training. ---
+2025-05-05 12:18:06,175 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:18:06,175 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:18:06,175 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:18:06,607 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:18:06,607 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:18:06,612 - INFO - --- [CART] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\CART_group_6_platt.joblib ---
+2025-05-05 12:18:06,612 - INFO - --- [CART] Calibration with platt finished in 0.44 seconds ---
+2025-05-05 12:18:06,612 - INFO - --- [CART] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:18:06,625 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:18:06,625 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:18:06,625 - INFO - --- [CART] Mondrian CP calibration finished in 0.01 seconds ---
+2025-05-05 12:18:06,625 - INFO - --- [CART] Final Evaluation on Test Set ---
+2025-05-05 12:18:06,641 - INFO - [CART] Calibrated test probabilities for class 1 (sample): [0.01014226 0.65922877 0.01182445 0.2143777  0.00796995 0.17584577
+ 0.15317285 0.00573428 0.01182445 0.01406012 0.01182445 0.132736
+ 0.00796995 0.00573428 0.00573428 0.65922877 0.01014226 0.52965864
+ 0.12889579 0.01182445]
+2025-05-05 12:18:06,641 - INFO - [CART] Calibrated test probabilities range: min=0.0050, max=0.6592, mean=0.0708
+2025-05-05 12:18:06,646 - INFO - --- CART Metrics ---
+2025-05-05 12:18:06,646 - INFO - Accuracy: 0.9664
+2025-05-05 12:18:06,646 - INFO - Precision: 0.8821
+2025-05-05 12:18:06,646 - INFO - Recall (TPR): 0.6026
+2025-05-05 12:18:06,647 - INFO - Specificity (TNR): 0.9939
+2025-05-05 12:18:06,647 - INFO - F1-Score: 0.7160
+2025-05-05 12:18:06,647 - INFO - G-Mean: 0.7739
+2025-05-05 12:18:06,647 - INFO - ROC AUC: 0.9309
+2025-05-05 12:18:06,647 - INFO - PR AUC: 0.7464
+2025-05-05 12:18:06,647 - INFO - Brier Score: 0.0333
+2025-05-05 12:18:06,647 - INFO - Confusion Matrix (TN, FP, FN, TP): (5062, 31, 153, 232)
+2025-05-05 12:18:06,647 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:18:06,784 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:18:06,784 - INFO - Mondrian CP Coverage for class 1: 0.6468
+2025-05-05 12:18:06,785 - INFO - Mondrian CP Coverage: 0.9752
+2025-05-05 12:18:06,785 - INFO - Mondrian CP Avg Set Size: 1.1882
+2025-05-05 12:18:06,785 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:18:06,785 - INFO - --- [CART] Mondrian CP evaluation finished in 0.14 seconds ---
+2025-05-05 12:18:06,785 - INFO - --- [CART] Total Evaluation finished in 0.16 seconds ---
+2025-05-05 12:18:06,785 - INFO - ===== Finished Workflow for CART =====
+2025-05-05 12:18:06,785 - INFO - --- [group_6] Running Random Forest Workflow ---
+2025-05-05 12:18:06,785 - INFO - 
+
+===== Starting Workflow for Random_Forest =====
+2025-05-05 12:18:06,785 - INFO - --- [Random_Forest] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:18:06,785 - INFO - --- [Random_Forest] Training final model and calibrator ---
+2025-05-05 12:18:06,785 - INFO - --- Preparing Model Training & Calibration (platt) for Random_Forest (group_6) ---
+2025-05-05 12:18:06,785 - INFO - --- [Random_Forest] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\Random_Forest_group_6_platt.joblib. Proceeding with training. ---
+2025-05-05 12:18:06,785 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:18:06,787 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:18:06,787 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:18:22,129 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:18:22,129 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:18:22,240 - INFO - --- [Random_Forest] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\Random_Forest_group_6_platt.joblib ---
+2025-05-05 12:18:22,240 - ERROR - [group_6] Random Forest Workflow failed: 'RandomForestClassifier' object has no attribute 'estimators_'
+Traceback (most recent call last):
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\1448792073.py", line 150, in <module>
+    rf_results = random_forest_workflow(
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\3831961740.py", line 165, in random_forest_workflow
+    if fitted_rf_base and calibrator_rf:
+  File "c:\Users\javym\miniconda3\envs\Lab\lib\site-packages\sklearn\ensemble\_base.py", line 158, in __len__
+    return len(self.estimators_)
+AttributeError: 'RandomForestClassifier' object has no attribute 'estimators_'
+2025-05-05 12:18:22,256 - INFO - --- [group_6] Running XGBoost Workflow ---
+2025-05-05 12:18:22,256 - INFO - 
+
+===== Starting Workflow for XGBoost =====
+2025-05-05 12:18:22,256 - INFO - --- [XGBoost] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:18:22,256 - INFO - --- [XGBoost] Determining best iteration and training calibrator ---
+2025-05-05 12:18:22,256 - INFO - Training temporary XGBoost with early stopping to find best iteration...
+2025-05-05 12:18:23,319 - INFO - Best iteration found: 88
+2025-05-05 12:18:23,319 - INFO - --- [XGBoost] Training final model (88 est.) and calibrator ---
+2025-05-05 12:18:23,319 - INFO - --- Preparing Model Training & Calibration (platt) for XGBoost (group_6) ---
+2025-05-05 12:18:23,319 - INFO - --- [XGBoost] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\XGBoost_group_6_platt.joblib. Proceeding with training. ---
+2025-05-05 12:18:23,319 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:18:23,322 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:18:23,322 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:18:28,123 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:18:28,123 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:18:28,140 - INFO - --- [XGBoost] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\XGBoost_group_6_platt.joblib ---
+2025-05-05 12:18:28,140 - INFO - --- [XGBoost] Calibration with platt finished in 5.88 seconds ---
+2025-05-05 12:18:28,140 - INFO - --- [XGBoost] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:18:28,189 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:18:28,189 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:18:28,189 - INFO - --- [XGBoost] Mondrian CP calibration finished in 0.05 seconds ---
+2025-05-05 12:18:28,189 - INFO - --- [XGBoost] Final Evaluation on Test Set ---
+2025-05-05 12:18:28,249 - INFO - --- XGBoost Metrics ---
+2025-05-05 12:18:28,249 - INFO - Accuracy: 0.9737
+2025-05-05 12:18:28,249 - INFO - Precision: 0.9350
+2025-05-05 12:18:28,249 - INFO - Recall (TPR): 0.6727
+2025-05-05 12:18:28,249 - INFO - Specificity (TNR): 0.9965
+2025-05-05 12:18:28,249 - INFO - F1-Score: 0.7825
+2025-05-05 12:18:28,249 - INFO - G-Mean: 0.8187
+2025-05-05 12:18:28,249 - INFO - ROC AUC: 0.9570
+2025-05-05 12:18:28,249 - INFO - PR AUC: 0.8279
+2025-05-05 12:18:28,249 - INFO - Brier Score: 0.0230
+2025-05-05 12:18:28,249 - INFO - Confusion Matrix (TN, FP, FN, TP): (5075, 18, 126, 259)
+2025-05-05 12:18:28,249 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:18:28,427 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:18:28,427 - INFO - Mondrian CP Coverage for class 1: 0.7844
+2025-05-05 12:18:28,427 - INFO - Mondrian CP Coverage: 0.9848
+2025-05-05 12:18:28,427 - INFO - Mondrian CP Avg Set Size: 1.2004
+2025-05-05 12:18:28,427 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:18:28,427 - INFO - --- [XGBoost] Mondrian CP evaluation finished in 0.18 seconds ---
+2025-05-05 12:18:28,427 - INFO - --- [XGBoost] Total Evaluation finished in 0.24 seconds ---
+2025-05-05 12:18:28,427 - INFO - ===== Finished Workflow for XGBoost =====
+2025-05-05 12:18:28,427 - INFO - --- [group_6] Running LightGBM Workflow ---
+2025-05-05 12:18:28,437 - INFO - 
+
+===== Starting Workflow for LightGBM =====
+2025-05-05 12:18:28,437 - INFO - --- [LightGBM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:18:28,437 - INFO - --- [LightGBM] Determining best iteration and training calibrator ---
+2025-05-05 12:18:28,437 - INFO - Training temporary LightGBM with early stopping (monitoring 'logloss') to find best iteration...
+2025-05-05 12:18:28,623 - INFO - Best iteration found: 100
+2025-05-05 12:18:28,623 - INFO - --- [LightGBM] Training final model (100 est.) and calibrator ---
+2025-05-05 12:18:28,623 - INFO - --- Preparing Model Training & Calibration (platt) for LightGBM (group_6) ---
+2025-05-05 12:18:28,623 - INFO - --- [LightGBM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\LightGBM_group_6_platt.joblib. Proceeding with training. ---
+2025-05-05 12:18:28,623 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:18:28,633 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:18:28,633 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:18:29,692 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:18:29,692 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:18:29,715 - INFO - --- [LightGBM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_6\LightGBM_group_6_platt.joblib ---
+2025-05-05 12:18:29,716 - INFO - --- [LightGBM] Calibration finished in 1.28 seconds ---
+2025-05-05 12:18:29,716 - INFO - --- [LightGBM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:18:29,738 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:18:29,738 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:18:29,738 - INFO - --- [LightGBM] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 12:18:29,738 - INFO - --- [LightGBM] Final Evaluation on Test Set ---
+2025-05-05 12:18:29,777 - INFO - --- LightGBM Metrics ---
+2025-05-05 12:18:29,777 - INFO - Accuracy: 0.9741
+2025-05-05 12:18:29,777 - INFO - Precision: 0.9175
+2025-05-05 12:18:29,777 - INFO - Recall (TPR): 0.6935
+2025-05-05 12:18:29,777 - INFO - Specificity (TNR): 0.9953
+2025-05-05 12:18:29,777 - INFO - F1-Score: 0.7899
+2025-05-05 12:18:29,777 - INFO - G-Mean: 0.8308
+2025-05-05 12:18:29,777 - INFO - ROC AUC: 0.9566
+2025-05-05 12:18:29,777 - INFO - PR AUC: 0.8288
+2025-05-05 12:18:29,777 - INFO - Brier Score: 0.0228
+2025-05-05 12:18:29,777 - INFO - Confusion Matrix (TN, FP, FN, TP): (5069, 24, 118, 267)
+2025-05-05 12:18:29,777 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:18:29,989 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:18:29,989 - INFO - Mondrian CP Coverage for class 1: 0.7740
+2025-05-05 12:18:29,990 - INFO - Mondrian CP Coverage: 0.9841
+2025-05-05 12:18:29,990 - INFO - Mondrian CP Avg Set Size: 1.1973
+2025-05-05 12:18:29,990 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:18:29,990 - INFO - --- [LightGBM] Mondrian CP evaluation finished in 0.21 seconds ---
+2025-05-05 12:18:29,990 - INFO - --- [LightGBM] Total Evaluation finished in 0.25 seconds ---
+2025-05-05 12:18:29,990 - INFO - ===== Finished Workflow for LightGBM =====
+2025-05-05 12:18:29,991 - INFO - --- Finished processing Feature Group: group_6 in 36.05 seconds ---
+2025-05-05 12:18:29,991 - INFO - 
+============================== Processing Feature Group: group_7 ==============================
+2025-05-05 12:18:29,991 - INFO - [group_7] Successfully loaded best parameters from best_params\group_7_best_params.json
+2025-05-05 12:18:29,991 - INFO - [group_7] Cleaning data...
+2025-05-05 12:18:29,991 - INFO - Original dataset size: (27388, 136)
+2025-05-05 12:18:30,011 - INFO - Dataset size after dropping NaNs: (27388, 95)
+2025-05-05 12:18:30,011 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-05-05 12:18:30,017 - INFO - [group_7] Splitting data (Train/Val/Test/Cal)...
+2025-05-05 12:18:30,017 - INFO - Splitting data using 'stratified' strategy...
+2025-05-05 12:18:30,017 - INFO - Target split ratios: Train=0.60, Val=0.10, Test=0.20, Cal=0.10
+2025-05-05 12:18:30,035 - INFO - Train set shape: (16432, 94)
+2025-05-05 12:18:30,041 - INFO - Validation set shape: (2738, 94)
+2025-05-05 12:18:30,045 - INFO - Test set shape: (5478, 94)
+2025-05-05 12:18:30,045 - INFO - Calibration set shape: (2740, 94)
+2025-05-05 12:18:30,045 - INFO - Split lengths verification successful.
+2025-05-05 12:18:30,045 - INFO - Data splitting complete.
+2025-05-05 12:18:30,046 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-05-05 12:18:30,046 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-05-05 12:18:30,046 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929876
+1    0.070124
+Name: count, dtype: float64
+2025-05-05 12:18:30,046 - INFO - Validation target counts:
+acs_mu_class
+0    2546
+1     192
+Name: count, dtype: int64
+2025-05-05 12:18:30,047 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-05-05 12:18:30,047 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-05-05 12:18:30,047 - INFO - Calibration target distribution:
+acs_mu_class
+0    0.929562
+1    0.070438
+Name: count, dtype: float64
+2025-05-05 12:18:30,047 - INFO - Calibration target counts:
+acs_mu_class
+0    2547
+1     193
+Name: count, dtype: int64
+2025-05-05 12:18:30,048 - INFO - [group_7] Applying feature scaling (for SVM)...
+2025-05-05 12:18:30,048 - INFO - No existing scaler found for group 'group_7', will fit a new one if possible.
+2025-05-05 12:18:30,049 - INFO - Applying StandardScaler to features...
+2025-05-05 12:18:30,073 - INFO - Scaler saved to trained_models\scaler_group_7.joblib
+2025-05-05 12:18:30,073 - INFO - Feature scaling complete.
+2025-05-05 12:18:30,073 - INFO - --- [group_7] Running SVM Workflow ---
+2025-05-05 12:18:30,073 - INFO - 
+
+===== Starting Workflow for SVM =====
+2025-05-05 12:18:30,073 - INFO - --- [SVM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:18:30,073 - INFO - --- [SVM] Training final model and Platt scaler ---
+2025-05-05 12:18:30,073 - INFO - --- Preparing Model Training & Calibration (platt) for SVM (group_7) ---
+2025-05-05 12:18:30,073 - INFO - --- [SVM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\SVM_group_7_platt.joblib. Proceeding with training. ---
+2025-05-05 12:18:30,073 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:18:30,073 - WARNING - Setting probability=True for SVC as required by calibration setup.
+2025-05-05 12:18:30,073 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:18:30,073 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:18:51,271 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:18:51,271 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:18:51,271 - INFO - --- [SVM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\SVM_group_7_platt.joblib ---
+2025-05-05 12:18:51,271 - INFO - --- [SVM] Calibration with platt finished in 21.20 seconds ---
+2025-05-05 12:18:51,271 - INFO - --- [SVM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:18:51,628 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:18:51,628 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:18:51,628 - INFO - --- [SVM] Mondrian CP calibration finished in 0.36 seconds ---
+2025-05-05 12:18:51,628 - INFO - --- [SVM] Final Evaluation on Test Set ---
+2025-05-05 12:18:52,344 - INFO - --- SVM Metrics ---
+2025-05-05 12:18:52,344 - INFO - Accuracy: 0.9476
+2025-05-05 12:18:52,344 - INFO - Precision: 0.9298
+2025-05-05 12:18:52,344 - INFO - Recall (TPR): 0.2753
+2025-05-05 12:18:52,344 - INFO - Specificity (TNR): 0.9984
+2025-05-05 12:18:52,344 - INFO - F1-Score: 0.4248
+2025-05-05 12:18:52,344 - INFO - G-Mean: 0.5243
+2025-05-05 12:18:52,344 - INFO - ROC AUC: 0.8732
+2025-05-05 12:18:52,344 - INFO - PR AUC: 0.6677
+2025-05-05 12:18:52,344 - INFO - Brier Score: 0.0411
+2025-05-05 12:18:52,344 - INFO - Confusion Matrix (TN, FP, FN, TP): (5085, 8, 279, 106)
+2025-05-05 12:18:52,344 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:18:52,494 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:18:52,494 - INFO - Mondrian CP Coverage for class 1: 0.3818
+2025-05-05 12:18:52,494 - INFO - Mondrian CP Coverage: 0.9566
+2025-05-05 12:18:52,494 - INFO - Mondrian CP Avg Set Size: 1.1946
+2025-05-05 12:18:52,494 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:18:52,494 - INFO - --- [SVM] Mondrian CP evaluation finished in 0.15 seconds ---
+2025-05-05 12:18:52,494 - INFO - --- [SVM] Total Evaluation finished in 0.87 seconds ---
+2025-05-05 12:18:52,494 - INFO - ===== Finished Workflow for SVM =====
+2025-05-05 12:18:52,494 - INFO - --- [group_7] Running CART Workflow ---
+2025-05-05 12:18:52,494 - INFO - 
+
+===== Starting Workflow for CART =====
+2025-05-05 12:18:52,494 - INFO - --- [CART] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:18:52,494 - INFO - --- [CART] Training final model and calibrator ---
+2025-05-05 12:18:52,494 - INFO - --- Preparing Model Training & Calibration (platt) for CART (group_7) ---
+2025-05-05 12:18:52,494 - INFO - --- [CART] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\CART_group_7_platt.joblib. Proceeding with training. ---
+2025-05-05 12:18:52,494 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:18:52,509 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:18:52,509 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:18:52,960 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:18:52,960 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:18:52,961 - INFO - --- [CART] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\CART_group_7_platt.joblib ---
+2025-05-05 12:18:52,961 - INFO - --- [CART] Calibration with platt finished in 0.47 seconds ---
+2025-05-05 12:18:52,961 - INFO - --- [CART] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:18:52,977 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:18:52,977 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:18:52,977 - INFO - --- [CART] Mondrian CP calibration finished in 0.02 seconds ---
+2025-05-05 12:18:52,977 - INFO - --- [CART] Final Evaluation on Test Set ---
+2025-05-05 12:18:52,995 - INFO - [CART] Calibrated test probabilities for class 1 (sample): [0.01014114 0.65834683 0.01181764 0.21441699 0.0079819  0.17554011
+ 0.15291513 0.00573846 0.01181764 0.01406108 0.01181764 0.13252515
+ 0.0079819  0.00573846 0.00573846 0.65834683 0.01014114 0.52880583
+ 0.12863807 0.01181764]
+2025-05-05 12:18:52,995 - INFO - [CART] Calibrated test probabilities range: min=0.0050, max=0.6583, mean=0.0708
+2025-05-05 12:18:52,995 - INFO - --- CART Metrics ---
+2025-05-05 12:18:52,995 - INFO - Accuracy: 0.9664
+2025-05-05 12:18:52,995 - INFO - Precision: 0.8821
+2025-05-05 12:18:52,995 - INFO - Recall (TPR): 0.6026
+2025-05-05 12:18:52,995 - INFO - Specificity (TNR): 0.9939
+2025-05-05 12:18:52,995 - INFO - F1-Score: 0.7160
+2025-05-05 12:18:52,995 - INFO - G-Mean: 0.7739
+2025-05-05 12:18:52,995 - INFO - ROC AUC: 0.9318
+2025-05-05 12:18:52,995 - INFO - PR AUC: 0.7469
+2025-05-05 12:18:52,995 - INFO - Brier Score: 0.0333
+2025-05-05 12:18:52,995 - INFO - Confusion Matrix (TN, FP, FN, TP): (5062, 31, 153, 232)
+2025-05-05 12:18:52,995 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:18:53,161 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:18:53,161 - INFO - Mondrian CP Coverage for class 1: 0.6468
+2025-05-05 12:18:53,161 - INFO - Mondrian CP Coverage: 0.9752
+2025-05-05 12:18:53,161 - INFO - Mondrian CP Avg Set Size: 1.1878
+2025-05-05 12:18:53,161 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:18:53,161 - INFO - --- [CART] Mondrian CP evaluation finished in 0.17 seconds ---
+2025-05-05 12:18:53,161 - INFO - --- [CART] Total Evaluation finished in 0.18 seconds ---
+2025-05-05 12:18:53,161 - INFO - ===== Finished Workflow for CART =====
+2025-05-05 12:18:53,161 - INFO - --- [group_7] Running Random Forest Workflow ---
+2025-05-05 12:18:53,161 - INFO - 
+
+===== Starting Workflow for Random_Forest =====
+2025-05-05 12:18:53,161 - INFO - --- [Random_Forest] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:18:53,173 - INFO - --- [Random_Forest] Training final model and calibrator ---
+2025-05-05 12:18:53,173 - INFO - --- Preparing Model Training & Calibration (platt) for Random_Forest (group_7) ---
+2025-05-05 12:18:53,173 - INFO - --- [Random_Forest] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\Random_Forest_group_7_platt.joblib. Proceeding with training. ---
+2025-05-05 12:18:53,173 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:18:53,177 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:18:53,177 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:19:10,175 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:19:10,175 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:19:10,375 - INFO - --- [Random_Forest] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\Random_Forest_group_7_platt.joblib ---
+2025-05-05 12:19:10,375 - ERROR - [group_7] Random Forest Workflow failed: 'RandomForestClassifier' object has no attribute 'estimators_'
+Traceback (most recent call last):
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\1448792073.py", line 150, in <module>
+    rf_results = random_forest_workflow(
+  File "C:\Users\javym\AppData\Local\Temp\ipykernel_13304\3831961740.py", line 165, in random_forest_workflow
+    if fitted_rf_base and calibrator_rf:
+  File "c:\Users\javym\miniconda3\envs\Lab\lib\site-packages\sklearn\ensemble\_base.py", line 158, in __len__
+    return len(self.estimators_)
+AttributeError: 'RandomForestClassifier' object has no attribute 'estimators_'
+2025-05-05 12:19:10,375 - INFO - --- [group_7] Running XGBoost Workflow ---
+2025-05-05 12:19:10,375 - INFO - 
+
+===== Starting Workflow for XGBoost =====
+2025-05-05 12:19:10,375 - INFO - --- [XGBoost] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:19:10,375 - INFO - --- [XGBoost] Determining best iteration and training calibrator ---
+2025-05-05 12:19:10,375 - INFO - Training temporary XGBoost with early stopping to find best iteration...
+2025-05-05 12:19:11,226 - INFO - Best iteration found: 99
+2025-05-05 12:19:11,226 - INFO - --- [XGBoost] Training final model (99 est.) and calibrator ---
+2025-05-05 12:19:11,226 - INFO - --- Preparing Model Training & Calibration (platt) for XGBoost (group_7) ---
+2025-05-05 12:19:11,226 - INFO - --- [XGBoost] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\XGBoost_group_7_platt.joblib. Proceeding with training. ---
+2025-05-05 12:19:11,226 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:19:11,226 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:19:11,226 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:19:13,392 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:19:13,392 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:19:13,409 - INFO - --- [XGBoost] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\XGBoost_group_7_platt.joblib ---
+2025-05-05 12:19:13,409 - INFO - --- [XGBoost] Calibration with platt finished in 3.03 seconds ---
+2025-05-05 12:19:13,409 - INFO - --- [XGBoost] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:19:13,480 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:19:13,480 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:19:13,480 - INFO - --- [XGBoost] Mondrian CP calibration finished in 0.07 seconds ---
+2025-05-05 12:19:13,480 - INFO - --- [XGBoost] Final Evaluation on Test Set ---
+2025-05-05 12:19:13,562 - INFO - --- XGBoost Metrics ---
+2025-05-05 12:19:13,562 - INFO - Accuracy: 0.9730
+2025-05-05 12:19:13,562 - INFO - Precision: 0.9017
+2025-05-05 12:19:13,562 - INFO - Recall (TPR): 0.6909
+2025-05-05 12:19:13,562 - INFO - Specificity (TNR): 0.9943
+2025-05-05 12:19:13,562 - INFO - F1-Score: 0.7824
+2025-05-05 12:19:13,562 - INFO - G-Mean: 0.8288
+2025-05-05 12:19:13,562 - INFO - ROC AUC: 0.9578
+2025-05-05 12:19:13,562 - INFO - PR AUC: 0.8295
+2025-05-05 12:19:13,562 - INFO - Brier Score: 0.0228
+2025-05-05 12:19:13,562 - INFO - Confusion Matrix (TN, FP, FN, TP): (5064, 29, 119, 266)
+2025-05-05 12:19:13,562 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:19:13,762 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:19:13,762 - INFO - Mondrian CP Coverage for class 1: 0.7948
+2025-05-05 12:19:13,762 - INFO - Mondrian CP Coverage: 0.9856
+2025-05-05 12:19:13,762 - INFO - Mondrian CP Avg Set Size: 1.1990
+2025-05-05 12:19:13,762 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:19:13,762 - INFO - --- [XGBoost] Mondrian CP evaluation finished in 0.20 seconds ---
+2025-05-05 12:19:13,762 - INFO - --- [XGBoost] Total Evaluation finished in 0.28 seconds ---
+2025-05-05 12:19:13,762 - INFO - ===== Finished Workflow for XGBoost =====
+2025-05-05 12:19:13,762 - INFO - --- [group_7] Running LightGBM Workflow ---
+2025-05-05 12:19:13,762 - INFO - 
+
+===== Starting Workflow for LightGBM =====
+2025-05-05 12:19:13,762 - INFO - --- [LightGBM] Using provided hyperparameters, skipping HPO. ---
+2025-05-05 12:19:13,762 - INFO - --- [LightGBM] Determining best iteration and training calibrator ---
+2025-05-05 12:19:13,762 - INFO - Training temporary LightGBM with early stopping (monitoring 'logloss') to find best iteration...
+2025-05-05 12:19:14,328 - INFO - Best iteration found: 46
+2025-05-05 12:19:14,328 - INFO - --- [LightGBM] Training final model (46 est.) and calibrator ---
+2025-05-05 12:19:14,328 - INFO - --- Preparing Model Training & Calibration (platt) for LightGBM (group_7) ---
+2025-05-05 12:19:14,329 - INFO - --- [LightGBM] Save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\LightGBM_group_7_platt.joblib. Proceeding with training. ---
+2025-05-05 12:19:14,329 - INFO - --- Starting Model Training & Calibration (platt) ---
+2025-05-05 12:19:14,332 - INFO - Using CalibratedClassifierCV with method='sigmoid'
+2025-05-05 12:19:14,333 - INFO - Fitting CalibratedClassifierCV...
+2025-05-05 12:19:16,273 - INFO - CalibratedClassifierCV fitting complete.
+2025-05-05 12:19:16,273 - INFO - --- Platt Scaling Training Complete ---
+2025-05-05 12:19:16,293 - INFO - --- [LightGBM] Model and Calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_7\LightGBM_group_7_platt.joblib ---
+2025-05-05 12:19:16,294 - INFO - --- [LightGBM] Calibration finished in 2.53 seconds ---
+2025-05-05 12:19:16,294 - INFO - --- [LightGBM] Calibrating Mondrian Conformal Prediction ---
+2025-05-05 12:19:16,307 - INFO - --- Fitting Mondrian Conformal Classifier ---
+2025-05-05 12:19:16,307 - INFO - --- Mondrian Conformal Classifier Fitted ---
+2025-05-05 12:19:16,307 - INFO - --- [LightGBM] Mondrian CP calibration finished in 0.01 seconds ---
+2025-05-05 12:19:16,307 - INFO - --- [LightGBM] Final Evaluation on Test Set ---
+2025-05-05 12:19:16,340 - INFO - --- LightGBM Metrics ---
+2025-05-05 12:19:16,340 - INFO - Accuracy: 0.9728
+2025-05-05 12:19:16,340 - INFO - Precision: 0.9436
+2025-05-05 12:19:16,340 - INFO - Recall (TPR): 0.6519
+2025-05-05 12:19:16,340 - INFO - Specificity (TNR): 0.9971
+2025-05-05 12:19:16,340 - INFO - F1-Score: 0.7711
+2025-05-05 12:19:16,340 - INFO - G-Mean: 0.8062
+2025-05-05 12:19:16,340 - INFO - ROC AUC: 0.9539
+2025-05-05 12:19:16,340 - INFO - PR AUC: 0.8188
+2025-05-05 12:19:16,340 - INFO - Brier Score: 0.0236
+2025-05-05 12:19:16,340 - INFO - Confusion Matrix (TN, FP, FN, TP): (5078, 15, 134, 251)
+2025-05-05 12:19:16,340 - INFO - --- Evaluating Mondrian Prediction (alpha=0.8) ---
+2025-05-05 12:19:16,509 - INFO - Mondrian CP Coverage for class 0: 1.0000
+2025-05-05 12:19:16,509 - INFO - Mondrian CP Coverage for class 1: 0.7610
+2025-05-05 12:19:16,509 - INFO - Mondrian CP Coverage: 0.9832
+2025-05-05 12:19:16,509 - INFO - Mondrian CP Avg Set Size: 1.1981
+2025-05-05 12:19:16,509 - INFO - --- Mondrian Prediction Evaluation Complete ---
+2025-05-05 12:19:16,509 - INFO - --- [LightGBM] Mondrian CP evaluation finished in 0.17 seconds ---
+2025-05-05 12:19:16,509 - INFO - --- [LightGBM] Total Evaluation finished in 0.20 seconds ---
+2025-05-05 12:19:16,509 - INFO - ===== Finished Workflow for LightGBM =====
+2025-05-05 12:19:16,509 - INFO - --- Finished processing Feature Group: group_7 in 46.52 seconds ---
+2025-05-05 12:19:16,524 - INFO - 
+============================== Finished processing all groups in 3906.23 seconds ==============================
+2025-05-05 12:19:16,524 - INFO - Successfully saved all group results to results\all_group_results_20250505_111410.json
+2025-05-05 12:21:11,491 - INFO - Results summary DataFrame saved to .\model_comparison_summary_all_groups_20250505_122111.csv
+2025-05-05 12:21:11,491 - WARNING - Plotting code for CP set types is commented out and may need adaptation for multi-group data.

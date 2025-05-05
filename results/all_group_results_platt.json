@@ -1,0 +1,1178 @@
+{
+    "group_1": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.9567360350492881,
+                    "precision": 0.9021739130434783,
+                    "recall_tpr": 0.43116883116883115,
+                    "f1_score": 0.5834797891036907,
+                    "specificity_tnr": 0.9964657372864716,
+                    "g_mean": 0.6554730865913532,
+                    "confusion_matrix": {
+                        "tn": 5075,
+                        "fp": 18,
+                        "fn": 219,
+                        "tp": 166
+                    },
+                    "roc_auc": 0.866342140090422,
+                    "pr_auc": 0.6363793116725714,
+                    "brier_score": 0.03798895379652746
+                },
+                "cp_coverage_mond": 0.9647681635633443,
+                "cp_class_coverage_dict": {
+                    "0": 0.9994109562144119,
+                    "1": 0.5064935064935064
+                },
+                "cp_avg_set_size_mond": 1.2009857612267252,
+                "best_hpo_params": {
+                    "C": 0.0014475396101653174,
+                    "coef0": 1.4521650217106972,
+                    "degree": 5,
+                    "gamma": 0.0005672717728733488,
+                    "kernel": "poly",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.9474260679079957,
+                    "precision": 0.6422287390029325,
+                    "recall_tpr": 0.5688311688311688,
+                    "f1_score": 0.6033057851239669,
+                    "specificity_tnr": 0.9760455527194188,
+                    "g_mean": 0.7451208845454885,
+                    "confusion_matrix": {
+                        "tn": 4971,
+                        "fp": 122,
+                        "fn": 166,
+                        "tp": 219
+                    },
+                    "roc_auc": 0.7851706314498382,
+                    "pr_auc": 0.5936706364392281,
+                    "brier_score": 0.04348666811993436
+                },
+                "cp_coverage_mond": 0.9696969696969697,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.5688311688311688
+                },
+                "cp_avg_set_size_mond": 1.192223439211391,
+                "best_hpo_params": {
+                    "ccp_alpha": 0.08048701329482862,
+                    "criterion": "log_loss",
+                    "max_depth": 18,
+                    "max_features": null,
+                    "min_samples_leaf": 14,
+                    "min_samples_split": 35,
+                    "splitter": "random",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "Random_Forest": {
+                "status": "failed",
+                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9611171960569551,
+                    "precision": 0.8495934959349594,
+                    "recall_tpr": 0.5428571428571428,
+                    "f1_score": 0.6624405705229794,
+                    "specificity_tnr": 0.9927351266444139,
+                    "g_mean": 0.7341071818638681,
+                    "confusion_matrix": {
+                        "tn": 5056,
+                        "fp": 37,
+                        "fn": 176,
+                        "tp": 209
+                    },
+                    "roc_auc": 0.8814869403127796,
+                    "pr_auc": 0.6702817741485521,
+                    "brier_score": 0.035206736055598827
+                },
+                "cp_coverage_mond": 0.9720700985761227,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.6025974025974026
+                },
+                "cp_avg_set_size_mond": 1.195326761591822,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9132556652096665,
+                    "eval_metric": "logloss",
+                    "gamma": 0.0018907401035942594,
+                    "learning_rate": 0.08409252270878798,
+                    "max_depth": 8,
+                    "min_child_weight": 1.6359148524463065,
+                    "objective": "binary:logistic",
+                    "reg_alpha": 0.01094604245722785,
+                    "reg_lambda": 0.01873923604998429,
+                    "subsample": 0.9307345917693841,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 99,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.9576487769258853,
+                    "precision": 0.8,
+                    "recall_tpr": 0.5298701298701298,
+                    "f1_score": 0.6375,
+                    "specificity_tnr": 0.989986255645003,
+                    "g_mean": 0.7242680069202707,
+                    "confusion_matrix": {
+                        "tn": 5042,
+                        "fp": 51,
+                        "fn": 181,
+                        "tp": 204
+                    },
+                    "roc_auc": 0.882057114297444,
+                    "pr_auc": 0.6589513559160617,
+                    "brier_score": 0.036613481689825395
+                },
+                "cp_coverage_mond": 0.9717050018254838,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.5974025974025974
+                },
+                "cp_avg_set_size_mond": 1.2039065352318363,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.587568255527738,
+                    "learning_rate": 0.04025491647638509,
+                    "max_depth": 10,
+                    "metric": "logloss",
+                    "min_child_samples": 59,
+                    "num_leaves": 115,
+                    "objective": "binary",
+                    "reg_alpha": 0.04521012452572427,
+                    "reg_lambda": 0.07784122133813023,
+                    "subsample": 0.7102534887199938,
+                    "verbose": -1,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 13,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            }
+        }
+    },
+    "group_2": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.743428846825666,
+                    "pr_auc": 0.30727680812828534,
+                    "brier_score": 0.06534939917742669
+                },
+                "cp_coverage_mond": 0.9461482292807594,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.23376623376623376
+                },
+                "cp_avg_set_size_mond": 1.1810879883169039,
+                "best_hpo_params": {
+                    "C": 0.03097852707196491,
+                    "coef0": 0.3499262631523865,
+                    "degree": 4,
+                    "gamma": 2.7850890691622254,
+                    "kernel": "poly",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.8612778935182234,
+                    "pr_auc": 0.610845518692596,
+                    "brier_score": 0.050559971852633105
+                },
+                "cp_coverage_mond": 0.9443227455275648,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.2077922077922078
+                },
+                "cp_avg_set_size_mond": 1.198977729098211,
+                "best_hpo_params": {
+                    "ccp_alpha": 3.2185620345457748e-06,
+                    "criterion": "log_loss",
+                    "max_depth": 31,
+                    "max_features": null,
+                    "min_samples_leaf": 7,
+                    "min_samples_split": 22,
+                    "splitter": "random",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "Random_Forest": {
+                "status": "failed",
+                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9649507119386638,
+                    "precision": 0.8814229249011858,
+                    "recall_tpr": 0.5792207792207792,
+                    "f1_score": 0.6990595611285266,
+                    "specificity_tnr": 0.9941095621441194,
+                    "g_mean": 0.7588207398430439,
+                    "confusion_matrix": {
+                        "tn": 5063,
+                        "fp": 30,
+                        "fn": 162,
+                        "tp": 223
+                    },
+                    "roc_auc": 0.906970351462792,
+                    "pr_auc": 0.7472167681475008,
+                    "brier_score": 0.03026348362110554
+                },
+                "cp_coverage_mond": 0.9757210660825119,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.6545454545454545
+                },
+                "cp_avg_set_size_mond": 1.2004381161007667,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9399063351767167,
+                    "eval_metric": "logloss",
+                    "gamma": 0.0001335978952467058,
+                    "learning_rate": 0.0760037620756919,
+                    "max_depth": 10,
+                    "min_child_weight": 1.624776257487987,
+                    "objective": "binary:logistic",
+                    "reg_alpha": 0.00024991242947225575,
+                    "reg_lambda": 0.02544659616528781,
+                    "subsample": 0.5818175813025477,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 99,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.9651332603139832,
+                    "precision": 0.8818897637795275,
+                    "recall_tpr": 0.5818181818181818,
+                    "f1_score": 0.701095461658842,
+                    "specificity_tnr": 0.9941095621441194,
+                    "g_mean": 0.7605202285112214,
+                    "confusion_matrix": {
+                        "tn": 5063,
+                        "fp": 30,
+                        "fn": 161,
+                        "tp": 224
+                    },
+                    "roc_auc": 0.913394243690729,
+                    "pr_auc": 0.7458619286606764,
+                    "brier_score": 0.030579667692704145
+                },
+                "cp_coverage_mond": 0.9751734209565535,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.6467532467532467
+                },
+                "cp_avg_set_size_mond": 1.198612632347572,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9039964094408228,
+                    "learning_rate": 0.0797677538429512,
+                    "max_depth": 11,
+                    "metric": "logloss",
+                    "min_child_samples": 13,
+                    "num_leaves": 127,
+                    "objective": "binary",
+                    "reg_alpha": 0.012938744945205824,
+                    "reg_lambda": 0.03825756838214059,
+                    "subsample": 0.7039257128340015,
+                    "verbose": -1,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 100,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            }
+        }
+    },
+    "group_3": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.7396956862105105,
+                    "pr_auc": 0.27775499787361563,
+                    "brier_score": 0.06530572340566555
+                },
+                "cp_coverage_mond": 0.9439576487769259,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.2025974025974026
+                },
+                "cp_avg_set_size_mond": 1.1987951807228916,
+                "best_hpo_params": {
+                    "C": 0.03097852707196491,
+                    "coef0": 0.3499262631523865,
+                    "degree": 4,
+                    "gamma": 2.7850890691622254,
+                    "kernel": "poly",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.883991523889423,
+                    "pr_auc": 0.6636686762295538,
+                    "brier_score": 0.04736248472001762
+                },
+                "cp_coverage_mond": 0.9470609711573567,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.24675324675324675
+                },
+                "cp_avg_set_size_mond": 1.2113910186199344,
+                "best_hpo_params": {
+                    "ccp_alpha": 0.00027098211790596967,
+                    "criterion": "log_loss",
+                    "max_depth": 41,
+                    "max_features": "sqrt",
+                    "min_samples_leaf": 12,
+                    "min_samples_split": 24,
+                    "splitter": "best",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "Random_Forest": {
+                "status": "failed",
+                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9647681635633443,
+                    "precision": 0.8428571428571429,
+                    "recall_tpr": 0.612987012987013,
+                    "f1_score": 0.7097744360902256,
+                    "specificity_tnr": 0.9913606911447084,
+                    "g_mean": 0.7795455271230382,
+                    "confusion_matrix": {
+                        "tn": 5049,
+                        "fp": 44,
+                        "fn": 149,
+                        "tp": 236
+                    },
+                    "roc_auc": 0.9269896802588732,
+                    "pr_auc": 0.7686409584853608,
+                    "brier_score": 0.028514646121562355
+                },
+                "cp_coverage_mond": 0.9790069368382621,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.7012987012987013
+                },
+                "cp_avg_set_size_mond": 1.1997079225994889,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9121655978614853,
+                    "eval_metric": "logloss",
+                    "gamma": 0.02349697204033308,
+                    "learning_rate": 0.10681467052331052,
+                    "max_depth": 8,
+                    "min_child_weight": 7.7379802149848596,
+                    "objective": "binary:logistic",
+                    "reg_alpha": 8.407080271524405,
+                    "reg_lambda": 0.004198585696776684,
+                    "subsample": 0.7198992394624828,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 99,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.8882356991133742,
+                    "pr_auc": 0.5497646588220287,
+                    "brier_score": 0.04580173583660082
+                },
+                "cp_coverage_mond": 0.9466958744067178,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.24155844155844156
+                },
+                "cp_avg_set_size_mond": 1.2068273092369477,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9252309722947032,
+                    "learning_rate": 0.10579748529279263,
+                    "max_depth": 10,
+                    "metric": "logloss",
+                    "min_child_samples": 17,
+                    "num_leaves": 27,
+                    "objective": "binary",
+                    "reg_alpha": 0.00024991242947225575,
+                    "reg_lambda": 0.02544659616528781,
+                    "subsample": 0.5818175813025477,
+                    "verbose": -1,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 1,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            }
+        }
+    },
+    "group_4": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.9587440671778021,
+                    "precision": 0.8597285067873304,
+                    "recall_tpr": 0.4935064935064935,
+                    "f1_score": 0.6270627062706271,
+                    "specificity_tnr": 0.99391321421559,
+                    "g_mean": 0.700358925978176,
+                    "confusion_matrix": {
+                        "tn": 5062,
+                        "fp": 31,
+                        "fn": 195,
+                        "tp": 190
+                    },
+                    "roc_auc": 0.9195677285604636,
+                    "pr_auc": 0.7128576526824556,
+                    "brier_score": 0.03369261397889738
+                },
+                "cp_coverage_mond": 0.9695144213216502,
+                "cp_class_coverage_dict": {
+                    "0": 0.9994109562144119,
+                    "1": 0.574025974025974
+                },
+                "cp_avg_set_size_mond": 1.1891201168309602,
+                "best_hpo_params": {
+                    "C": 0.0024259612444969317,
+                    "coef0": 1.7431902751987698,
+                    "degree": 2,
+                    "gamma": 0.6681682093919618,
+                    "kernel": "poly",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.9563709382986492,
+                    "precision": 0.8067226890756303,
+                    "recall_tpr": 0.4987012987012987,
+                    "f1_score": 0.6163723916532905,
+                    "specificity_tnr": 0.9909679952876497,
+                    "g_mean": 0.7029914837474017,
+                    "confusion_matrix": {
+                        "tn": 5047,
+                        "fp": 46,
+                        "fn": 193,
+                        "tp": 192
+                    },
+                    "roc_auc": 0.9058442833428109,
+                    "pr_auc": 0.6804460282992739,
+                    "brier_score": 0.03873106637050972
+                },
+                "cp_coverage_mond": 0.9696969696969697,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.5688311688311688
+                },
+                "cp_avg_set_size_mond": 1.198247535596933,
+                "best_hpo_params": {
+                    "ccp_alpha": 1.7480370654279986e-05,
+                    "criterion": "gini",
+                    "max_depth": 4,
+                    "max_features": null,
+                    "min_samples_leaf": 10,
+                    "min_samples_split": 5,
+                    "splitter": "best",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "Random_Forest": {
+                "status": "failed",
+                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9625775830595108,
+                    "precision": 0.8435114503816794,
+                    "recall_tpr": 0.574025974025974,
+                    "f1_score": 0.6831530139103554,
+                    "specificity_tnr": 0.9919497349302965,
+                    "g_mean": 0.7545892344700991,
+                    "confusion_matrix": {
+                        "tn": 5052,
+                        "fp": 41,
+                        "fn": 164,
+                        "tp": 221
+                    },
+                    "roc_auc": 0.9218535244453171,
+                    "pr_auc": 0.7216477975307172,
+                    "brier_score": 0.032235953914178606
+                },
+                "cp_coverage_mond": 0.9757210660825119,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.6545454545454545
+                },
+                "cp_avg_set_size_mond": 1.1920408908360716,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9945318117251694,
+                    "eval_metric": "logloss",
+                    "gamma": 0.000747225366266352,
+                    "learning_rate": 0.18840199781437414,
+                    "max_depth": 10,
+                    "min_child_weight": 1.3986421814568597,
+                    "objective": "binary:logistic",
+                    "reg_alpha": 0.37218805533904253,
+                    "reg_lambda": 0.1423466853015628,
+                    "subsample": 0.9249775685156074,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 51,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.963855421686747,
+                    "precision": 0.850187265917603,
+                    "recall_tpr": 0.5896103896103896,
+                    "f1_score": 0.696319018404908,
+                    "specificity_tnr": 0.9921460828588259,
+                    "g_mean": 0.7648396161711383,
+                    "confusion_matrix": {
+                        "tn": 5053,
+                        "fp": 40,
+                        "fn": 158,
+                        "tp": 227
+                    },
+                    "roc_auc": 0.9197059371023635,
+                    "pr_auc": 0.7250906571988806,
+                    "brier_score": 0.03189236359379893
+                },
+                "cp_coverage_mond": 0.9757210660825119,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.6545454545454545
+                },
+                "cp_avg_set_size_mond": 1.1812705366922234,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9039964094408228,
+                    "learning_rate": 0.0797677538429512,
+                    "max_depth": 11,
+                    "metric": "logloss",
+                    "min_child_samples": 13,
+                    "num_leaves": 127,
+                    "objective": "binary",
+                    "reg_alpha": 0.012938744945205824,
+                    "reg_lambda": 0.03825756838214059,
+                    "subsample": 0.7039257128340015,
+                    "verbose": -1,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 98,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            }
+        }
+    },
+    "group_5": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.9300839722526469,
+                    "precision": 0.5625,
+                    "recall_tpr": 0.023376623376623377,
+                    "f1_score": 0.04488778054862843,
+                    "specificity_tnr": 0.9986255645002945,
+                    "g_mean": 0.1527890497240928,
+                    "confusion_matrix": {
+                        "tn": 5086,
+                        "fp": 7,
+                        "fn": 376,
+                        "tp": 9
+                    },
+                    "roc_auc": 0.8829934644189503,
+                    "pr_auc": 0.5998112205199825,
+                    "brier_score": 0.05258297515660662
+                },
+                "cp_coverage_mond": 0.9395764877692588,
+                "cp_class_coverage_dict": {
+                    "0": 0.9998036520714706,
+                    "1": 0.14285714285714285
+                },
+                "cp_avg_set_size_mond": 1.198247535596933,
+                "best_hpo_params": {
+                    "C": 72.00503817038027,
+                    "coef0": 1.2536223012228445,
+                    "degree": 2,
+                    "gamma": 0.03461859944484052,
+                    "kernel": "poly",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.9115016536575539,
+                    "pr_auc": 0.7398664539096588,
+                    "brier_score": 0.03949333515121023
+                },
+                "cp_coverage_mond": 0.945600584154801,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.22597402597402597
+                },
+                "cp_avg_set_size_mond": 1.195326761591822,
+                "best_hpo_params": {
+                    "ccp_alpha": 0.00027098211790596967,
+                    "criterion": "log_loss",
+                    "max_depth": 41,
+                    "max_features": "sqrt",
+                    "min_samples_leaf": 12,
+                    "min_samples_split": 24,
+                    "splitter": "best",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "Random_Forest": {
+                "status": "failed",
+                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9713399050748448,
+                    "precision": 0.9253731343283582,
+                    "recall_tpr": 0.6441558441558441,
+                    "f1_score": 0.7595712098009189,
+                    "specificity_tnr": 0.9960730414294129,
+                    "g_mean": 0.8010157744032527,
+                    "confusion_matrix": {
+                        "tn": 5073,
+                        "fp": 20,
+                        "fn": 137,
+                        "tp": 248
+                    },
+                    "roc_auc": 0.9500822366324035,
+                    "pr_auc": 0.8096767692864939,
+                    "brier_score": 0.02512792331565832
+                },
+                "cp_coverage_mond": 0.9808324205914567,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.7272727272727273
+                },
+                "cp_avg_set_size_mond": 1.2018985031033225,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.671548352757404,
+                    "eval_metric": "logloss",
+                    "gamma": 0.09305677512486618,
+                    "learning_rate": 0.08192678537706805,
+                    "max_depth": 10,
+                    "min_child_weight": 2.5379710478017956,
+                    "objective": "binary:logistic",
+                    "reg_alpha": 0.0015064017388305203,
+                    "reg_lambda": 0.005018177793082854,
+                    "subsample": 0.8487175162644316,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 96,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.9713399050748448,
+                    "precision": 0.8931034482758621,
+                    "recall_tpr": 0.6727272727272727,
+                    "f1_score": 0.7674074074074074,
+                    "specificity_tnr": 0.99391321421559,
+                    "g_mean": 0.8176995327911417,
+                    "confusion_matrix": {
+                        "tn": 5062,
+                        "fp": 31,
+                        "fn": 126,
+                        "tp": 259
+                    },
+                    "roc_auc": 0.9454203758150352,
+                    "pr_auc": 0.8001437208373027,
+                    "brier_score": 0.025162065063753947
+                },
+                "cp_coverage_mond": 0.9819277108433735,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.7428571428571429
+                },
+                "cp_avg_set_size_mond": 1.2002555677254472,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.5422063747642943,
+                    "learning_rate": 0.07885165402835125,
+                    "max_depth": 7,
+                    "metric": "logloss",
+                    "min_child_samples": 38,
+                    "num_leaves": 83,
+                    "objective": "binary",
+                    "reg_alpha": 0.000741705371224509,
+                    "reg_lambda": 0.0409101946040011,
+                    "subsample": 0.9160632720432271,
+                    "verbose": -1,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 100,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            }
+        }
+    },
+    "group_6": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.9355604235122308,
+                    "precision": 0.9444444444444444,
+                    "recall_tpr": 0.08831168831168831,
+                    "f1_score": 0.16152019002375298,
+                    "specificity_tnr": 0.9996073041429413,
+                    "g_mean": 0.2971144706633429,
+                    "confusion_matrix": {
+                        "tn": 5091,
+                        "fp": 2,
+                        "fn": 351,
+                        "tp": 34
+                    },
+                    "roc_auc": 0.8292216717113633,
+                    "pr_auc": 0.5914963475424697,
+                    "brier_score": 0.05731209879305462
+                },
+                "cp_coverage_mond": 0.9501642935377875,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.2909090909090909
+                },
+                "cp_avg_set_size_mond": 1.2099306316173786,
+                "best_hpo_params": {
+                    "C": 0.03097852707196491,
+                    "coef0": 0.3499262631523865,
+                    "degree": 4,
+                    "gamma": 2.7850890691622254,
+                    "kernel": "poly",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.9664110989412195,
+                    "precision": 0.8821292775665399,
+                    "recall_tpr": 0.6025974025974026,
+                    "f1_score": 0.7160493827160493,
+                    "specificity_tnr": 0.99391321421559,
+                    "g_mean": 0.7739053697278178,
+                    "confusion_matrix": {
+                        "tn": 5062,
+                        "fp": 31,
+                        "fn": 153,
+                        "tp": 232
+                    },
+                    "roc_auc": 0.9309107738913355,
+                    "pr_auc": 0.7463723348261578,
+                    "brier_score": 0.03329121340754956
+                },
+                "cp_coverage_mond": 0.9751734209565535,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.6467532467532467
+                },
+                "cp_avg_set_size_mond": 1.188207374954363,
+                "best_hpo_params": {
+                    "ccp_alpha": 1.7480370654279986e-05,
+                    "criterion": "gini",
+                    "max_depth": 4,
+                    "max_features": null,
+                    "min_samples_leaf": 10,
+                    "min_samples_split": 5,
+                    "splitter": "best",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "Random_Forest": {
+                "status": "failed",
+                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9737130339539978,
+                    "precision": 0.9350180505415162,
+                    "recall_tpr": 0.6727272727272727,
+                    "f1_score": 0.7824773413897281,
+                    "specificity_tnr": 0.9964657372864716,
+                    "g_mean": 0.8187488490440149,
+                    "confusion_matrix": {
+                        "tn": 5075,
+                        "fp": 18,
+                        "fn": 126,
+                        "tp": 259
+                    },
+                    "roc_auc": 0.9569788938726697,
+                    "pr_auc": 0.8278580378432274,
+                    "brier_score": 0.023031033296736947
+                },
+                "cp_coverage_mond": 0.9848484848484849,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.7844155844155845
+                },
+                "cp_avg_set_size_mond": 1.2004381161007667,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9399063351767167,
+                    "eval_metric": "logloss",
+                    "gamma": 0.0001335978952467058,
+                    "learning_rate": 0.0760037620756919,
+                    "max_depth": 10,
+                    "min_child_weight": 1.624776257487987,
+                    "objective": "binary:logistic",
+                    "reg_alpha": 0.00024991242947225575,
+                    "reg_lambda": 0.02544659616528781,
+                    "subsample": 0.5818175813025477,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 88,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.9740781307046368,
+                    "precision": 0.9175257731958762,
+                    "recall_tpr": 0.6935064935064935,
+                    "f1_score": 0.7899408284023669,
+                    "specificity_tnr": 0.9952876497152955,
+                    "g_mean": 0.8308059027139695,
+                    "confusion_matrix": {
+                        "tn": 5069,
+                        "fp": 24,
+                        "fn": 118,
+                        "tp": 267
+                    },
+                    "roc_auc": 0.9566050678165345,
+                    "pr_auc": 0.8287749808527533,
+                    "brier_score": 0.022753621825136513
+                },
+                "cp_coverage_mond": 0.984118291347207,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.7740259740259741
+                },
+                "cp_avg_set_size_mond": 1.1973347937203358,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9252309722947032,
+                    "learning_rate": 0.10579748529279263,
+                    "max_depth": 10,
+                    "metric": "logloss",
+                    "min_child_samples": 17,
+                    "num_leaves": 27,
+                    "objective": "binary",
+                    "reg_alpha": 0.00024991242947225575,
+                    "reg_lambda": 0.02544659616528781,
+                    "subsample": 0.5818175813025477,
+                    "verbose": -1,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 100,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            }
+        }
+    },
+    "group_7": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.947608616283315,
+                    "precision": 0.9298245614035088,
+                    "recall_tpr": 0.2753246753246753,
+                    "f1_score": 0.4248496993987976,
+                    "specificity_tnr": 0.9984292165717652,
+                    "g_mean": 0.5243016306357354,
+                    "confusion_matrix": {
+                        "tn": 5085,
+                        "fp": 8,
+                        "fn": 279,
+                        "tp": 106
+                    },
+                    "roc_auc": 0.8731775979763413,
+                    "pr_auc": 0.6677357107634603,
+                    "brier_score": 0.04110407569171322
+                },
+                "cp_coverage_mond": 0.9565534866739686,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.38181818181818183
+                },
+                "cp_avg_set_size_mond": 1.194596568090544,
+                "best_hpo_params": {
+                    "C": 72.00503817038027,
+                    "coef0": 1.2536223012228445,
+                    "degree": 2,
+                    "gamma": 0.03461859944484052,
+                    "kernel": "poly",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.9664110989412195,
+                    "precision": 0.8821292775665399,
+                    "recall_tpr": 0.6025974025974026,
+                    "f1_score": 0.7160493827160493,
+                    "specificity_tnr": 0.99391321421559,
+                    "g_mean": 0.7739053697278178,
+                    "confusion_matrix": {
+                        "tn": 5062,
+                        "fp": 31,
+                        "fn": 153,
+                        "tp": 232
+                    },
+                    "roc_auc": 0.9318172893275976,
+                    "pr_auc": 0.7468683245004517,
+                    "brier_score": 0.03329940298056461
+                },
+                "cp_coverage_mond": 0.9751734209565535,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.6467532467532467
+                },
+                "cp_avg_set_size_mond": 1.187842278203724,
+                "best_hpo_params": {
+                    "ccp_alpha": 1.7480370654279986e-05,
+                    "criterion": "gini",
+                    "max_depth": 4,
+                    "max_features": null,
+                    "min_samples_leaf": 10,
+                    "min_samples_split": 5,
+                    "splitter": "best",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "Random_Forest": {
+                "status": "failed",
+                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.97298284045272,
+                    "precision": 0.9016949152542373,
+                    "recall_tpr": 0.6909090909090909,
+                    "f1_score": 0.7823529411764706,
+                    "specificity_tnr": 0.9943059100726487,
+                    "g_mean": 0.8288395456382556,
+                    "confusion_matrix": {
+                        "tn": 5064,
+                        "fp": 29,
+                        "fn": 119,
+                        "tp": 266
+                    },
+                    "roc_auc": 0.9578351748389053,
+                    "pr_auc": 0.8295135620892117,
+                    "brier_score": 0.022822157496917343
+                },
+                "cp_coverage_mond": 0.9855786783497626,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.7948051948051948
+                },
+                "cp_avg_set_size_mond": 1.198977729098211,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9121655978614853,
+                    "eval_metric": "logloss",
+                    "gamma": 0.02349697204033308,
+                    "learning_rate": 0.10681467052331052,
+                    "max_depth": 8,
+                    "min_child_weight": 7.7379802149848596,
+                    "objective": "binary:logistic",
+                    "reg_alpha": 8.407080271524405,
+                    "reg_lambda": 0.004198585696776684,
+                    "subsample": 0.7198992394624828,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 99,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.9728002920774005,
+                    "precision": 0.943609022556391,
+                    "recall_tpr": 0.6519480519480519,
+                    "f1_score": 0.7711213517665131,
+                    "specificity_tnr": 0.9970547810720597,
+                    "g_mean": 0.806243091260583,
+                    "confusion_matrix": {
+                        "tn": 5078,
+                        "fp": 15,
+                        "fn": 134,
+                        "tp": 251
+                    },
+                    "roc_auc": 0.9538745566234276,
+                    "pr_auc": 0.8188033821323824,
+                    "brier_score": 0.023635637699761836
+                },
+                "cp_coverage_mond": 0.9832055494706097,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.7610389610389611
+                },
+                "cp_avg_set_size_mond": 1.1980649872216138,
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9039964094408228,
+                    "learning_rate": 0.0797677538429512,
+                    "max_depth": 11,
+                    "metric": "logloss",
+                    "min_child_samples": 13,
+                    "num_leaves": 127,
+                    "objective": "binary",
+                    "reg_alpha": 0.012938744945205824,
+                    "reg_lambda": 0.03825756838214059,
+                    "subsample": 0.7039257128340015,
+                    "verbose": -1,
+                    "random_state": 33,
+                    "scale_pos_weight": 13.214532871972319
+                },
+                "final_n_estimators": 46,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0
+            }
+        }
+    }
+}

@@ -25,7 +25,7 @@
                     "0": 0.9994109562144119,
                     "1": 0.5064935064935064
                 },
-                "cp_avg_set_size_mond": 1.2009857612267252,
+                "cp_avg_set_size_mond": 1.2008032128514057,
                 "best_hpo_params": {
                     "C": 0.0014475396101653174,
                     "coef0": 1.4521650217106972,
@@ -36,7 +36,13 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 21.370640516281128,
+                "mcp_calibration_duration_s": 2.443208694458008,
+                "evaluation_duration_s": 4.661723375320435,
+                "timestamp": "20250506_195814",
+                "group": "group_1",
+                "calibration_method": "platt"
             },
             "CART": {
                 "metrics": {
@@ -61,7 +67,7 @@
                     "0": 1.0,
                     "1": 0.5688311688311688
                 },
-                "cp_avg_set_size_mond": 1.192223439211391,
+                "cp_avg_set_size_mond": 1.1993428258488499,
                 "best_hpo_params": {
                     "ccp_alpha": 0.08048701329482862,
                     "criterion": "log_loss",
@@ -74,11 +80,58 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 1.0321693420410156,
+                "mcp_calibration_duration_s": 0.007447957992553711,
+                "evaluation_duration_s": 0.13741350173950195,
+                "timestamp": "20250506_195843",
+                "group": "group_1",
+                "calibration_method": "platt"
             },
             "Random_Forest": {
-                "status": "failed",
-                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+                "metrics": {
+                    "accuracy": 0.9618473895582329,
+                    "precision": 0.8728813559322034,
+                    "recall_tpr": 0.535064935064935,
+                    "f1_score": 0.6634460547504025,
+                    "specificity_tnr": 0.9941095621441194,
+                    "g_mean": 0.7293237746817762,
+                    "confusion_matrix": {
+                        "tn": 5063,
+                        "fp": 30,
+                        "fn": 179,
+                        "tp": 206
+                    },
+                    "roc_auc": 0.8792103243310783,
+                    "pr_auc": 0.6718900183956013,
+                    "brier_score": 0.03406074490423263
+                },
+                "cp_coverage_mond": 0.9728002920774005,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.612987012987013
+                },
+                "cp_avg_set_size_mond": 1.2082876962395035,
+                "best_hpo_params": {
+                    "bootstrap": false,
+                    "ccp_alpha": 9.523997498642667e-07,
+                    "criterion": "entropy",
+                    "max_depth": 24,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 4,
+                    "min_samples_split": 7,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 3.606712579727173,
+                "mcp_calibration_duration_s": 0.13028764724731445,
+                "evaluation_duration_s": 0.27585840225219727,
+                "timestamp": "20250506_195844",
+                "group": "group_1",
+                "calibration_method": "platt"
             },
             "XGBoost": {
                 "metrics": {
@@ -96,14 +149,14 @@
                     },
                     "roc_auc": 0.8814869403127796,
                     "pr_auc": 0.6702817741485521,
-                    "brier_score": 0.035206736055598827
+                    "brier_score": 0.03520673623912334
                 },
                 "cp_coverage_mond": 0.9720700985761227,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
                     "1": 0.6025974025974026
                 },
-                "cp_avg_set_size_mond": 1.195326761591822,
+                "cp_avg_set_size_mond": 1.1955093099671412,
                 "best_hpo_params": {
                     "colsample_bytree": 0.9132556652096665,
                     "eval_metric": "logloss",
@@ -120,7 +173,10 @@
                 },
                 "final_n_estimators": 99,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_xgb_predictor": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=XGBClassifier(base_score=None, booster=None,\n                                               callbacks=None,\n                                               colsample_bylevel=None,\n                                               colsample_bynode=None,\n                                               colsample_bytree=0.9132556652096665,\n                                               device=None,\n                                               early_stopping_rounds=None,\n                                               enable_categorical=False,\n                                               eval_metric='logloss',\n                                               feature_types=None,\n                                               feature_weigh...\n                                               grow_policy=None,\n                                               importance_type=None,\n                                               interaction_constraints=None,\n                                               learning_rate=0.08409252270878798,\n                                               max_bin=None,\n                                               max_cat_threshold=None,\n                                               max_cat_to_onehot=None,\n                                               max_delta_step=None, max_depth=8,\n                                               max_leaves=None,\n                                               min_child_weight=1.6359148524463065,\n                                               missing=nan,\n                                               monotone_constraints=None,\n                                               multi_strategy=None,\n                                               n_estimators=99, n_jobs=-1,\n                                               num_parallel_tree=None, ...),\n                       n_jobs=-1)",
+                "fitted_cc_xgb": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_195848"
             },
             "LightGBM": {
                 "metrics": {
@@ -163,7 +219,10 @@
                 },
                 "final_n_estimators": 13,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_model": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=LGBMClassifier(colsample_bytree=0.587568255527738,\n                                                learning_rate=0.04025491647638509,\n                                                max_depth=10, metric='logloss',\n                                                min_child_samples=59,\n                                                n_estimators=13, n_jobs=-1,\n                                                num_leaves=115,\n                                                objective='binary',\n                                                random_state=33,\n                                                reg_alpha=0.04521012452572427,\n                                                reg_lambda=0.07784122133813023,\n                                                scale_pos_weight=13.214532871972319,\n                                                subsample=0.7102534887199938,\n                                                verbose=-1),\n                       n_jobs=-1)",
+                "mondrian_classifier": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_195850"
             }
         }
     },
@@ -184,9 +243,9 @@
                         "fn": 385,
                         "tp": 0
                     },
-                    "roc_auc": 0.743428846825666,
-                    "pr_auc": 0.30727680812828534,
-                    "brier_score": 0.06534939917742669
+                    "roc_auc": 0.7434303768095246,
+                    "pr_auc": 0.30727223435411094,
+                    "brier_score": 0.06534939480216133
                 },
                 "cp_coverage_mond": 0.9461482292807594,
                 "cp_class_coverage_dict": {
@@ -204,7 +263,13 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 1216.0827207565308,
+                "mcp_calibration_duration_s": 0.6829311847686768,
+                "evaluation_duration_s": 1.5179288387298584,
+                "timestamp": "20250506_195851",
+                "group": "group_2",
+                "calibration_method": "platt"
             },
             "CART": {
                 "metrics": {
@@ -220,8 +285,8 @@
                         "fn": 385,
                         "tp": 0
                     },
-                    "roc_auc": 0.8612778935182234,
-                    "pr_auc": 0.610845518692596,
+                    "roc_auc": 0.8612791685047723,
+                    "pr_auc": 0.61084580420204,
                     "brier_score": 0.050559971852633105
                 },
                 "cp_coverage_mond": 0.9443227455275648,
@@ -229,7 +294,7 @@
                     "0": 1.0,
                     "1": 0.2077922077922078
                 },
-                "cp_avg_set_size_mond": 1.198977729098211,
+                "cp_avg_set_size_mond": 1.1991602774735304,
                 "best_hpo_params": {
                     "ccp_alpha": 3.2185620345457748e-06,
                     "criterion": "log_loss",
@@ -242,11 +307,58 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 0.2478175163269043,
+                "mcp_calibration_duration_s": 0.01310110092163086,
+                "evaluation_duration_s": 0.30704569816589355,
+                "timestamp": "20250506_201909",
+                "group": "group_2",
+                "calibration_method": "platt"
             },
             "Random_Forest": {
-                "status": "failed",
-                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+                "metrics": {
+                    "accuracy": 0.9644030668127054,
+                    "precision": 0.8925619834710744,
+                    "recall_tpr": 0.561038961038961,
+                    "f1_score": 0.6889952153110048,
+                    "specificity_tnr": 0.9948949538582368,
+                    "g_mean": 0.7471109899175157,
+                    "confusion_matrix": {
+                        "tn": 5067,
+                        "fp": 26,
+                        "fn": 169,
+                        "tp": 216
+                    },
+                    "roc_auc": 0.912201111278276,
+                    "pr_auc": 0.7370053514574733,
+                    "brier_score": 0.030968025040154945
+                },
+                "cp_coverage_mond": 0.9737130339539978,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.625974025974026
+                },
+                "cp_avg_set_size_mond": 1.1984300839722526,
+                "best_hpo_params": {
+                    "bootstrap": false,
+                    "ccp_alpha": 9.523997498642667e-07,
+                    "criterion": "entropy",
+                    "max_depth": 24,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 4,
+                    "min_samples_split": 7,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 7.588079452514648,
+                "mcp_calibration_duration_s": 0.13576602935791016,
+                "evaluation_duration_s": 0.38814735412597656,
+                "timestamp": "20250506_201910",
+                "group": "group_2",
+                "calibration_method": "platt"
             },
             "XGBoost": {
                 "metrics": {
@@ -263,15 +375,15 @@
                         "tp": 223
                     },
                     "roc_auc": 0.906970351462792,
-                    "pr_auc": 0.7472167681475008,
-                    "brier_score": 0.03026348362110554
+                    "pr_auc": 0.7472168232645768,
+                    "brier_score": 0.030263414236503968
                 },
-                "cp_coverage_mond": 0.9757210660825119,
+                "cp_coverage_mond": 0.9759036144578314,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
-                    "1": 0.6545454545454545
+                    "1": 0.6571428571428571
                 },
-                "cp_avg_set_size_mond": 1.2004381161007667,
+                "cp_avg_set_size_mond": 1.2006206644760862,
                 "best_hpo_params": {
                     "colsample_bytree": 0.9399063351767167,
                     "eval_metric": "logloss",
@@ -288,7 +400,10 @@
                 },
                 "final_n_estimators": 99,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_xgb_predictor": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=XGBClassifier(base_score=None, booster=None,\n                                               callbacks=None,\n                                               colsample_bylevel=None,\n                                               colsample_bynode=None,\n                                               colsample_bytree=0.9399063351767167,\n                                               device=None,\n                                               early_stopping_rounds=None,\n                                               enable_categorical=False,\n                                               eval_metric='logloss',\n                                               feature_types=None,\n                                               feature_weigh...\n                                               grow_policy=None,\n                                               importance_type=None,\n                                               interaction_constraints=None,\n                                               learning_rate=0.0760037620756919,\n                                               max_bin=None,\n                                               max_cat_threshold=None,\n                                               max_cat_to_onehot=None,\n                                               max_delta_step=None,\n                                               max_depth=10, max_leaves=None,\n                                               min_child_weight=1.624776257487987,\n                                               missing=nan,\n                                               monotone_constraints=None,\n                                               multi_strategy=None,\n                                               n_estimators=99, n_jobs=-1,\n                                               num_parallel_tree=None, ...),\n                       n_jobs=-1)",
+                "fitted_cc_xgb": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_201918"
             },
             "LightGBM": {
                 "metrics": {
@@ -313,7 +428,7 @@
                     "0": 1.0,
                     "1": 0.6467532467532467
                 },
-                "cp_avg_set_size_mond": 1.198612632347572,
+                "cp_avg_set_size_mond": 1.1987951807228916,
                 "best_hpo_params": {
                     "colsample_bytree": 0.9039964094408228,
                     "learning_rate": 0.0797677538429512,
@@ -331,7 +446,10 @@
                 },
                 "final_n_estimators": 100,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_model": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=LGBMClassifier(colsample_bytree=0.9039964094408228,\n                                                learning_rate=0.0797677538429512,\n                                                max_depth=11, metric='logloss',\n                                                min_child_samples=13, n_jobs=-1,\n                                                num_leaves=127,\n                                                objective='binary',\n                                                random_state=33,\n                                                reg_alpha=0.012938744945205824,\n                                                reg_lambda=0.03825756838214059,\n                                                scale_pos_weight=13.214532871972319,\n                                                subsample=0.7039257128340015,\n                                                verbose=-1),\n                       n_jobs=-1)",
+                "mondrian_classifier": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_201924"
             }
         }
     },
@@ -352,16 +470,16 @@
                         "fn": 385,
                         "tp": 0
                     },
-                    "roc_auc": 0.7396956862105105,
-                    "pr_auc": 0.27775499787361563,
-                    "brier_score": 0.06530572340566555
+                    "roc_auc": 0.7396956862105104,
+                    "pr_auc": 0.2777511495118701,
+                    "brier_score": 0.06530572326468664
                 },
-                "cp_coverage_mond": 0.9439576487769259,
+                "cp_coverage_mond": 0.9437751004016064,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
-                    "1": 0.2025974025974026
+                    "1": 0.2
                 },
-                "cp_avg_set_size_mond": 1.1987951807228916,
+                "cp_avg_set_size_mond": 1.198612632347572,
                 "best_hpo_params": {
                     "C": 0.03097852707196491,
                     "coef0": 0.3499262631523865,
@@ -372,7 +490,13 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 1791.0722393989563,
+                "mcp_calibration_duration_s": 0.3640098571777344,
+                "evaluation_duration_s": 0.8716509342193604,
+                "timestamp": "20250506_201928",
+                "group": "group_3",
+                "calibration_method": "platt"
             },
             "CART": {
                 "metrics": {
@@ -388,16 +512,16 @@
                         "fn": 385,
                         "tp": 0
                     },
-                    "roc_auc": 0.883991523889423,
-                    "pr_auc": 0.6636686762295538,
+                    "roc_auc": 0.8839922888813523,
+                    "pr_auc": 0.663668891082988,
                     "brier_score": 0.04736248472001762
                 },
-                "cp_coverage_mond": 0.9470609711573567,
+                "cp_coverage_mond": 0.9472435195326762,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
-                    "1": 0.24675324675324675
+                    "1": 0.24935064935064935
                 },
-                "cp_avg_set_size_mond": 1.2113910186199344,
+                "cp_avg_set_size_mond": 1.2115735669952536,
                 "best_hpo_params": {
                     "ccp_alpha": 0.00027098211790596967,
                     "criterion": "log_loss",
@@ -410,11 +534,58 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 1.4303219318389893,
+                "mcp_calibration_duration_s": 0.00950479507446289,
+                "evaluation_duration_s": 0.15448951721191406,
+                "timestamp": "20250506_204920",
+                "group": "group_3",
+                "calibration_method": "platt"
             },
             "Random_Forest": {
-                "status": "failed",
-                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+                "metrics": {
+                    "accuracy": 0.9660460021905805,
+                    "precision": 0.927038626609442,
+                    "recall_tpr": 0.561038961038961,
+                    "f1_score": 0.6990291262135923,
+                    "specificity_tnr": 0.996662085215001,
+                    "g_mean": 0.7477742044199898,
+                    "confusion_matrix": {
+                        "tn": 5076,
+                        "fp": 17,
+                        "fn": 169,
+                        "tp": 216
+                    },
+                    "roc_auc": 0.921092102478319,
+                    "pr_auc": 0.7546724705882081,
+                    "brier_score": 0.029134615049269088
+                },
+                "cp_coverage_mond": 0.9731653888280394,
+                "cp_class_coverage_dict": {
+                    "0": 0.9998036520714706,
+                    "1": 0.6207792207792208
+                },
+                "cp_avg_set_size_mond": 1.2068273092369477,
+                "best_hpo_params": {
+                    "bootstrap": false,
+                    "ccp_alpha": 9.523997498642667e-07,
+                    "criterion": "entropy",
+                    "max_depth": 24,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 4,
+                    "min_samples_split": 7,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 11.387021541595459,
+                "mcp_calibration_duration_s": 0.14165043830871582,
+                "evaluation_duration_s": 0.27750253677368164,
+                "timestamp": "20250506_204922",
+                "group": "group_3",
+                "calibration_method": "platt"
             },
             "XGBoost": {
                 "metrics": {
@@ -430,9 +601,9 @@
                         "fn": 149,
                         "tp": 236
                     },
-                    "roc_auc": 0.9269896802588732,
-                    "pr_auc": 0.7686409584853608,
-                    "brier_score": 0.028514646121562355
+                    "roc_auc": 0.9269912102427318,
+                    "pr_auc": 0.7686456495429951,
+                    "brier_score": 0.028514639017195666
                 },
                 "cp_coverage_mond": 0.9790069368382621,
                 "cp_class_coverage_dict": {
@@ -456,7 +627,10 @@
                 },
                 "final_n_estimators": 99,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_xgb_predictor": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=XGBClassifier(base_score=None, booster=None,\n                                               callbacks=None,\n                                               colsample_bylevel=None,\n                                               colsample_bynode=None,\n                                               colsample_bytree=0.9121655978614853,\n                                               device=None,\n                                               early_stopping_rounds=None,\n                                               enable_categorical=False,\n                                               eval_metric='logloss',\n                                               feature_types=None,\n                                               feature_weigh...\n                                               grow_policy=None,\n                                               importance_type=None,\n                                               interaction_constraints=None,\n                                               learning_rate=0.10681467052331052,\n                                               max_bin=None,\n                                               max_cat_threshold=None,\n                                               max_cat_to_onehot=None,\n                                               max_delta_step=None, max_depth=8,\n                                               max_leaves=None,\n                                               min_child_weight=7.7379802149848596,\n                                               missing=nan,\n                                               monotone_constraints=None,\n                                               multi_strategy=None,\n                                               n_estimators=99, n_jobs=-1,\n                                               num_parallel_tree=None, ...),\n                       n_jobs=-1)",
+                "fitted_cc_xgb": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_204933"
             },
             "LightGBM": {
                 "metrics": {
@@ -476,12 +650,12 @@
                     "pr_auc": 0.5497646588220287,
                     "brier_score": 0.04580173583660082
                 },
-                "cp_coverage_mond": 0.9466958744067178,
+                "cp_coverage_mond": 0.945600584154801,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
-                    "1": 0.24155844155844156
+                    "1": 0.22597402597402597
                 },
-                "cp_avg_set_size_mond": 1.2068273092369477,
+                "cp_avg_set_size_mond": 1.2055494706097116,
                 "best_hpo_params": {
                     "colsample_bytree": 0.9252309722947032,
                     "learning_rate": 0.10579748529279263,
@@ -499,7 +673,10 @@
                 },
                 "final_n_estimators": 1,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_model": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=LGBMClassifier(colsample_bytree=0.9252309722947032,\n                                                learning_rate=0.10579748529279263,\n                                                max_depth=10, metric='logloss',\n                                                min_child_samples=17,\n                                                n_estimators=1, n_jobs=-1,\n                                                num_leaves=27,\n                                                objective='binary',\n                                                random_state=33,\n                                                reg_alpha=0.00024991242947225575,\n                                                reg_lambda=0.02544659616528781,\n                                                scale_pos_weight=13.214532871972319,\n                                                subsample=0.5818175813025477,\n                                                verbose=-1),\n                       n_jobs=-1)",
+                "mondrian_classifier": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_204936"
             }
         }
     },
@@ -522,7 +699,7 @@
                     },
                     "roc_auc": 0.9195677285604636,
                     "pr_auc": 0.7128576526824556,
-                    "brier_score": 0.03369261397889738
+                    "brier_score": 0.033692613978897404
                 },
                 "cp_coverage_mond": 0.9695144213216502,
                 "cp_class_coverage_dict": {
@@ -540,7 +717,13 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 11.845641136169434,
+                "mcp_calibration_duration_s": 0.8897337913513184,
+                "evaluation_duration_s": 2.0733931064605713,
+                "timestamp": "20250506_204938",
+                "group": "group_4",
+                "calibration_method": "platt"
             },
             "CART": {
                 "metrics": {
@@ -558,14 +741,14 @@
                     },
                     "roc_auc": 0.9058442833428109,
                     "pr_auc": 0.6804460282992739,
-                    "brier_score": 0.03873106637050972
+                    "brier_score": 0.038731066370509715
                 },
                 "cp_coverage_mond": 0.9696969696969697,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
                     "1": 0.5688311688311688
                 },
-                "cp_avg_set_size_mond": 1.198247535596933,
+                "cp_avg_set_size_mond": 1.198977729098211,
                 "best_hpo_params": {
                     "ccp_alpha": 1.7480370654279986e-05,
                     "criterion": "gini",
@@ -578,11 +761,58 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 0.1796560287475586,
+                "mcp_calibration_duration_s": 0.0,
+                "evaluation_duration_s": 0.1547858715057373,
+                "timestamp": "20250506_204953",
+                "group": "group_4",
+                "calibration_method": "platt"
             },
             "Random_Forest": {
-                "status": "failed",
-                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+                "metrics": {
+                    "accuracy": 0.9627601314348302,
+                    "precision": 0.8549019607843137,
+                    "recall_tpr": 0.5662337662337662,
+                    "f1_score": 0.68125,
+                    "specificity_tnr": 0.9927351266444139,
+                    "g_mean": 0.7497467236556765,
+                    "confusion_matrix": {
+                        "tn": 5056,
+                        "fp": 37,
+                        "fn": 167,
+                        "tp": 218
+                    },
+                    "roc_auc": 0.92074556113433,
+                    "pr_auc": 0.7274048054684775,
+                    "brier_score": 0.031261361935106
+                },
+                "cp_coverage_mond": 0.9751734209565535,
+                "cp_class_coverage_dict": {
+                    "0": 1.0,
+                    "1": 0.6467532467532467
+                },
+                "cp_avg_set_size_mond": 1.183461117196057,
+                "best_hpo_params": {
+                    "bootstrap": false,
+                    "ccp_alpha": 9.523997498642667e-07,
+                    "criterion": "entropy",
+                    "max_depth": 24,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 4,
+                    "min_samples_split": 7,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 2.783783197402954,
+                "mcp_calibration_duration_s": 0.1333448886871338,
+                "evaluation_duration_s": 0.27045345306396484,
+                "timestamp": "20250506_204953",
+                "group": "group_4",
+                "calibration_method": "platt"
             },
             "XGBoost": {
                 "metrics": {
@@ -599,15 +829,15 @@
                         "tp": 221
                     },
                     "roc_auc": 0.9218535244453171,
-                    "pr_auc": 0.7216477975307172,
-                    "brier_score": 0.032235953914178606
+                    "pr_auc": 0.7216477975307171,
+                    "brier_score": 0.032235953505845454
                 },
                 "cp_coverage_mond": 0.9757210660825119,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
                     "1": 0.6545454545454545
                 },
-                "cp_avg_set_size_mond": 1.1920408908360716,
+                "cp_avg_set_size_mond": 1.192223439211391,
                 "best_hpo_params": {
                     "colsample_bytree": 0.9945318117251694,
                     "eval_metric": "logloss",
@@ -624,7 +854,10 @@
                 },
                 "final_n_estimators": 51,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_xgb_predictor": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=XGBClassifier(base_score=None, booster=None,\n                                               callbacks=None,\n                                               colsample_bylevel=None,\n                                               colsample_bynode=None,\n                                               colsample_bytree=0.9945318117251694,\n                                               device=None,\n                                               early_stopping_rounds=None,\n                                               enable_categorical=False,\n                                               eval_metric='logloss',\n                                               feature_types=None,\n                                               feature_weigh...\n                                               importance_type=None,\n                                               interaction_constraints=None,\n                                               learning_rate=0.18840199781437414,\n                                               max_bin=None,\n                                               max_cat_threshold=None,\n                                               max_cat_to_onehot=None,\n                                               max_delta_step=None,\n                                               max_depth=10, max_leaves=None,\n                                               min_child_weight=1.3986421814568597,\n                                               missing=nan,\n                                               monotone_constraints=None,\n                                               multi_strategy=None,\n                                               n_estimators=51, n_jobs=-1,\n                                               num_parallel_tree=None, ...),\n                       n_jobs=-1)",
+                "fitted_cc_xgb": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_204956"
             },
             "LightGBM": {
                 "metrics": {
@@ -649,7 +882,7 @@
                     "0": 1.0,
                     "1": 0.6545454545454545
                 },
-                "cp_avg_set_size_mond": 1.1812705366922234,
+                "cp_avg_set_size_mond": 1.1810879883169039,
                 "best_hpo_params": {
                     "colsample_bytree": 0.9039964094408228,
                     "learning_rate": 0.0797677538429512,
@@ -667,7 +900,10 @@
                 },
                 "final_n_estimators": 98,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_model": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=LGBMClassifier(colsample_bytree=0.9039964094408228,\n                                                learning_rate=0.0797677538429512,\n                                                max_depth=11, metric='logloss',\n                                                min_child_samples=13,\n                                                n_estimators=98, n_jobs=-1,\n                                                num_leaves=127,\n                                                objective='binary',\n                                                random_state=33,\n                                                reg_alpha=0.012938744945205824,\n                                                reg_lambda=0.03825756838214059,\n                                                scale_pos_weight=13.214532871972319,\n                                                subsample=0.7039257128340015,\n                                                verbose=-1),\n                       n_jobs=-1)",
+                "mondrian_classifier": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_204959"
             }
         }
     },
@@ -688,16 +924,16 @@
                         "fn": 376,
                         "tp": 9
                     },
-                    "roc_auc": 0.8829934644189503,
-                    "pr_auc": 0.5998112205199825,
-                    "brier_score": 0.05258297515660662
+                    "roc_auc": 0.8829929544243308,
+                    "pr_auc": 0.5998102651878672,
+                    "brier_score": 0.0525828739041855
                 },
                 "cp_coverage_mond": 0.9395764877692588,
                 "cp_class_coverage_dict": {
                     "0": 0.9998036520714706,
                     "1": 0.14285714285714285
                 },
-                "cp_avg_set_size_mond": 1.198247535596933,
+                "cp_avg_set_size_mond": 1.1984300839722526,
                 "best_hpo_params": {
                     "C": 72.00503817038027,
                     "coef0": 1.2536223012228445,
@@ -708,7 +944,13 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 86.73693227767944,
+                "mcp_calibration_duration_s": 0.532219409942627,
+                "evaluation_duration_s": 1.1850714683532715,
+                "timestamp": "20250506_205001",
+                "group": "group_5",
+                "calibration_method": "platt"
             },
             "CART": {
                 "metrics": {
@@ -725,13 +967,13 @@
                         "tp": 0
                     },
                     "roc_auc": 0.9115016536575539,
-                    "pr_auc": 0.7398664539096588,
+                    "pr_auc": 0.7398664539096589,
                     "brier_score": 0.03949333515121023
                 },
-                "cp_coverage_mond": 0.945600584154801,
+                "cp_coverage_mond": 0.9454180357794816,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
-                    "1": 0.22597402597402597
+                    "1": 0.22337662337662337
                 },
                 "cp_avg_set_size_mond": 1.195326761591822,
                 "best_hpo_params": {
@@ -746,11 +988,58 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 0.23446893692016602,
+                "mcp_calibration_duration_s": 0.007860422134399414,
+                "evaluation_duration_s": 0.14931058883666992,
+                "timestamp": "20250506_205130",
+                "group": "group_5",
+                "calibration_method": "platt"
             },
             "Random_Forest": {
-                "status": "failed",
-                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+                "metrics": {
+                    "accuracy": 0.9698795180722891,
+                    "precision": 0.9296875,
+                    "recall_tpr": 0.6181818181818182,
+                    "f1_score": 0.7425897035881436,
+                    "specificity_tnr": 0.9964657372864716,
+                    "g_mean": 0.7848547644192758,
+                    "confusion_matrix": {
+                        "tn": 5075,
+                        "fp": 18,
+                        "fn": 147,
+                        "tp": 238
+                    },
+                    "roc_auc": 0.9460402742751064,
+                    "pr_auc": 0.7960597816564245,
+                    "brier_score": 0.026043389253581767
+                },
+                "cp_coverage_mond": 0.9777290982110259,
+                "cp_class_coverage_dict": {
+                    "0": 0.9996073041429413,
+                    "1": 0.6883116883116883
+                },
+                "cp_avg_set_size_mond": 1.1887550200803212,
+                "best_hpo_params": {
+                    "bootstrap": false,
+                    "ccp_alpha": 9.523997498642667e-07,
+                    "criterion": "entropy",
+                    "max_depth": 24,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 4,
+                    "min_samples_split": 7,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 11.243617296218872,
+                "mcp_calibration_duration_s": 0.13449335098266602,
+                "evaluation_duration_s": 0.2823760509490967,
+                "timestamp": "20250506_205130",
+                "group": "group_5",
+                "calibration_method": "platt"
             },
             "XGBoost": {
                 "metrics": {
@@ -766,9 +1055,9 @@
                         "fn": 137,
                         "tp": 248
                     },
-                    "roc_auc": 0.9500822366324035,
-                    "pr_auc": 0.8096767692864939,
-                    "brier_score": 0.02512792331565832
+                    "roc_auc": 0.9500807066485447,
+                    "pr_auc": 0.8096700300416009,
+                    "brier_score": 0.02512769004573993
                 },
                 "cp_coverage_mond": 0.9808324205914567,
                 "cp_class_coverage_dict": {
@@ -792,7 +1081,10 @@
                 },
                 "final_n_estimators": 96,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_xgb_predictor": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=XGBClassifier(base_score=None, booster=None,\n                                               callbacks=None,\n                                               colsample_bylevel=None,\n                                               colsample_bynode=None,\n                                               colsample_bytree=0.671548352757404,\n                                               device=None,\n                                               early_stopping_rounds=None,\n                                               enable_categorical=False,\n                                               eval_metric='logloss',\n                                               feature_types=None,\n                                               feature_weight...\n                                               importance_type=None,\n                                               interaction_constraints=None,\n                                               learning_rate=0.08192678537706805,\n                                               max_bin=None,\n                                               max_cat_threshold=None,\n                                               max_cat_to_onehot=None,\n                                               max_delta_step=None,\n                                               max_depth=10, max_leaves=None,\n                                               min_child_weight=2.5379710478017956,\n                                               missing=nan,\n                                               monotone_constraints=None,\n                                               multi_strategy=None,\n                                               n_estimators=96, n_jobs=-1,\n                                               num_parallel_tree=None, ...),\n                       n_jobs=-1)",
+                "fitted_cc_xgb": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_205142"
             },
             "LightGBM": {
                 "metrics": {
@@ -835,7 +1127,10 @@
                 },
                 "final_n_estimators": 100,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_model": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=LGBMClassifier(colsample_bytree=0.5422063747642943,\n                                                learning_rate=0.07885165402835125,\n                                                max_depth=7, metric='logloss',\n                                                min_child_samples=38, n_jobs=-1,\n                                                num_leaves=83,\n                                                objective='binary',\n                                                random_state=33,\n                                                reg_alpha=0.000741705371224509,\n                                                reg_lambda=0.0409101946040011,\n                                                scale_pos_weight=13.214532871972319,\n                                                subsample=0.9160632720432271,\n                                                verbose=-1),\n                       n_jobs=-1)",
+                "mondrian_classifier": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_205147"
             }
         }
     },
@@ -858,7 +1153,7 @@
                     },
                     "roc_auc": 0.8292216717113633,
                     "pr_auc": 0.5914963475424697,
-                    "brier_score": 0.05731209879305462
+                    "brier_score": 0.0573120987930549
                 },
                 "cp_coverage_mond": 0.9501642935377875,
                 "cp_class_coverage_dict": {
@@ -876,7 +1171,13 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 8.91338038444519,
+                "mcp_calibration_duration_s": 0.3051798343658447,
+                "evaluation_duration_s": 0.7370672225952148,
+                "timestamp": "20250506_205148",
+                "group": "group_6",
+                "calibration_method": "platt"
             },
             "CART": {
                 "metrics": {
@@ -901,7 +1202,7 @@
                     "0": 1.0,
                     "1": 0.6467532467532467
                 },
-                "cp_avg_set_size_mond": 1.188207374954363,
+                "cp_avg_set_size_mond": 1.1887550200803212,
                 "best_hpo_params": {
                     "ccp_alpha": 1.7480370654279986e-05,
                     "criterion": "gini",
@@ -914,11 +1215,58 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 0.38192296028137207,
+                "mcp_calibration_duration_s": 0.008413314819335938,
+                "evaluation_duration_s": 0.14821720123291016,
+                "timestamp": "20250506_205158",
+                "group": "group_6",
+                "calibration_method": "platt"
             },
             "Random_Forest": {
-                "status": "failed",
-                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+                "metrics": {
+                    "accuracy": 0.9722526469514421,
+                    "precision": 0.9298892988929889,
+                    "recall_tpr": 0.6545454545454545,
+                    "f1_score": 0.7682926829268293,
+                    "specificity_tnr": 0.9962693893579423,
+                    "g_mean": 0.8075293185433063,
+                    "confusion_matrix": {
+                        "tn": 5074,
+                        "fp": 19,
+                        "fn": 133,
+                        "tp": 252
+                    },
+                    "roc_auc": 0.9539783405285074,
+                    "pr_auc": 0.8223624724798687,
+                    "brier_score": 0.023728145621236776
+                },
+                "cp_coverage_mond": 0.9835706462212487,
+                "cp_class_coverage_dict": {
+                    "0": 0.9996073041429413,
+                    "1": 0.7714285714285715
+                },
+                "cp_avg_set_size_mond": 1.1907630522088353,
+                "best_hpo_params": {
+                    "bootstrap": false,
+                    "ccp_alpha": 9.523997498642667e-07,
+                    "criterion": "entropy",
+                    "max_depth": 24,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 4,
+                    "min_samples_split": 7,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 15.19997262954712,
+                "mcp_calibration_duration_s": 0.1451864242553711,
+                "evaluation_duration_s": 0.31815004348754883,
+                "timestamp": "20250506_205159",
+                "group": "group_6",
+                "calibration_method": "platt"
             },
             "XGBoost": {
                 "metrics": {
@@ -934,9 +1282,9 @@
                         "fn": 126,
                         "tp": 259
                     },
-                    "roc_auc": 0.9569788938726697,
-                    "pr_auc": 0.8278580378432274,
-                    "brier_score": 0.023031033296736947
+                    "roc_auc": 0.9569783838780501,
+                    "pr_auc": 0.8278518652058345,
+                    "brier_score": 0.0230310614129315
                 },
                 "cp_coverage_mond": 0.9848484848484849,
                 "cp_class_coverage_dict": {
@@ -960,7 +1308,10 @@
                 },
                 "final_n_estimators": 88,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_xgb_predictor": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=XGBClassifier(base_score=None, booster=None,\n                                               callbacks=None,\n                                               colsample_bylevel=None,\n                                               colsample_bynode=None,\n                                               colsample_bytree=0.9399063351767167,\n                                               device=None,\n                                               early_stopping_rounds=None,\n                                               enable_categorical=False,\n                                               eval_metric='logloss',\n                                               feature_types=None,\n                                               feature_weigh...\n                                               grow_policy=None,\n                                               importance_type=None,\n                                               interaction_constraints=None,\n                                               learning_rate=0.0760037620756919,\n                                               max_bin=None,\n                                               max_cat_threshold=None,\n                                               max_cat_to_onehot=None,\n                                               max_delta_step=None,\n                                               max_depth=10, max_leaves=None,\n                                               min_child_weight=1.624776257487987,\n                                               missing=nan,\n                                               monotone_constraints=None,\n                                               multi_strategy=None,\n                                               n_estimators=88, n_jobs=-1,\n                                               num_parallel_tree=None, ...),\n                       n_jobs=-1)",
+                "fitted_cc_xgb": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_205214"
             },
             "LightGBM": {
                 "metrics": {
@@ -985,7 +1336,7 @@
                     "0": 1.0,
                     "1": 0.7740259740259741
                 },
-                "cp_avg_set_size_mond": 1.1973347937203358,
+                "cp_avg_set_size_mond": 1.1975173420956553,
                 "best_hpo_params": {
                     "colsample_bytree": 0.9252309722947032,
                     "learning_rate": 0.10579748529279263,
@@ -1003,7 +1354,10 @@
                 },
                 "final_n_estimators": 100,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_model": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=LGBMClassifier(colsample_bytree=0.9252309722947032,\n                                                learning_rate=0.10579748529279263,\n                                                max_depth=10, metric='logloss',\n                                                min_child_samples=17, n_jobs=-1,\n                                                num_leaves=27,\n                                                objective='binary',\n                                                random_state=33,\n                                                reg_alpha=0.00024991242947225575,\n                                                reg_lambda=0.02544659616528781,\n                                                scale_pos_weight=13.214532871972319,\n                                                subsample=0.5818175813025477,\n                                                verbose=-1),\n                       n_jobs=-1)",
+                "mondrian_classifier": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_205219"
             }
         }
     },
@@ -1026,14 +1380,14 @@
                     },
                     "roc_auc": 0.8731775979763413,
                     "pr_auc": 0.6677357107634603,
-                    "brier_score": 0.04110407569171322
+                    "brier_score": 0.04110407569171426
                 },
                 "cp_coverage_mond": 0.9565534866739686,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
                     "1": 0.38181818181818183
                 },
-                "cp_avg_set_size_mond": 1.194596568090544,
+                "cp_avg_set_size_mond": 1.1944140197152244,
                 "best_hpo_params": {
                     "C": 72.00503817038027,
                     "coef0": 1.2536223012228445,
@@ -1044,7 +1398,13 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 19.76946783065796,
+                "mcp_calibration_duration_s": 0.30266594886779785,
+                "evaluation_duration_s": 0.7288289070129395,
+                "timestamp": "20250506_205221",
+                "group": "group_7",
+                "calibration_method": "platt"
             },
             "CART": {
                 "metrics": {
@@ -1062,14 +1422,14 @@
                     },
                     "roc_auc": 0.9318172893275976,
                     "pr_auc": 0.7468683245004517,
-                    "brier_score": 0.03329940298056461
+                    "brier_score": 0.0332994029767477
                 },
                 "cp_coverage_mond": 0.9751734209565535,
                 "cp_class_coverage_dict": {
                     "0": 1.0,
                     "1": 0.6467532467532467
                 },
-                "cp_avg_set_size_mond": 1.187842278203724,
+                "cp_avg_set_size_mond": 1.1883899233296824,
                 "best_hpo_params": {
                     "ccp_alpha": 1.7480370654279986e-05,
                     "criterion": "gini",
@@ -1082,11 +1442,58 @@
                     "class_weight": "balanced"
                 },
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 0.415191650390625,
+                "mcp_calibration_duration_s": 0.0018377304077148438,
+                "evaluation_duration_s": 0.15762805938720703,
+                "timestamp": "20250506_205242",
+                "group": "group_7",
+                "calibration_method": "platt"
             },
             "Random_Forest": {
-                "status": "failed",
-                "error": "'RandomForestClassifier' object has no attribute 'estimators_'"
+                "metrics": {
+                    "accuracy": 0.9728002920774005,
+                    "precision": 0.9338235294117647,
+                    "recall_tpr": 0.6597402597402597,
+                    "f1_score": 0.7732115677321156,
+                    "specificity_tnr": 0.9964657372864716,
+                    "g_mean": 0.8108073534074826,
+                    "confusion_matrix": {
+                        "tn": 5075,
+                        "fp": 18,
+                        "fn": 131,
+                        "tp": 254
+                    },
+                    "roc_auc": 0.9525646354430961,
+                    "pr_auc": 0.8191111541087693,
+                    "brier_score": 0.02382209120490936
+                },
+                "cp_coverage_mond": 0.9833880978459292,
+                "cp_class_coverage_dict": {
+                    "0": 0.9996073041429413,
+                    "1": 0.7688311688311689
+                },
+                "cp_avg_set_size_mond": 1.194596568090544,
+                "best_hpo_params": {
+                    "bootstrap": false,
+                    "ccp_alpha": 9.523997498642667e-07,
+                    "criterion": "entropy",
+                    "max_depth": 24,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 4,
+                    "min_samples_split": 7,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 16.072547435760498,
+                "mcp_calibration_duration_s": 0.14253711700439453,
+                "evaluation_duration_s": 0.3268775939941406,
+                "timestamp": "20250506_205242",
+                "group": "group_7",
+                "calibration_method": "platt"
             },
             "XGBoost": {
                 "metrics": {
@@ -1102,9 +1509,9 @@
                         "fn": 119,
                         "tp": 266
                     },
-                    "roc_auc": 0.9578351748389053,
-                    "pr_auc": 0.8295135620892117,
-                    "brier_score": 0.022822157496917343
+                    "roc_auc": 0.9578341548496663,
+                    "pr_auc": 0.8295125617752515,
+                    "brier_score": 0.022822158410716175
                 },
                 "cp_coverage_mond": 0.9855786783497626,
                 "cp_class_coverage_dict": {
@@ -1128,7 +1535,10 @@
                 },
                 "final_n_estimators": 99,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_xgb_predictor": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=XGBClassifier(base_score=None, booster=None,\n                                               callbacks=None,\n                                               colsample_bylevel=None,\n                                               colsample_bynode=None,\n                                               colsample_bytree=0.9121655978614853,\n                                               device=None,\n                                               early_stopping_rounds=None,\n                                               enable_categorical=False,\n                                               eval_metric='logloss',\n                                               feature_types=None,\n                                               feature_weigh...\n                                               grow_policy=None,\n                                               importance_type=None,\n                                               interaction_constraints=None,\n                                               learning_rate=0.10681467052331052,\n                                               max_bin=None,\n                                               max_cat_threshold=None,\n                                               max_cat_to_onehot=None,\n                                               max_delta_step=None, max_depth=8,\n                                               max_leaves=None,\n                                               min_child_weight=7.7379802149848596,\n                                               missing=nan,\n                                               monotone_constraints=None,\n                                               multi_strategy=None,\n                                               n_estimators=99, n_jobs=-1,\n                                               num_parallel_tree=None, ...),\n                       n_jobs=-1)",
+                "fitted_cc_xgb": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_205259"
             },
             "LightGBM": {
                 "metrics": {
@@ -1153,7 +1563,7 @@
                     "0": 1.0,
                     "1": 0.7610389610389611
                 },
-                "cp_avg_set_size_mond": 1.1980649872216138,
+                "cp_avg_set_size_mond": 1.1978824388462943,
                 "best_hpo_params": {
                     "colsample_bytree": 0.9039964094408228,
                     "learning_rate": 0.0797677538429512,
@@ -1171,7 +1581,10 @@
                 },
                 "final_n_estimators": 46,
                 "hpo_f1_score": null,
-                "hpo_duration_s": 0.0
+                "hpo_duration_s": 0.0,
+                "final_model": "CalibratedClassifierCV(cv=StratifiedKFold(n_splits=5, random_state=33, shuffle=True),\n                       estimator=LGBMClassifier(colsample_bytree=0.9039964094408228,\n                                                learning_rate=0.0797677538429512,\n                                                max_depth=11, metric='logloss',\n                                                min_child_samples=13,\n                                                n_estimators=46, n_jobs=-1,\n                                                num_leaves=127,\n                                                objective='binary',\n                                                random_state=33,\n                                                reg_alpha=0.012938744945205824,\n                                                reg_lambda=0.03825756838214059,\n                                                scale_pos_weight=13.214532871972319,\n                                                subsample=0.7039257128340015,\n                                                verbose=-1),\n                       n_jobs=-1)",
+                "mondrian_classifier": "ConformalClassifier(fitted=True, mondrian=True)",
+                "timestamp": "20250506_205302"
             }
         }
     }

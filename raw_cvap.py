@@ -197,27 +197,30 @@ class CVAPPredictorRaw:
                 return scores
             else:
                 raise AttributeError(f"{estimator.__class__.__name__} does not have 'decision_function'.")
+        
         elif method == 'predict_proba':
-             # Note: CVAP usually works better with margins/decision scores than probabilities.
-             # Using predict_proba here might deviate from standard VA theory application.
             if hasattr(estimator, 'predict_proba'):
                 proba = estimator.predict_proba(X)
                 if proba.shape[1] != 2: raise ValueError(f"predict_proba returned shape {proba.shape}, expected (n_samples, 2).")
                 return proba[:, 1] # Return prob of positive class as the score
             else:
                 raise AttributeError(f"{estimator.__class__.__name__} does not have 'predict_proba'.")
+        
         elif method == 'raw_margin_xgb':
-            if hasattr(estimator, 'predict') and 'output_margin' in estimator.predict.__code__.co_varnames:
+            if hasattr(estimator, 'predict'):
                  try:
+                     # FIX: Removed the fragile __code__ check. Directly try the call.
                      scores = estimator.predict(X, output_margin=True)
                      return scores.flatten()
                  except TypeError as e:
                      raise TypeError(f"Error calling predict with output_margin=True on {estimator.__class__.__name__}. Is it XGBoost? Error: {e}")
             else:
-                 raise AttributeError(f"{estimator.__class__.__name__} might not support 'output_margin'.")
+                 raise AttributeError(f"{estimator.__class__.__name__} does not have a `predict` method.")
+
         elif method == 'raw_score_lgbm':
-            if hasattr(estimator, 'predict') and 'raw_score' in estimator.predict.__code__.co_varnames:
+            if hasattr(estimator, 'predict'):
                  try:
+                     # FIX: Removed the fragile __code__ check. Directly try the call.
                      scores = estimator.predict(X, raw_score=True)
                      if scores.ndim == 2 and scores.shape[1] == 1: scores = scores.flatten()
                      elif scores.ndim != 1: raise ValueError(f"LightGBM raw_score returned shape {scores.shape}. Expected 1D for binary.")
@@ -225,7 +228,8 @@ class CVAPPredictorRaw:
                  except TypeError as e:
                      raise TypeError(f"Error calling predict with raw_score=True on {estimator.__class__.__name__}. Is it LightGBM? Error: {e}")
             else:
-                 raise AttributeError(f"{estimator.__class__.__name__} might not support 'raw_score'.")
+                 raise AttributeError(f"{estimator.__class__.__name__} does not have a `predict` method.")
+        
         else:
             # Fallback: Try treating score_method_ as a direct method name
             try:

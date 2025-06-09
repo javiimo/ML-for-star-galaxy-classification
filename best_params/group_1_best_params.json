@@ -1,62 +1,43 @@
 {
     "SVM": {
-        "C": 0.0014475396101653174,
-        "coef0": 1.4521650217106972,
-        "degree": 5,
-        "gamma": 0.0005672717728733488,
-        "kernel": "poly",
-        "random_state": 33,
-        "class_weight": "balanced"
+        "C": 0.1,
+        "gamma": 0.0001,
+        "kernel": "rbf"
     },
     "CART": {
-        "ccp_alpha": 0.08048701329482862,
-        "criterion": "log_loss",
-        "max_depth": 18,
+        "ccp_alpha": 0.019097709244066164,
+        "criterion": "entropy",
+        "max_depth": 7,
         "max_features": null,
-        "min_samples_leaf": 14,
-        "min_samples_split": 35,
-        "splitter": "random",
-        "random_state": 33,
-        "class_weight": "balanced"
+        "min_samples_leaf": 17,
+        "min_samples_split": 22
     },
     "Random_Forest": {
-        "bootstrap": false,
-        "ccp_alpha": 9.523997498642667e-07,
         "criterion": "entropy",
-        "max_depth": 24,
+        "max_depth": 38,
         "max_features": 0.5,
         "min_samples_leaf": 4,
-        "min_samples_split": 7,
+        "n_estimators": 27,
         "random_state": 33,
         "class_weight": "balanced"
     },
     "XGBoost": {
-        "colsample_bytree": 0.9132556652096665,
-        "eval_metric": "logloss",
-        "gamma": 0.0018907401035942594,
-        "learning_rate": 0.08409252270878798,
-        "max_depth": 8,
-        "min_child_weight": 1.6359148524463065,
+        "colsample_bytree": 0.9855667576739716,
+        "learning_rate": 0.04720112836111096,
+        "max_depth": 7,
+        "n_estimators": 238,
         "objective": "binary:logistic",
-        "reg_alpha": 0.01094604245722785,
-        "reg_lambda": 0.01873923604998429,
-        "subsample": 0.9307345917693841,
-        "random_state": 33,
-        "scale_pos_weight": 13.214532871972319
+        "subsample": 0.6217462118602456,
+        "random_state": 33
     },
     "LightGBM": {
-        "colsample_bytree": 0.587568255527738,
-        "learning_rate": 0.04025491647638509,
+        "colsample_bytree": 0.8312490385882467,
+        "learning_rate": 0.005284777884716592,
         "max_depth": 10,
-        "metric": "logloss",
-        "min_child_samples": 59,
-        "num_leaves": 115,
+        "n_estimators": 233,
+        "num_leaves": 76,
         "objective": "binary",
-        "reg_alpha": 0.04521012452572427,
-        "reg_lambda": 0.07784122133813023,
-        "subsample": 0.7102534887199938,
-        "verbose": -1,
-        "random_state": 33,
-        "scale_pos_weight": 13.214532871972319
+        "subsample": 0.8378429127167043,
+        "verbose": -1
     }
 }

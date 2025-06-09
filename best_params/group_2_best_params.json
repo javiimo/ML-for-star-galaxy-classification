@@ -1,62 +1,37 @@
 {
     "SVM": {
-        "C": 0.03097852707196491,
-        "coef0": 0.3499262631523865,
-        "degree": 4,
-        "gamma": 2.7850890691622254,
-        "kernel": "poly",
-        "random_state": 33,
-        "class_weight": "balanced"
+        "C": 255.72777864488506,
+        "gamma": 6.350010435413966,
+        "kernel": "rbf"
     },
     "CART": {
-        "ccp_alpha": 3.2185620345457748e-06,
-        "criterion": "log_loss",
-        "max_depth": 31,
-        "max_features": null,
-        "min_samples_leaf": 7,
-        "min_samples_split": 22,
-        "splitter": "random",
-        "random_state": 33,
-        "class_weight": "balanced"
+        "ccp_alpha": 1e-05,
+        "criterion": "entropy",
+        "max_depth": 30,
+        "min_samples_split": 5
     },
     "Random_Forest": {
-        "bootstrap": false,
-        "ccp_alpha": 9.523997498642667e-07,
         "criterion": "entropy",
-        "max_depth": 24,
+        "max_depth": 32,
         "max_features": 0.5,
-        "min_samples_leaf": 4,
-        "min_samples_split": 7,
+        "min_samples_leaf": 6,
+        "n_estimators": 116,
         "random_state": 33,
         "class_weight": "balanced"
     },
     "XGBoost": {
-        "colsample_bytree": 0.9399063351767167,
-        "eval_metric": "logloss",
-        "gamma": 0.0001335978952467058,
-        "learning_rate": 0.0760037620756919,
-        "max_depth": 10,
-        "min_child_weight": 1.624776257487987,
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "n_estimators": 500,
         "objective": "binary:logistic",
-        "reg_alpha": 0.00024991242947225575,
-        "reg_lambda": 0.02544659616528781,
-        "subsample": 0.5818175813025477,
-        "random_state": 33,
-        "scale_pos_weight": 13.214532871972319
+        "subsample": 0.7
     },
     "LightGBM": {
-        "colsample_bytree": 0.9039964094408228,
-        "learning_rate": 0.0797677538429512,
-        "max_depth": 11,
-        "metric": "logloss",
-        "min_child_samples": 13,
-        "num_leaves": 127,
+        "learning_rate": 0.1,
+        "max_depth": 5,
+        "n_estimators": 500,
+        "num_leaves": 40,
         "objective": "binary",
-        "reg_alpha": 0.012938744945205824,
-        "reg_lambda": 0.03825756838214059,
-        "subsample": 0.7039257128340015,
-        "verbose": -1,
-        "random_state": 33,
-        "scale_pos_weight": 13.214532871972319
+        "verbose": -1
     }
 }

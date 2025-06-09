@@ -1,0 +1,554 @@
+{
+    "group_1": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.9576487769258853,
+                    "precision": 0.7593220338983051,
+                    "recall_tpr": 0.5818181818181818,
+                    "f1_score": 0.6588235294117647,
+                    "specificity_tnr": 0.9860592970744159,
+                    "g_mean": 0.7574346357203049,
+                    "confusion_matrix": {
+                        "tn": 5022,
+                        "fp": 71,
+                        "fn": 161,
+                        "tp": 224
+                    },
+                    "roc_auc": 0.8913897608380231,
+                    "pr_auc": 0.654436302804263,
+                    "brier_score": 0.04037919286165013
+                },
+                "best_hpo_params": {
+                    "C": 0.1,
+                    "gamma": 0.0001,
+                    "kernel": "rbf",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 109.69814658164978,
+                "evaluation_duration_s": 9.655926704406738,
+                "timestamp": "20250609_045548",
+                "group": "group_1",
+                "calibration_method": "cvap"
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.8639877499292382,
+                    "pr_auc": 0.672527786567365,
+                    "brier_score": 0.07028112429144213
+                },
+                "best_hpo_params": {
+                    "ccp_alpha": 0.019097709244066164,
+                    "criterion": "entropy",
+                    "max_depth": 7,
+                    "max_features": null,
+                    "min_samples_leaf": 17,
+                    "min_samples_split": 22,
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 0.5714659690856934,
+                "evaluation_duration_s": 0.024508237838745117,
+                "timestamp": "20250609_045748",
+                "group": "group_1",
+                "calibration_method": "cvap"
+            },
+            "Random_Forest": {
+                "metrics": {
+                    "accuracy": 0.943227455275648,
+                    "precision": 0.9868421052631579,
+                    "recall_tpr": 0.19480519480519481,
+                    "f1_score": 0.32537960954446854,
+                    "specificity_tnr": 0.9998036520714706,
+                    "g_mean": 0.4413240818363848,
+                    "confusion_matrix": {
+                        "tn": 5092,
+                        "fp": 1,
+                        "fn": 310,
+                        "tp": 75
+                    },
+                    "roc_auc": 0.8456238636682383,
+                    "pr_auc": 0.4487916412842179,
+                    "brier_score": 0.053447860788499
+                },
+                "best_hpo_params": {
+                    "criterion": "entropy",
+                    "max_depth": 38,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 4,
+                    "n_estimators": 27,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 1.1357998847961426,
+                "evaluation_duration_s": 0.0685114860534668,
+                "timestamp": "20250609_045748",
+                "group": "group_1",
+                "calibration_method": "cvap"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9636728733114275,
+                    "precision": 0.9151785714285714,
+                    "recall_tpr": 0.5324675324675324,
+                    "f1_score": 0.6732348111658456,
+                    "specificity_tnr": 0.9962693893579423,
+                    "g_mean": 0.7283413371657267,
+                    "confusion_matrix": {
+                        "tn": 5074,
+                        "fp": 19,
+                        "fn": 180,
+                        "tp": 205
+                    },
+                    "roc_auc": 0.8854773932135016,
+                    "pr_auc": 0.6816691147645614,
+                    "brier_score": 0.036024467907172696
+                },
+                "best_hpo_params": {
+                    "colsample_bytree": 0.9855667576739716,
+                    "learning_rate": 0.04720112836111096,
+                    "max_depth": 7,
+                    "n_estimators": 238,
+                    "objective": "binary:logistic",
+                    "subsample": 0.6217462118602456,
+                    "random_state": 33
+                },
+                "best_hpo_method": "pre-tuned",
+                "final_n_estimators": 237,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 2.3738865852355957,
+                "evaluation_duration_s": 0.02019023895263672,
+                "timestamp": "20250609_045750",
+                "group": "group_1",
+                "calibration_method": "cvap"
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.6532345133758838,
+                    "pr_auc": 0.09321992800709408,
+                    "brier_score": 0.0653079383033654
+                },
+                "best_hpo_params": {
+                    "colsample_bytree": 0.8312490385882467,
+                    "learning_rate": 0.005284777884716592,
+                    "max_depth": 10,
+                    "n_estimators": 233,
+                    "num_leaves": 76,
+                    "objective": "binary",
+                    "subsample": 0.8378429127167043,
+                    "verbose": -1
+                },
+                "best_hpo_method": "pre-tuned",
+                "final_n_estimators": 82,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 1.2401909828186035,
+                "evaluation_duration_s": 0.024596452713012695,
+                "timestamp": "20250609_045752",
+                "group": "group_1",
+                "calibration_method": "cvap"
+            }
+        }
+    },
+    "group_2": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.9306316173786053,
+                    "precision": 1.0,
+                    "recall_tpr": 0.012987012987012988,
+                    "f1_score": 0.02564102564102564,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.11396057645963795,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 380,
+                        "tp": 5
+                    },
+                    "roc_auc": 0.7255374705796853,
+                    "pr_auc": 0.15973017828915792,
+                    "brier_score": 0.06232691148856287
+                },
+                "best_hpo_params": {
+                    "C": 255.72777864488506,
+                    "gamma": 6.350010435413966,
+                    "kernel": "rbf",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 262.93731594085693,
+                "evaluation_duration_s": 5.624867916107178,
+                "timestamp": "20250609_045753",
+                "group": "group_2",
+                "calibration_method": "cvap"
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.7661906716884136,
+                    "pr_auc": 0.58558911641914,
+                    "brier_score": 0.0702809771044762
+                },
+                "best_hpo_params": {
+                    "ccp_alpha": 1e-05,
+                    "criterion": "entropy",
+                    "max_depth": 30,
+                    "min_samples_split": 5,
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 7.8203208446502686,
+                "evaluation_duration_s": 0.024470090866088867,
+                "timestamp": "20250609_050222",
+                "group": "group_2",
+                "calibration_method": "cvap"
+            },
+            "Random_Forest": {
+                "metrics": {
+                    "accuracy": 0.9304490690032858,
+                    "precision": 1.0,
+                    "recall_tpr": 0.01038961038961039,
+                    "f1_score": 0.02056555269922879,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.10192943828752511,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 381,
+                        "tp": 4
+                    },
+                    "roc_auc": 0.8967273645263042,
+                    "pr_auc": 0.4785831097485927,
+                    "brier_score": 0.05809842677261592
+                },
+                "best_hpo_params": {
+                    "criterion": "entropy",
+                    "max_depth": 32,
+                    "max_features": 0.5,
+                    "min_samples_leaf": 6,
+                    "n_estimators": 116,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 15.220052242279053,
+                "evaluation_duration_s": 0.0777444839477539,
+                "timestamp": "20250609_050230",
+                "group": "group_2",
+                "calibration_method": "cvap"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9709748083242059,
+                    "precision": 0.9448818897637795,
+                    "recall_tpr": 0.6233766233766234,
+                    "f1_score": 0.7511737089201878,
+                    "specificity_tnr": 0.9972511290005891,
+                    "g_mean": 0.7884561125737517,
+                    "confusion_matrix": {
+                        "tn": 5079,
+                        "fp": 14,
+                        "fn": 145,
+                        "tp": 240
+                    },
+                    "roc_auc": 0.922270190049495,
+                    "pr_auc": 0.790770266089183,
+                    "brier_score": 0.02785857911348762
+                },
+                "best_hpo_params": {
+                    "learning_rate": 0.05,
+                    "max_depth": 8,
+                    "n_estimators": 500,
+                    "objective": "binary:logistic",
+                    "subsample": 0.7
+                },
+                "best_hpo_method": "pre-tuned",
+                "final_n_estimators": 361,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 12.701189279556274,
+                "evaluation_duration_s": 0.020116329193115234,
+                "timestamp": "20250609_050245",
+                "group": "group_2",
+                "calibration_method": "cvap"
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.9695144213216502,
+                    "precision": 0.9007352941176471,
+                    "recall_tpr": 0.6363636363636364,
+                    "f1_score": 0.745814307458143,
+                    "specificity_tnr": 0.9946986059297075,
+                    "g_mean": 0.7956067005469903,
+                    "confusion_matrix": {
+                        "tn": 5066,
+                        "fp": 27,
+                        "fn": 140,
+                        "tp": 245
+                    },
+                    "roc_auc": 0.9117094764650233,
+                    "pr_auc": 0.7821397062858148,
+                    "brier_score": 0.028668114298145624
+                },
+                "best_hpo_params": {
+                    "learning_rate": 0.1,
+                    "max_depth": 5,
+                    "n_estimators": 500,
+                    "num_leaves": 40,
+                    "objective": "binary",
+                    "verbose": -1
+                },
+                "best_hpo_method": "pre-tuned",
+                "final_n_estimators": 469,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 3.249423027038574,
+                "evaluation_duration_s": 0.041806697845458984,
+                "timestamp": "20250609_050258",
+                "group": "group_2",
+                "calibration_method": "cvap"
+            }
+        }
+    },
+    "group_3": {
+        "status": "completed",
+        "results": {
+            "SVM": {
+                "metrics": {
+                    "accuracy": 0.9441401971522454,
+                    "precision": 0.9876543209876543,
+                    "recall_tpr": 0.2077922077922078,
+                    "f1_score": 0.34334763948497854,
+                    "specificity_tnr": 0.9998036520714706,
+                    "g_mean": 0.4557975517953593,
+                    "confusion_matrix": {
+                        "tn": 5092,
+                        "fp": 1,
+                        "fn": 305,
+                        "tp": 80
+                    },
+                    "roc_auc": 0.8726092089728453,
+                    "pr_auc": 0.6330666627618262,
+                    "brier_score": 0.045092913791478076
+                },
+                "best_hpo_params": {
+                    "C": 663.343252984599,
+                    "gamma": 0.5636197485904956,
+                    "kernel": "rbf",
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 183.51464366912842,
+                "evaluation_duration_s": 5.598102331161499,
+                "timestamp": "20250609_050301",
+                "group": "group_3",
+                "calibration_method": "cvap"
+            },
+            "CART": {
+                "metrics": {
+                    "accuracy": 0.929718875502008,
+                    "precision": 0.0,
+                    "recall_tpr": 0.0,
+                    "f1_score": 0.0,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.0,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 385,
+                        "tp": 0
+                    },
+                    "roc_auc": 0.7944826232083252,
+                    "pr_auc": 0.6384734197245611,
+                    "brier_score": 0.0702810008856788
+                },
+                "best_hpo_params": {
+                    "ccp_alpha": 1e-05,
+                    "criterion": "entropy",
+                    "max_depth": 30,
+                    "min_samples_split": 5,
+                    "random_state": 33,
+                    "class_weight": "balanced"
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 7.5376012325286865,
+                "evaluation_duration_s": 0.01558232307434082,
+                "timestamp": "20250609_050610",
+                "group": "group_3",
+                "calibration_method": "cvap"
+            },
+            "Random_Forest": {
+                "metrics": {
+                    "accuracy": 0.9361080686381891,
+                    "precision": 1.0,
+                    "recall_tpr": 0.09090909090909091,
+                    "f1_score": 0.16666666666666666,
+                    "specificity_tnr": 1.0,
+                    "g_mean": 0.30151134457776363,
+                    "confusion_matrix": {
+                        "tn": 5093,
+                        "fp": 0,
+                        "fn": 350,
+                        "tp": 35
+                    },
+                    "roc_auc": 0.9399889331167556,
+                    "pr_auc": 0.7638807522901938,
+                    "brier_score": 0.04203451543104317
+                },
+                "best_hpo_params": {
+                    "criterion": "entropy",
+                    "max_depth": 34,
+                    "max_features": "sqrt",
+                    "min_samples_leaf": 8,
+                    "n_estimators": 170,
+                    "random_state": 33,
+                    "class_weight": "balanced",
+                    "n_jobs": -1
+                },
+                "best_hpo_method": "pre-tuned",
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 7.278408765792847,
+                "evaluation_duration_s": 0.06902337074279785,
+                "timestamp": "20250609_050618",
+                "group": "group_3",
+                "calibration_method": "cvap"
+            },
+            "XGBoost": {
+                "metrics": {
+                    "accuracy": 0.9742606790799562,
+                    "precision": 0.9206896551724137,
+                    "recall_tpr": 0.6935064935064935,
+                    "f1_score": 0.7911111111111111,
+                    "specificity_tnr": 0.9954839976438249,
+                    "g_mean": 0.830887848357283,
+                    "confusion_matrix": {
+                        "tn": 5070,
+                        "fp": 23,
+                        "fn": 118,
+                        "tp": 267
+                    },
+                    "roc_auc": 0.9481202873309686,
+                    "pr_auc": 0.8199589505449076,
+                    "brier_score": 0.024087000207147154
+                },
+                "best_hpo_params": {
+                    "learning_rate": 0.05,
+                    "max_depth": 6,
+                    "n_estimators": 500,
+                    "objective": "binary:logistic",
+                    "subsample": 0.7
+                },
+                "best_hpo_method": "pre-tuned",
+                "final_n_estimators": 484,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 11.411300420761108,
+                "evaluation_duration_s": 0.024367094039916992,
+                "timestamp": "20250609_050625",
+                "group": "group_3",
+                "calibration_method": "cvap"
+            },
+            "LightGBM": {
+                "metrics": {
+                    "accuracy": 0.9735304855786784,
+                    "precision": 0.925531914893617,
+                    "recall_tpr": 0.6779220779220779,
+                    "f1_score": 0.782608695652174,
+                    "specificity_tnr": 0.9958766935008836,
+                    "g_mean": 0.8216609990819129,
+                    "confusion_matrix": {
+                        "tn": 5072,
+                        "fp": 21,
+                        "fn": 124,
+                        "tp": 261
+                    },
+                    "roc_auc": 0.9424833168010078,
+                    "pr_auc": 0.8113337630651296,
+                    "brier_score": 0.025536597858789426
+                },
+                "best_hpo_params": {
+                    "learning_rate": 0.1,
+                    "max_depth": 10,
+                    "n_estimators": 500,
+                    "num_leaves": 20,
+                    "objective": "binary",
+                    "verbose": -1
+                },
+                "best_hpo_method": "pre-tuned",
+                "final_n_estimators": 314,
+                "hpo_f1_score": null,
+                "hpo_duration_s": 0.0,
+                "calibration_duration_s": 2.841435670852661,
+                "evaluation_duration_s": 0.029245615005493164,
+                "timestamp": "20250609_050637",
+                "group": "group_3",
+                "calibration_method": "cvap"
+            }
+        }
+    }
+}

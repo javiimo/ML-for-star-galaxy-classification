@@ -1,0 +1,27 @@
+{
+    "SVM": {
+        "C": 12.38933639702895,
+        "gamma": 0.05659727053580866,
+        "kernel": "rbf",
+        "random_state": 33,
+        "class_weight": "balanced"
+    },
+    "Random_Forest": {
+        "criterion": "entropy",
+        "max_depth": 32,
+        "max_features": 0.5,
+        "min_samples_leaf": 6,
+        "n_estimators": 116,
+        "random_state": 33,
+        "class_weight": "balanced"
+    },
+    "XGBoost": {
+        "colsample_bytree": 0.9343600484690471,
+        "learning_rate": 0.19464629565800498,
+        "max_depth": 3,
+        "n_estimators": 222,
+        "objective": "binary:logistic",
+        "subsample": 0.5956439968667859,
+        "random_state": 33
+    }
+}

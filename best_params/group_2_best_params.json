@@ -1,27 +1,36 @@
 {
     "SVM": {
-        "C": 12.38933639702895,
-        "gamma": 0.05659727053580866,
+        "C": 298.943865904108,
+        "gamma": 3.138426082025075e-05,
         "kernel": "rbf",
         "random_state": 33,
         "class_weight": "balanced"
     },
     "Random_Forest": {
+        "bootstrap": false,
+        "ccp_alpha": 9.523997498642667e-07,
         "criterion": "entropy",
-        "max_depth": 32,
-        "max_features": 0.5,
-        "min_samples_leaf": 6,
-        "n_estimators": 116,
+        "max_depth": 24,
+        "max_features": "sqrt",
+        "min_samples_leaf": 4,
+        "min_samples_split": 7,
+        "n_estimators": 159,
         "random_state": 33,
-        "class_weight": "balanced"
+        "class_weight": "balanced",
+        "n_jobs": -1
     },
     "XGBoost": {
-        "colsample_bytree": 0.9840401009239852,
-        "learning_rate": 0.11541850507940078,
-        "max_depth": 6,
-        "n_estimators": 49,
+        "colsample_bytree": 0.6691128850969852,
+        "eval_metric": "logloss",
+        "gamma": 0.00011268434166829304,
+        "learning_rate": 0.058358567630877566,
+        "max_depth": 5,
+        "min_child_weight": 9.45081562627717,
+        "n_estimators": 161,
         "objective": "binary:logistic",
-        "subsample": 0.6934759921799656,
+        "reg_alpha": 0.0002642796650100502,
+        "reg_lambda": 1.983009445699706,
+        "subsample": 0.752290597505178,
         "random_state": 33
     }
 }

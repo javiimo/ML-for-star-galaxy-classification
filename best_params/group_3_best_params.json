@@ -7,21 +7,30 @@
         "class_weight": "balanced"
     },
     "Random_Forest": {
-        "criterion": "entropy",
-        "max_depth": 34,
-        "max_features": "sqrt",
-        "min_samples_leaf": 8,
-        "n_estimators": 170,
+        "bootstrap": true,
+        "ccp_alpha": 0.0006391784169923528,
+        "criterion": "log_loss",
+        "max_depth": 32,
+        "max_features": "log2",
+        "min_samples_leaf": 7,
+        "min_samples_split": 22,
+        "n_estimators": 116,
         "random_state": 33,
-        "class_weight": "balanced"
+        "class_weight": "balanced",
+        "n_jobs": -1
     },
     "XGBoost": {
-        "colsample_bytree": 0.9840401009239852,
-        "learning_rate": 0.11541850507940078,
-        "max_depth": 6,
-        "n_estimators": 49,
+        "colsample_bytree": 0.9464487690142547,
+        "eval_metric": "logloss",
+        "gamma": 2.189523592991154,
+        "learning_rate": 0.08387098133293537,
+        "max_depth": 5,
+        "min_child_weight": 3.1494671513505987,
+        "n_estimators": 458,
         "objective": "binary:logistic",
-        "subsample": 0.6934759921799656,
+        "reg_alpha": 4.698300634761819,
+        "reg_lambda": 1.5109409606895323,
+        "subsample": 0.7307925510916493,
         "random_state": 33
     }
 }

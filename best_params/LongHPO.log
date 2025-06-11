@@ -1,0 +1,460 @@
+2025-06-11 13:13:17,690 - INFO - DataFrame created with shape: (27389, 136)
+2025-06-11 13:13:17,690 - INFO - Original class counts:
+2025-06-11 13:13:17,690 - INFO - acs_mu_class
+1    25462
+2     1926
+3        1
+2025-06-11 13:13:17,690 - INFO - Number of fake detections (class 3): 1
+2025-06-11 13:13:17,719 - INFO - After dropping fakes and mapping classes (0: Galaxy, 1: Star):
+2025-06-11 13:13:17,720 - INFO - acs_mu_class
+0    25462
+1     1926
+2025-06-11 13:13:18,189 - INFO - STARTING MAIN WORKFLOW LOOP for groups: ['group_1', 'group_2', 'group_3']
+2025-06-11 13:13:18,205 - INFO - 
+============================== Processing Feature Group: group_1 ==============================
+2025-06-11 13:13:18,211 - WARNING - [group_1] Best parameters file not found: best_params\group_1_best_params.json. HPO will run.
+2025-06-11 13:13:18,211 - INFO - Original dataset size: (27388, 136)
+2025-06-11 13:13:18,215 - INFO - Dataset size after dropping NaNs: (27388, 8)
+2025-06-11 13:13:18,216 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-06-11 13:13:18,217 - INFO - Splitting data using 'stratified' strategy...
+2025-06-11 13:13:18,218 - INFO - Target split ratios: Train=0.60, Val=0.20, Test=0.20, Cal=0.00
+2025-06-11 13:13:18,235 - INFO - Train set shape: (16432, 7)
+2025-06-11 13:13:18,238 - INFO - Validation set shape: (5478, 7)
+2025-06-11 13:13:18,238 - INFO - Calibration set is empty (CAL_SIZE=0).
+2025-06-11 13:13:18,238 - INFO - Test set shape: (5478, 7)
+2025-06-11 13:13:18,238 - INFO - Calibration set shape: (0, 7)
+2025-06-11 13:13:18,238 - INFO - Split lengths verification successful.
+2025-06-11 13:13:18,238 - INFO - Data splitting complete.
+2025-06-11 13:13:18,238 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-06-11 13:13:18,238 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-06-11 13:13:18,238 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-06-11 13:13:18,238 - INFO - Validation target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-06-11 13:13:18,238 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-06-11 13:13:18,238 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-06-11 13:13:18,238 - INFO - Calibration target distribution: Set is empty.
+2025-06-11 13:13:18,238 - INFO - No existing scaler found for group 'group_1', will fit a new one if possible.
+2025-06-11 13:13:18,238 - INFO - Applying StandardScaler to features...
+2025-06-11 13:13:18,253 - INFO - Scaler saved to trained_models\group_1\scaler_group_1.joblib
+2025-06-11 13:13:18,253 - INFO - Feature scaling complete.
+2025-06-11 13:13:18,253 - INFO - 
+
+===== Starting Workflow for SVM (group_1) =====
+2025-06-11 13:13:18,253 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 13:33:26,314 - INFO - Hyperband finished in 1208.06s. Best score: 0.5782
+2025-06-11 13:33:26,314 - INFO - --- Overall Best Method: Hyperband (Score: 0.5782) ---
+2025-06-11 13:33:26,314 - INFO - --- [SVM] HPO Comparison finished in 1208.06 seconds ---
+2025-06-11 13:33:26,314 - INFO - --- Preparing Model Training & Calibration (cvap) for SVM (group_1) ---
+2025-06-11 13:33:26,314 - INFO - --- [SVM] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\SVM_group_1_cvap.joblib. Proceeding with training. ---
+2025-06-11 13:33:26,314 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 13:33:26,314 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='decision_function'
+2025-06-11 13:33:26,315 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 13:34:24,591 - INFO - Out-of-fold score generation complete.
+2025-06-11 13:34:24,591 - INFO - Fitting final base model on all data...
+2025-06-11 13:34:35,300 - INFO - Final base model fitting complete.
+2025-06-11 13:34:35,300 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 13:34:35,376 - INFO - VennAbers fitting complete.
+2025-06-11 13:34:35,377 - INFO - --- CVAP Training Complete ---
+2025-06-11 13:34:35,377 - INFO - --- [SVM] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\SVM_group_1_cvap.joblib ---
+2025-06-11 13:34:41,966 - INFO - --- SVM Metrics ---
+2025-06-11 13:34:41,966 - INFO - Accuracy: 0.0748
+2025-06-11 13:34:41,966 - INFO - Precision: 0.0706
+2025-06-11 13:34:41,966 - INFO - Recall (TPR): 1.0000
+2025-06-11 13:34:41,966 - INFO - Specificity (TNR): 0.0049
+2025-06-11 13:34:41,966 - INFO - F1-Score: 0.1319
+2025-06-11 13:34:41,966 - INFO - G-Mean: 0.0701
+2025-06-11 13:34:41,966 - INFO - ROC AUC: 0.7337
+2025-06-11 13:34:41,966 - INFO - PR AUC: 0.4783
+2025-06-11 13:34:41,966 - INFO - Brier Score: 0.9100
+2025-06-11 13:34:41,966 - INFO - Confusion Matrix (TN, FP, FN, TP): (25, 5068, 0, 385)
+2025-06-11 13:34:41,966 - INFO - ===== Finished Workflow for SVM (group_1) =====
+2025-06-11 13:34:41,966 - INFO - 
+
+===== Starting Workflow for Random_Forest (group_1) =====
+2025-06-11 13:34:41,969 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 13:54:09,557 - INFO - Hyperband finished in 1167.59s. Best score: 0.6686
+2025-06-11 13:54:09,557 - INFO - --- Overall Best Method: Hyperband (Score: 0.6686) ---
+2025-06-11 13:54:09,557 - INFO - --- [Random_Forest] HPO Comparison finished in 1167.59 seconds ---
+2025-06-11 13:54:09,557 - INFO - --- Preparing Model Training & Calibration (cvap) for Random_Forest (group_1) ---
+2025-06-11 13:54:09,558 - INFO - --- [Random_Forest] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\Random_Forest_group_1_cvap.joblib. Proceeding with training. ---
+2025-06-11 13:54:09,558 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 13:54:09,558 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='predict_proba'
+2025-06-11 13:54:09,558 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 13:54:13,275 - INFO - Out-of-fold score generation complete.
+2025-06-11 13:54:13,275 - INFO - Fitting final base model on all data...
+2025-06-11 13:54:14,034 - INFO - Final base model fitting complete.
+2025-06-11 13:54:14,034 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 13:54:14,098 - INFO - VennAbers fitting complete.
+2025-06-11 13:54:14,098 - INFO - --- CVAP Training Complete ---
+2025-06-11 13:54:14,177 - INFO - --- [Random_Forest] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\Random_Forest_group_1_cvap.joblib ---
+2025-06-11 13:54:14,304 - INFO - --- Random_Forest Metrics ---
+2025-06-11 13:54:14,304 - INFO - Accuracy: 0.9365
+2025-06-11 13:54:14,304 - INFO - Precision: 0.9512
+2025-06-11 13:54:14,304 - INFO - Recall (TPR): 0.1013
+2025-06-11 13:54:14,304 - INFO - Specificity (TNR): 0.9996
+2025-06-11 13:54:14,304 - INFO - F1-Score: 0.1831
+2025-06-11 13:54:14,304 - INFO - G-Mean: 0.3182
+2025-06-11 13:54:14,304 - INFO - ROC AUC: 0.8483
+2025-06-11 13:54:14,304 - INFO - PR AUC: 0.3929
+2025-06-11 13:54:14,304 - INFO - Brier Score: 0.0549
+2025-06-11 13:54:14,304 - INFO - Confusion Matrix (TN, FP, FN, TP): (5091, 2, 346, 39)
+2025-06-11 13:54:14,304 - INFO - ===== Finished Workflow for Random_Forest (group_1) =====
+2025-06-11 13:54:14,304 - INFO - 
+
+===== Starting Workflow for XGBoost (group_1) =====
+2025-06-11 13:54:14,304 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 13:56:12,743 - INFO - Hyperband finished in 118.44s. Best score: 0.6838
+2025-06-11 13:56:12,743 - INFO - --- Overall Best Method: Hyperband (Score: 0.6838) ---
+2025-06-11 13:56:12,743 - INFO - --- [XGBoost] HPO Comparison finished in 118.44 seconds ---
+2025-06-11 13:56:13,190 - INFO - --- Preparing Model Training & Calibration (cvap) for XGBoost (group_1) ---
+2025-06-11 13:56:13,190 - INFO - --- [XGBoost] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\XGBoost_group_1_cvap.joblib. Proceeding with training. ---
+2025-06-11 13:56:13,190 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 13:56:13,190 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='raw_margin_xgb'
+2025-06-11 13:56:13,190 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 13:56:14,855 - INFO - Out-of-fold score generation complete.
+2025-06-11 13:56:14,855 - INFO - Fitting final base model on all data...
+2025-06-11 13:56:15,188 - INFO - Final base model fitting complete.
+2025-06-11 13:56:15,188 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 13:56:15,284 - INFO - VennAbers fitting complete.
+2025-06-11 13:56:15,286 - INFO - --- CVAP Training Complete ---
+2025-06-11 13:56:15,299 - INFO - --- [XGBoost] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_1\XGBoost_group_1_cvap.joblib ---
+2025-06-11 13:56:15,321 - INFO - --- XGBoost Metrics ---
+2025-06-11 13:56:15,321 - INFO - Accuracy: 0.9624
+2025-06-11 13:56:15,321 - INFO - Precision: 0.9124
+2025-06-11 13:56:15,321 - INFO - Recall (TPR): 0.5143
+2025-06-11 13:56:15,321 - INFO - Specificity (TNR): 0.9963
+2025-06-11 13:56:15,321 - INFO - F1-Score: 0.6578
+2025-06-11 13:56:15,321 - INFO - G-Mean: 0.7158
+2025-06-11 13:56:15,321 - INFO - ROC AUC: 0.8776
+2025-06-11 13:56:15,321 - INFO - PR AUC: 0.6679
+2025-06-11 13:56:15,321 - INFO - Brier Score: 0.0371
+2025-06-11 13:56:15,321 - INFO - Confusion Matrix (TN, FP, FN, TP): (5074, 19, 187, 198)
+2025-06-11 13:56:15,321 - INFO - ===== Finished Workflow for XGBoost (group_1) =====
+2025-06-11 13:56:15,323 - INFO - [group_1] HPO was run. Saving newly found best parameters to best_params\group_1_best_params.json
+2025-06-11 13:56:15,323 - INFO - [group_1] Successfully saved best parameters.
+2025-06-11 13:56:15,324 - INFO - --- Finished processing Group: group_1 in 2577.11 seconds ---
+2025-06-11 13:56:15,332 - INFO - 
+============================== Processing Feature Group: group_2 ==============================
+2025-06-11 13:56:15,332 - WARNING - [group_2] Best parameters file not found: best_params\group_2_best_params.json. HPO will run.
+2025-06-11 13:56:15,333 - INFO - Original dataset size: (27388, 136)
+2025-06-11 13:56:15,351 - INFO - Dataset size after dropping NaNs: (27388, 49)
+2025-06-11 13:56:15,352 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-06-11 13:56:15,363 - INFO - Splitting data using 'stratified' strategy...
+2025-06-11 13:56:15,364 - INFO - Target split ratios: Train=0.60, Val=0.20, Test=0.20, Cal=0.00
+2025-06-11 13:56:15,385 - INFO - Train set shape: (16432, 48)
+2025-06-11 13:56:15,393 - INFO - Validation set shape: (5478, 48)
+2025-06-11 13:56:15,393 - INFO - Calibration set is empty (CAL_SIZE=0).
+2025-06-11 13:56:15,393 - INFO - Test set shape: (5478, 48)
+2025-06-11 13:56:15,393 - INFO - Calibration set shape: (0, 48)
+2025-06-11 13:56:15,393 - INFO - Split lengths verification successful.
+2025-06-11 13:56:15,393 - INFO - Data splitting complete.
+2025-06-11 13:56:15,395 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-06-11 13:56:15,395 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-06-11 13:56:15,396 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-06-11 13:56:15,396 - INFO - Validation target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-06-11 13:56:15,397 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-06-11 13:56:15,397 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-06-11 13:56:15,397 - INFO - Calibration target distribution: Set is empty.
+2025-06-11 13:56:15,398 - INFO - No existing scaler found for group 'group_2', will fit a new one if possible.
+2025-06-11 13:56:15,398 - INFO - Applying StandardScaler to features...
+2025-06-11 13:56:15,414 - INFO - Scaler saved to trained_models\group_2\scaler_group_2.joblib
+2025-06-11 13:56:15,414 - INFO - Feature scaling complete.
+2025-06-11 13:56:15,414 - INFO - 
+
+===== Starting Workflow for SVM (group_2) =====
+2025-06-11 13:56:15,415 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 14:46:27,570 - INFO - Hyperband finished in 3012.15s. Best score: 0.6156
+2025-06-11 14:46:27,577 - INFO - --- Overall Best Method: Hyperband (Score: 0.6156) ---
+2025-06-11 14:46:27,578 - INFO - --- [SVM] HPO Comparison finished in 3012.15 seconds ---
+2025-06-11 14:46:27,578 - INFO - --- Preparing Model Training & Calibration (cvap) for SVM (group_2) ---
+2025-06-11 14:46:27,580 - INFO - --- [SVM] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\SVM_group_2_cvap.joblib. Proceeding with training. ---
+2025-06-11 14:46:27,580 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 14:46:27,581 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='decision_function'
+2025-06-11 14:46:27,581 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 14:51:04,652 - INFO - Out-of-fold score generation complete.
+2025-06-11 14:51:04,652 - INFO - Fitting final base model on all data...
+2025-06-11 14:52:43,838 - INFO - Final base model fitting complete.
+2025-06-11 14:52:43,838 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 14:52:44,033 - INFO - VennAbers fitting complete.
+2025-06-11 14:52:44,033 - INFO - --- CVAP Training Complete ---
+2025-06-11 14:52:44,058 - INFO - --- [SVM] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\SVM_group_2_cvap.joblib ---
+2025-06-11 14:52:57,335 - INFO - --- SVM Metrics ---
+2025-06-11 14:52:57,336 - INFO - Accuracy: 0.9304
+2025-06-11 14:52:57,336 - INFO - Precision: 1.0000
+2025-06-11 14:52:57,336 - INFO - Recall (TPR): 0.0104
+2025-06-11 14:52:57,336 - INFO - Specificity (TNR): 1.0000
+2025-06-11 14:52:57,336 - INFO - F1-Score: 0.0206
+2025-06-11 14:52:57,337 - INFO - G-Mean: 0.1019
+2025-06-11 14:52:57,337 - INFO - ROC AUC: 0.7086
+2025-06-11 14:52:57,337 - INFO - PR AUC: 0.1340
+2025-06-11 14:52:57,337 - INFO - Brier Score: 0.0629
+2025-06-11 14:52:57,337 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 381, 4)
+2025-06-11 14:52:57,337 - INFO - ===== Finished Workflow for SVM (group_2) =====
+2025-06-11 14:52:57,339 - INFO - 
+
+===== Starting Workflow for Random_Forest (group_2) =====
+2025-06-11 14:52:57,357 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 16:44:53,501 - INFO - Hyperband finished in 6716.14s. Best score: 0.7216
+2025-06-11 16:44:53,511 - INFO - --- Overall Best Method: Hyperband (Score: 0.7216) ---
+2025-06-11 16:44:53,511 - INFO - --- [Random_Forest] HPO Comparison finished in 6716.14 seconds ---
+2025-06-11 16:44:53,511 - INFO - --- Preparing Model Training & Calibration (cvap) for Random_Forest (group_2) ---
+2025-06-11 16:44:53,512 - INFO - --- [Random_Forest] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\Random_Forest_group_2_cvap.joblib. Proceeding with training. ---
+2025-06-11 16:44:53,512 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 16:44:53,513 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='predict_proba'
+2025-06-11 16:44:53,514 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 16:45:00,380 - INFO - Out-of-fold score generation complete.
+2025-06-11 16:45:00,380 - INFO - Fitting final base model on all data...
+2025-06-11 16:45:02,132 - INFO - Final base model fitting complete.
+2025-06-11 16:45:02,132 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 16:45:02,175 - INFO - VennAbers fitting complete.
+2025-06-11 16:45:02,175 - INFO - --- CVAP Training Complete ---
+2025-06-11 16:45:02,201 - INFO - --- [Random_Forest] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\Random_Forest_group_2_cvap.joblib ---
+2025-06-11 16:45:02,308 - INFO - --- Random_Forest Metrics ---
+2025-06-11 16:45:02,308 - INFO - Accuracy: 0.9297
+2025-06-11 16:45:02,308 - INFO - Precision: 0.0000
+2025-06-11 16:45:02,308 - INFO - Recall (TPR): 0.0000
+2025-06-11 16:45:02,308 - INFO - Specificity (TNR): 1.0000
+2025-06-11 16:45:02,308 - INFO - F1-Score: 0.0000
+2025-06-11 16:45:02,308 - INFO - G-Mean: 0.0000
+2025-06-11 16:45:02,308 - INFO - ROC AUC: 0.8621
+2025-06-11 16:45:02,308 - INFO - PR AUC: 0.3109
+2025-06-11 16:45:02,308 - INFO - Brier Score: 0.0662
+2025-06-11 16:45:02,308 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 385, 0)
+2025-06-11 16:45:02,308 - INFO - ===== Finished Workflow for Random_Forest (group_2) =====
+2025-06-11 16:45:02,309 - INFO - 
+
+===== Starting Workflow for XGBoost (group_2) =====
+2025-06-11 16:45:02,318 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 16:47:55,392 - INFO - Hyperband finished in 173.07s. Best score: 0.7322
+2025-06-11 16:47:55,392 - INFO - --- Overall Best Method: Hyperband (Score: 0.7322) ---
+2025-06-11 16:47:55,392 - INFO - --- [XGBoost] HPO Comparison finished in 173.07 seconds ---
+2025-06-11 16:47:56,599 - INFO - --- Preparing Model Training & Calibration (cvap) for XGBoost (group_2) ---
+2025-06-11 16:47:56,599 - INFO - --- [XGBoost] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\XGBoost_group_2_cvap.joblib. Proceeding with training. ---
+2025-06-11 16:47:56,599 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 16:47:56,599 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='raw_margin_xgb'
+2025-06-11 16:47:56,599 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 16:47:59,968 - INFO - Out-of-fold score generation complete.
+2025-06-11 16:47:59,968 - INFO - Fitting final base model on all data...
+2025-06-11 16:48:00,743 - INFO - Final base model fitting complete.
+2025-06-11 16:48:00,743 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 16:48:00,842 - INFO - VennAbers fitting complete.
+2025-06-11 16:48:00,843 - INFO - --- CVAP Training Complete ---
+2025-06-11 16:48:00,847 - INFO - --- [XGBoost] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_2\XGBoost_group_2_cvap.joblib ---
+2025-06-11 16:48:00,871 - INFO - --- XGBoost Metrics ---
+2025-06-11 16:48:00,871 - INFO - Accuracy: 0.9682
+2025-06-11 16:48:00,871 - INFO - Precision: 0.9237
+2025-06-11 16:48:00,871 - INFO - Recall (TPR): 0.5974
+2025-06-11 16:48:00,871 - INFO - Specificity (TNR): 0.9963
+2025-06-11 16:48:00,871 - INFO - F1-Score: 0.7256
+2025-06-11 16:48:00,871 - INFO - G-Mean: 0.7715
+2025-06-11 16:48:00,871 - INFO - ROC AUC: 0.9037
+2025-06-11 16:48:00,871 - INFO - PR AUC: 0.7754
+2025-06-11 16:48:00,871 - INFO - Brier Score: 0.0282
+2025-06-11 16:48:00,871 - INFO - Confusion Matrix (TN, FP, FN, TP): (5074, 19, 155, 230)
+2025-06-11 16:48:00,871 - INFO - ===== Finished Workflow for XGBoost (group_2) =====
+2025-06-11 16:48:00,871 - INFO - [group_2] HPO was run. Saving newly found best parameters to best_params\group_2_best_params.json
+2025-06-11 16:48:00,890 - INFO - [group_2] Successfully saved best parameters.
+2025-06-11 16:48:00,890 - INFO - --- Finished processing Group: group_2 in 10305.56 seconds ---
+2025-06-11 16:48:00,895 - INFO - 
+============================== Processing Feature Group: group_3 ==============================
+2025-06-11 16:48:00,895 - WARNING - [group_3] Best parameters file not found: best_params\group_3_best_params.json. HPO will run.
+2025-06-11 16:48:00,895 - INFO - Original dataset size: (27388, 136)
+2025-06-11 16:48:00,947 - INFO - Dataset size after dropping NaNs: (27388, 56)
+2025-06-11 16:48:00,948 - INFO - Value counts for target:
+1 (Star): 1926
+0 (Galaxy): 25462
+2025-06-11 16:48:00,950 - INFO - Splitting data using 'stratified' strategy...
+2025-06-11 16:48:00,950 - INFO - Target split ratios: Train=0.60, Val=0.20, Test=0.20, Cal=0.00
+2025-06-11 16:48:00,979 - INFO - Train set shape: (16432, 55)
+2025-06-11 16:48:00,987 - INFO - Validation set shape: (5478, 55)
+2025-06-11 16:48:00,987 - INFO - Calibration set is empty (CAL_SIZE=0).
+2025-06-11 16:48:00,987 - INFO - Test set shape: (5478, 55)
+2025-06-11 16:48:00,988 - INFO - Calibration set shape: (0, 55)
+2025-06-11 16:48:00,988 - INFO - Split lengths verification successful.
+2025-06-11 16:48:00,988 - INFO - Data splitting complete.
+2025-06-11 16:48:00,992 - INFO - Train target distribution:
+acs_mu_class
+0    0.929649
+1    0.070351
+Name: count, dtype: float64
+2025-06-11 16:48:00,993 - INFO - Train target counts:
+acs_mu_class
+0    15276
+1     1156
+Name: count, dtype: int64
+2025-06-11 16:48:00,993 - INFO - Validation target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-06-11 16:48:00,993 - INFO - Validation target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-06-11 16:48:00,993 - INFO - Test target distribution:
+acs_mu_class
+0    0.929719
+1    0.070281
+Name: count, dtype: float64
+2025-06-11 16:48:00,993 - INFO - Test target counts:
+acs_mu_class
+0    5093
+1     385
+Name: count, dtype: int64
+2025-06-11 16:48:00,993 - INFO - Calibration target distribution: Set is empty.
+2025-06-11 16:48:00,995 - INFO - No existing scaler found for group 'group_3', will fit a new one if possible.
+2025-06-11 16:48:00,995 - INFO - Applying StandardScaler to features...
+2025-06-11 16:48:01,025 - INFO - Scaler saved to trained_models\group_3\scaler_group_3.joblib
+2025-06-11 16:48:01,025 - INFO - Feature scaling complete.
+2025-06-11 16:48:01,026 - INFO - 
+
+===== Starting Workflow for SVM (group_3) =====
+2025-06-11 16:48:01,028 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 17:11:32,619 - INFO - Hyperband finished in 1411.59s. Best score: 0.6481
+2025-06-11 17:11:32,619 - INFO - --- Overall Best Method: Hyperband (Score: 0.6481) ---
+2025-06-11 17:11:32,619 - INFO - --- [SVM] HPO Comparison finished in 1411.59 seconds ---
+2025-06-11 17:11:32,619 - INFO - --- Preparing Model Training & Calibration (cvap) for SVM (group_3) ---
+2025-06-11 17:11:32,619 - INFO - --- [SVM] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\SVM_group_3_cvap.joblib. Proceeding with training. ---
+2025-06-11 17:11:32,619 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 17:11:32,619 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='decision_function'
+2025-06-11 17:11:32,619 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 17:12:54,180 - INFO - Out-of-fold score generation complete.
+2025-06-11 17:12:54,180 - INFO - Fitting final base model on all data...
+2025-06-11 17:13:16,017 - INFO - Final base model fitting complete.
+2025-06-11 17:13:16,017 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 17:13:16,102 - INFO - VennAbers fitting complete.
+2025-06-11 17:13:16,102 - INFO - --- CVAP Training Complete ---
+2025-06-11 17:13:16,105 - INFO - --- [SVM] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\SVM_group_3_cvap.joblib ---
+2025-06-11 17:13:20,827 - INFO - --- SVM Metrics ---
+2025-06-11 17:13:20,827 - INFO - Accuracy: 0.9306
+2025-06-11 17:13:20,827 - INFO - Precision: 1.0000
+2025-06-11 17:13:20,827 - INFO - Recall (TPR): 0.0130
+2025-06-11 17:13:20,827 - INFO - Specificity (TNR): 1.0000
+2025-06-11 17:13:20,827 - INFO - F1-Score: 0.0256
+2025-06-11 17:13:20,827 - INFO - G-Mean: 0.1140
+2025-06-11 17:13:20,827 - INFO - ROC AUC: 0.8562
+2025-06-11 17:13:20,828 - INFO - PR AUC: 0.5107
+2025-06-11 17:13:20,828 - INFO - Brier Score: 0.0545
+2025-06-11 17:13:20,828 - INFO - Confusion Matrix (TN, FP, FN, TP): (5093, 0, 380, 5)
+2025-06-11 17:13:20,828 - INFO - ===== Finished Workflow for SVM (group_3) =====
+2025-06-11 17:13:20,828 - INFO - 
+
+===== Starting Workflow for Random_Forest (group_3) =====
+2025-06-11 17:13:20,831 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 18:54:50,782 - INFO - Hyperband finished in 6089.95s. Best score: 0.7587
+2025-06-11 18:54:50,783 - INFO - --- Overall Best Method: Hyperband (Score: 0.7587) ---
+2025-06-11 18:54:50,784 - INFO - --- [Random_Forest] HPO Comparison finished in 6089.95 seconds ---
+2025-06-11 18:54:50,784 - INFO - --- Preparing Model Training & Calibration (cvap) for Random_Forest (group_3) ---
+2025-06-11 18:54:50,786 - INFO - --- [Random_Forest] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\Random_Forest_group_3_cvap.joblib. Proceeding with training. ---
+2025-06-11 18:54:50,786 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 18:54:50,788 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='predict_proba'
+2025-06-11 18:54:50,788 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 18:54:59,049 - INFO - Out-of-fold score generation complete.
+2025-06-11 18:54:59,049 - INFO - Fitting final base model on all data...
+2025-06-11 18:55:01,036 - INFO - Final base model fitting complete.
+2025-06-11 18:55:01,036 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 18:55:01,119 - INFO - VennAbers fitting complete.
+2025-06-11 18:55:01,119 - INFO - --- CVAP Training Complete ---
+2025-06-11 18:55:01,179 - INFO - --- [Random_Forest] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\Random_Forest_group_3_cvap.joblib ---
+2025-06-11 18:55:01,268 - INFO - --- Random_Forest Metrics ---
+2025-06-11 18:55:01,268 - INFO - Accuracy: 0.9376
+2025-06-11 18:55:01,269 - INFO - Precision: 0.9574
+2025-06-11 18:55:01,269 - INFO - Recall (TPR): 0.1169
+2025-06-11 18:55:01,269 - INFO - Specificity (TNR): 0.9996
+2025-06-11 18:55:01,269 - INFO - F1-Score: 0.2083
+2025-06-11 18:55:01,269 - INFO - G-Mean: 0.3418
+2025-06-11 18:55:01,269 - INFO - ROC AUC: 0.9206
+2025-06-11 18:55:01,269 - INFO - PR AUC: 0.6295
+2025-06-11 18:55:01,269 - INFO - Brier Score: 0.0552
+2025-06-11 18:55:01,269 - INFO - Confusion Matrix (TN, FP, FN, TP): (5091, 2, 340, 45)
+2025-06-11 18:55:01,269 - INFO - ===== Finished Workflow for Random_Forest (group_3) =====
+2025-06-11 18:55:01,270 - INFO - 
+
+===== Starting Workflow for XGBoost (group_3) =====
+2025-06-11 18:55:01,288 - INFO - --- Starting Hyperband HPO ---
+2025-06-11 18:58:14,298 - INFO - Hyperband finished in 193.01s. Best score: 0.7813
+2025-06-11 18:58:14,298 - INFO - --- Overall Best Method: Hyperband (Score: 0.7813) ---
+2025-06-11 18:58:14,298 - INFO - --- [XGBoost] HPO Comparison finished in 193.01 seconds ---
+2025-06-11 18:58:16,181 - INFO - --- Preparing Model Training & Calibration (cvap) for XGBoost (group_3) ---
+2025-06-11 18:58:16,182 - INFO - --- [XGBoost] Predictor save file not found at c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\XGBoost_group_3_cvap.joblib. Proceeding with training. ---
+2025-06-11 18:58:16,182 - INFO - --- Starting Model Training & Calibration (cvap) ---
+2025-06-11 18:58:16,184 - INFO - Using Cross Venn-Abers Prediction (CVAP) with score_method='raw_margin_xgb'
+2025-06-11 18:58:16,184 - INFO - Generating out-of-fold scores for CVAP...
+2025-06-11 18:58:22,690 - INFO - Out-of-fold score generation complete.
+2025-06-11 18:58:22,690 - INFO - Fitting final base model on all data...
+2025-06-11 18:58:24,212 - INFO - Final base model fitting complete.
+2025-06-11 18:58:24,212 - INFO - Fitting VennAbers calibrators for each fold...
+2025-06-11 18:58:24,307 - INFO - VennAbers fitting complete.
+2025-06-11 18:58:24,307 - INFO - --- CVAP Training Complete ---
+2025-06-11 18:58:24,328 - INFO - --- [XGBoost] Model with calibrator saved successfully to c:\Users\javym\Documents\Github\TFGs\Fisica\ML-for-star-galaxy-classification\trained_models\group_3\XGBoost_group_3_cvap.joblib ---
+2025-06-11 18:58:24,366 - INFO - --- XGBoost Metrics ---
+2025-06-11 18:58:24,366 - INFO - Accuracy: 0.9741
+2025-06-11 18:58:24,366 - INFO - Precision: 0.9233
+2025-06-11 18:58:24,366 - INFO - Recall (TPR): 0.6883
+2025-06-11 18:58:24,366 - INFO - Specificity (TNR): 0.9957
+2025-06-11 18:58:24,366 - INFO - F1-Score: 0.7887
+2025-06-11 18:58:24,366 - INFO - G-Mean: 0.8279
+2025-06-11 18:58:24,366 - INFO - ROC AUC: 0.9408
+2025-06-11 18:58:24,367 - INFO - PR AUC: 0.8164
+2025-06-11 18:58:24,367 - INFO - Brier Score: 0.0236
+2025-06-11 18:58:24,367 - INFO - Confusion Matrix (TN, FP, FN, TP): (5071, 22, 120, 265)
+2025-06-11 18:58:24,367 - INFO - ===== Finished Workflow for XGBoost (group_3) =====
+2025-06-11 18:58:24,369 - INFO - [group_3] HPO was run. Saving newly found best parameters to best_params\group_3_best_params.json
+2025-06-11 18:58:24,370 - INFO - [group_3] Successfully saved best parameters.
+2025-06-11 18:58:24,370 - INFO - --- Finished processing Group: group_3 in 7823.48 seconds ---
+2025-06-11 18:58:24,376 - INFO - 
+============================== FINISHED PROCESSING ALL GROUPS in 20706.19 seconds ==============================
+2025-06-11 18:58:24,376 - INFO - Successfully saved all group results to results\all_group_results_20250611_131318.json
+2025-06-11 18:58:24,543 - INFO - Results summary DataFrame saved to .\model_comparison_summary_all_groups_20250611_185824.csv
